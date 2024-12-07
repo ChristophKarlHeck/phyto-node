@@ -65,6 +65,9 @@ void SerialMailSender::sendMail(
     // Send the FlatBuffers buffer
     m_serial_port.write(reinterpret_cast<const char*>(buf), size);
     
-    printf("Serial Mail sent\n");     
-    
+    auto now = Kernel::Clock::now().time_since_epoch();
+    auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now).count();
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now).count() % 1000;
+
+    printf("Serial Mail sent at: %lld seconds and %lld milliseconds\n", seconds, milliseconds);
 }

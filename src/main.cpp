@@ -33,7 +33,7 @@ Change the values of the following variables in the file: mbed-os/connectivity/F
 
 // ADC
 #define SPI_FREQUENCY 10000000 // 1MHz
-#define VECTOR_SIZE 10000000 // Number of values to collect in each channel vector befor mail is sent
+#define VECTOR_SIZE 1 // Number of values to collect in each channel vector befor mail is sent
 
 // SERIAL MAIL
 #define NODE 1
@@ -51,20 +51,14 @@ void get_input_model_values_from_adc(void){
 
 int main()
 {	
-	
-    // Access the shared ReadingQueue instance
-    ReadingQueue& reading_queue = ReadingQueue::getInstance();
-
-	// Access the serial mail sender
-	SerialMailSender& serial_mail_sender = SerialMailSender::getInstance();
     
 	//Start reading data from ADC Thread
 	reading_data_thread.start(callback(get_input_model_values_from_adc));
 
-
-	int counter = 0;
-
     while (true) {
+		// Access the shared ReadingQueue instance
+    	ReadingQueue& reading_queue = ReadingQueue::getInstance();
+		
 		osEvent evt = reading_queue.mail_box.get();
 		if (evt.status == osEventMail) {
 
@@ -77,6 +71,9 @@ int main()
 			// Free the allocated mail to avoid memory leaks
 			// make mail box empty
 			reading_queue.mail_box.free(reading_mail); 
+			
+			// Access the serial mail sender
+			SerialMailSender& serial_mail_sender = SerialMailSender::getInstance();
 
 			// Send serial mail
 			serial_mail_sender.sendMail(
@@ -84,8 +81,6 @@ int main()
 				ch1_values,
 				NODE
 			);
-
-
 
 		}
 	}
