@@ -9,10 +9,9 @@ struct Value {
 
 // Main table
 table SerialMail {
-  inputs: [Value];                 // Vector of raw data --> needs to be converted to voltage
-  classification: [float];         // List of classifications
-  classification_active: bool;
-  channel: bool;
+  ch0: [Value];                 // Vector of raw data from CH0
+  ch1: [Value];                 // Vector of raw data from CH1
+  node: short;                  // 1 --> P1, 2 --> P2 ....
 }
 
 root_type SerialMail;

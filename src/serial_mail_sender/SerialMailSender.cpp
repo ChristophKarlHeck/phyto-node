@@ -33,14 +33,10 @@ std::vector<SerialMail::Value> SerialMailSender::convertToSerialMailValues(const
 
 
 // Serialize and send the SerialMail data
-void SerialMailSender::sendMail(void) {
-
-    // Access the shared queue
-    SendingQueue& sending_queue = SendingQueue::getInstance();
-
-    while(true){
-        osEvent evt = sending_queue.mail_box.get();
-		if (evt.status == osEventMail) {
+void SerialMailSender::sendMail(
+    std::vector<std::array<uint8_t, 3>> ch0,
+    std::vector<std::array<uint8_t, 3>> ch1,
+    int node) {
 
             // Prepare the FlatBufferBuilder
             // FlatBufferBuilder should ideally be re-initialized inside the while loop 
