@@ -1,5 +1,5 @@
 #
-# Mbed Torch Fusion OS Project
+# Phyto Node Project
 #
 cmake_minimum_required(VERSION 3.19)
 cmake_policy(VERSION 3.19)
@@ -20,15 +20,14 @@ include(mbed-os/tools/cmake/app.cmake) # Load Mbed CE toolchain file and basic b
 
 add_subdirectory(mbed-os) # Load Mbed OS build targets.  Must be added before any other subdirectories
 
-add_subdirectory(libs/flatbuffers
+add_subdirectory(third-party/flatbuffers # Flatbuffers for wrapping the serial communication with Rasperry pi
 ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
 EXCLUDE_FROM_ALL)
 
-project(PhytoClassifier CXX) # TODO: change this to your project name
+project(PhytoNode CXX) # TODO: change this to your project name
 
 set(SOURCES 
      ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
-     ${CMAKE_CURRENT_SOURCE_DIR}/src/model_executor/ModelExecutor.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/adc/AD7124.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/interfaces/ReadingQueue.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/interfaces/SendingQueue.cpp
@@ -36,32 +35,23 @@ set(SOURCES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/serial_mail_sender/SerialMailSender.cpp
 )
 
-add_executable(PhytoClassifier ${SOURCES})
+add_executable(PhytoNode ${SOURCES})
 
-target_link_libraries(PhytoClassifier PUBLIC
+target_link_libraries(PhytoNode PUBLIC
      mbed-os # Can also link to mbed-baremetal here
-     #mbed-ble
+     mbed-ble
      flatbuffers
-     "-Wl,--whole-archive"
-     /home/chris/executorch/cmake-out/lib/libextension_runner_util.a
-     /home/chris/executorch/cmake-out/lib/libexecutorch.a
-     /home/chris/executorch/cmake-out/lib/libexecutorch_no_prim_ops.a
-     /home/chris/executorch/cmake-out/lib/libportable_kernels.a
-     /home/chris/executorch/cmake-out/examples/arm/libarm_portable_ops_lib.a
-     "-Wl,--no-whole-archive"
      ) 
 
 ###GENRAL###
-target_include_directories(PhytoClassifier
+target_include_directories(PhytoNode
      PUBLIC 
-          ${CMAKE_CURRENT_SOURCE_DIR}/include #need it for executorch includes and logger.h
-          /home/chris #for executorch headers
-          ${CMAKE_CURRENT_SOURCE_DIR}/libs/flatbuffers/include
-          ${CMAKE_CURRENT_SOURCE_DIR}/models     
+          ${CMAKE_CURRENT_SOURCE_DIR}/include
+          ${CMAKE_CURRENT_SOURCE_DIR}/libs/flatbuffers/include   
 )
 
 ###GENRAL####
-mbed_set_post_build(PhytoClassifier) # Must call this for each target to set up bin file creation, code upload, etc
+mbed_set_post_build(PhytoNode) # Must call this for each target to set up bin file creation, code upload, etc
 
 
 ###GENRAL###

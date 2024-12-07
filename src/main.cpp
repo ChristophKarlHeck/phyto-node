@@ -18,7 +18,6 @@ Change the values of the following variables in the file: mbed-os/connectivity/F
 #include "adc/AD7124.h"
 #include "interfaces/ReadingQueue.h"
 #include "interfaces/SendingQueue.h"
-#include "model_executor/ModelExecutor.h"
 #include "serial_mail_sender/SerialMailSender.h"
 
 // Utility Headers
@@ -38,9 +37,6 @@ Change the values of the following variables in the file: mbed-os/connectivity/F
 
 // Thread for reading data from ADC
 Thread reading_data_thread;
-
-// Thread for sending data to data sink
-Thread sending_data_thread;
 
 // Function called in thread "reading_data_thread"
 void get_input_model_values_from_adc(unsigned int* model_input_size){
