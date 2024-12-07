@@ -1,4 +1,5 @@
 #include "serial_mail_sender/SerialMailSender.h"
+#include "flatbuffers/flatbuffers.h"
 
 #define BAUDRATE 115200
 
@@ -31,54 +32,39 @@ std::vector<SerialMail::Value> SerialMailSender::convertToSerialMailValues(const
     return raw_input_bytes;
 }
 
-
 // Serialize and send the SerialMail data
 void SerialMailSender::sendMail(
     std::vector<std::array<uint8_t, 3>> ch0,
     std::vector<std::array<uint8_t, 3>> ch1,
     int node) {
 
-            // Prepare the FlatBufferBuilder
-            // FlatBufferBuilder should ideally be re-initialized inside the while loop 
-            // for each iteration, especially if you are processing multiple messages. 
-            // This is because the FlatBufferBuilder does not automatically clear its
-            // internal buffer, and reusing it without clearing can lead to undefined behavior or memory issues.
-            flatbuffers::FlatBufferBuilder builder(1024);
+    // Prepare the FlatBufferBuilder
+    // FlatBufferBuilder should ideally be re-initialized inside the while loop 
+    // for each iteration, especially if you are processing multiple messages. 
+    // This is because the FlatBufferBuilder does not automatically clear its
+    // internal buffer, and reusing it without clearing can lead to undefined behavior or memory issues.
+    flatbuffers::FlatBufferBuilder builder(1024);
 
-            // Retrieve the message from the mail box
-            SendingQueue::mail_t *sending_mail = (SendingQueue::mail_t *)evt.value.p;
+    // Create Flatbuffers vector of bytes
+    std::vector<SerialMail::Value> raw_input_bytes_ch0 = convertToSerialMailValues(ch0);
+    std::vector<SerialMail::Value> raw_input_bytes_ch1 = convertToSerialMailValues(ch1);
+    auto ch0_flatbuffers = builder.CreateVectorOfStructs(raw_input_bytes_ch0.data(), raw_input_bytes_ch0.size());
+    auto ch1_flatbuffers = builder.CreateVectorOfStructs(raw_input_bytes_ch1.data(), raw_input_bytes_ch1.size());
 
-            // Create Flatbuffers vector of bytes
-            std::vector<SerialMail::Value> raw_input_bytes = convertToSerialMailValues(sending_mail->inputs);
-            auto inputs = builder.CreateVectorOfStructs(raw_input_bytes.data(), raw_input_bytes.size());
+    // Create the SerialMail object
+    auto orc = SerialMail::CreateSerialMail(builder, ch0_flatbuffers, ch1_flatbuffers, node);
+    builder.Finish(orc);
 
-            // Create Flatbuffers float array
-            std::vector<float> classification_values = sending_mail->classification;
-            auto classification = builder.CreateVector(classification_values.data(), classification_values.size());
+    // Get the buffer pointer and size
+    uint8_t* buf = builder.GetBufferPointer();
+    uint32_t size = builder.GetSize();
 
-            // Channel and Classification active
-            bool classification_active = sending_mail->classification_active;
-            bool channel = sending_mail->channel;
+    // Send the size (4 bytes)
+    m_serial_port.write(reinterpret_cast<const char*>(&size), sizeof(size));
 
-            // Create the SerialMail object
-            auto orc = CreateSerialMail(builder, inputs, classification, classification_active, channel);
-            builder.Finish(orc);
-
-            // Get the buffer pointer and size
-            uint8_t* buf = builder.GetBufferPointer();
-            uint32_t size = builder.GetSize();
-
-            // Send the size (4 bytes)
-            m_serial_port.write(reinterpret_cast<const char*>(&size), sizeof(size));
-
-            // Send the FlatBuffers buffer
-            m_serial_port.write(reinterpret_cast<const char*>(buf), size);
-            
-            printf("sent\n");
-            // Free the allocated mail to avoid memory leaks
-			// make mail box empty
-			sending_queue.mail_box.free(sending_mail); 
-
-        }
-    }
+    // Send the FlatBuffers buffer
+    m_serial_port.write(reinterpret_cast<const char*>(buf), size);
+    
+    printf("Serial Mail sent\n");     
+    
 }

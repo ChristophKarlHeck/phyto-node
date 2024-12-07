@@ -11,7 +11,7 @@ struct Value {
 table SerialMail {
   ch0: [Value];                 // Vector of raw data from CH0
   ch1: [Value];                 // Vector of raw data from CH1
-  node: short;                  // 1 --> P1, 2 --> P2 ....
+  node: int;                  // 1 --> P1, 2 --> P2 ....
 }
 
 root_type SerialMail;

@@ -270,53 +270,24 @@ void AD7124::send_data_to_main_thread(
     if (reading_queue.mail_box.empty()) {
         ReadingQueue::mail_t* mail = reading_queue.mail_box.try_alloc();
         
-        // If both channels have reached the target size
-        if ((byte_inputs_channel_0.size() == model_input_size) && (byte_inputs_channel_1.size() == model_input_size)) {
-            // Prefer channel_0 first
-            mail->inputs = byte_inputs_channel_0;
-            byte_inputs_channel_0.clear();
-            mail->channel = 0;  // Indicate the channel
-            reading_queue.mail_box.put(mail); 
-            
-            while (!reading_queue.mail_box.empty()) {
-                // Wait until first mail processed
-                thread_sleep_for(1);  
-            }
+        mail->ch0 = byte_inputs_channel_0;
+        byte_inputs_channel_0.clear();
+        mail->ch1 = byte_inputs_channel_1;
+        byte_inputs_channel_0.clear();
+        reading_queue.mail_box.put(mail);
 
-            // Then assign channel_1 for the next mail
-            ReadingQueue::mail_t* next_mail = reading_queue.mail_box.try_alloc();
-            next_mail->inputs = byte_inputs_channel_1;
-                byte_inputs_channel_1.clear();
-            next_mail->channel = 1;  // Indicate the channel
-            
-            reading_queue.mail_box.put(next_mail);  // Put the second mail (for channel_1)
-        }
-        // If only channel_0 has the required size, send it
-        else if (byte_inputs_channel_0.size() == model_input_size) {
-            mail->inputs = byte_inputs_channel_0;
-            byte_inputs_channel_0.clear();
-            mail->channel = 0;
-            reading_queue.mail_box.put(mail);
-        }
-        // If only channel_1 has the required size, send it
-        else if (byte_inputs_channel_1.size() == model_input_size) {
-            mail->inputs = byte_inputs_channel_1;
-            byte_inputs_channel_1.clear();
-            mail->channel = 1;
-            reading_queue.mail_box.put(mail);
-        }
     }
 
 }
 
-void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int model_input_size){
+void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int vector_size){
 
     while (true){
         std::vector<std::array<uint8_t,3>> byte_inputs_channel_0;
         std::vector<std::array<uint8_t,3>> byte_inputs_channel_1;
         
         // While the vector's size is less than 4, append 3-byte arrays
-        while ((byte_inputs_channel_0.size() < model_input_size) && (byte_inputs_channel_1.size() < model_input_size)){
+        while ((byte_inputs_channel_0.size() < vector_size) || (byte_inputs_channel_1.size() < vector_size)){
             
             uint8_t data[4] = {0, 0, 0, 255};
             for(int j = 0; j < 4; j++){
@@ -332,6 +303,8 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
                 byte_inputs_channel_0.push_back(new_bytes);
             }
 
+            data[3] = 1; // to mock sensor 0 reading
+
             if(data[3] == 1){
                 // data from channel 1
                 std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
@@ -341,7 +314,7 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
             thread_sleep_for(downsampling_rate); // ms
         }
 
-        send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1, model_input_size);
+        send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1, vector_size);
 
     }
 }

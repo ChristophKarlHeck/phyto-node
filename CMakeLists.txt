@@ -39,7 +39,7 @@ add_executable(PhytoNode ${SOURCES})
 
 target_link_libraries(PhytoNode PUBLIC
      mbed-os # Can also link to mbed-baremetal here
-     mbed-ble
+     # mbed-ble # only needed when BLE is used
      flatbuffers
      ) 
 

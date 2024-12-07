@@ -23,7 +23,7 @@ public:
 
     // Public methods
     void init(bool f0, bool f1);
-    void read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int model_input_size);
+    void read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int vector_size);
 
 private:
     // Private constructor

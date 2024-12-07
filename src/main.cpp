@@ -33,6 +33,7 @@ Change the values of the following variables in the file: mbed-os/connectivity/F
 
 // ADC
 #define SPI_FREQUENCY 10000000 // 1MHz
+#define VECTOR_SIZE 10000000 // Number of values to collect in each channel vector befor mail is sent
 
 // SERIAL MAIL
 #define NODE 1
@@ -45,7 +46,7 @@ void get_input_model_values_from_adc(void){
 
 	AD7124& adc = AD7124::getInstance(SPI_FREQUENCY);
 	adc.init(true, true); // activate both channels
-	adc.read_voltage_from_both_channels(DOWNSAMPLING_RATE,*model_input_size);
+	adc.read_voltage_from_both_channels(DOWNSAMPLING_RATE, VECTOR_SIZE);
 }
 
 int main()
@@ -58,7 +59,7 @@ int main()
 	SerialMailSender& serial_mail_sender = SerialMailSender::getInstance();
     
 	//Start reading data from ADC Thread
-	reading_data_thread.start(callback(get_input_model_values_from_adc, void));
+	reading_data_thread.start(callback(get_input_model_values_from_adc));
 
 
 	int counter = 0;
@@ -70,15 +71,21 @@ int main()
 		    // Retrieve the message from the mail box
 		    ReadingQueue::mail_t *reading_mail = (ReadingQueue::mail_t *)evt.value.p;
 
-			serial_mail_sender.sendMail(
-				reading_mail->ch0,
-				reading_mail->ch1,
-				NODE
-			)
+			auto ch0_values = reading_mail->ch0;
+			auto ch1_values = reading_mail->ch1;
 
 			// Free the allocated mail to avoid memory leaks
 			// make mail box empty
 			reading_queue.mail_box.free(reading_mail); 
+
+			// Send serial mail
+			serial_mail_sender.sendMail(
+				ch0_values,
+				ch1_values,
+				NODE
+			);
+
+
 
 		}
 	}

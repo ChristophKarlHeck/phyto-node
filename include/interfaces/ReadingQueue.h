@@ -13,8 +13,8 @@ public:
 
     // The structure used for inter-thread communication
     typedef struct {
-        std::vector<std::array<uint8_t, 3>> inputs;  // Vector of downsampled analog values
-        bool channel;                                // Channel information
+        std::vector<std::array<uint8_t, 3>> ch0;  // Vector of downsampled analog values CH0
+        std::vector<std::array<uint8_t, 3>> ch1;  // Vector of downsampled analog values CH1
     } mail_t;
 
     // Mail object for inter-thread communication

@@ -56,14 +56,14 @@ struct SerialMail FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
     VT_CH1 = 6,
     VT_NODE = 8
   };
-  const ::flatbuffers::Vector<const SerialMail::Value *> *ch0() const {
-    return GetPointer<const ::flatbuffers::Vector<const SerialMail::Value *> *>(VT_CH0);
+  const ::flatbuffers::Vector<const Value *> *ch0() const {
+    return GetPointer<const ::flatbuffers::Vector<const Value *> *>(VT_CH0);
   }
-  const ::flatbuffers::Vector<const SerialMail::Value *> *ch1() const {
-    return GetPointer<const ::flatbuffers::Vector<const SerialMail::Value *> *>(VT_CH1);
+  const ::flatbuffers::Vector<const Value *> *ch1() const {
+    return GetPointer<const ::flatbuffers::Vector<const Value *> *>(VT_CH1);
   }
-  int16_t node() const {
-    return GetField<int16_t>(VT_NODE, 0);
+  int32_t node() const {
+    return GetField<int32_t>(VT_NODE, 0);
   }
   bool Verify(::flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -71,7 +71,7 @@ struct SerialMail FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
            verifier.VerifyVector(ch0()) &&
            VerifyOffset(verifier, VT_CH1) &&
            verifier.VerifyVector(ch1()) &&
-           VerifyField<int16_t>(verifier, VT_NODE, 2) &&
+           VerifyField<int32_t>(verifier, VT_NODE, 4) &&
            verifier.EndTable();
   }
 };
@@ -80,14 +80,14 @@ struct SerialMailBuilder {
   typedef SerialMail Table;
   ::flatbuffers::FlatBufferBuilder &fbb_;
   ::flatbuffers::uoffset_t start_;
-  void add_ch0(::flatbuffers::Offset<::flatbuffers::Vector<const SerialMail::Value *>> ch0) {
+  void add_ch0(::flatbuffers::Offset<::flatbuffers::Vector<const Value *>> ch0) {
     fbb_.AddOffset(SerialMail::VT_CH0, ch0);
   }
-  void add_ch1(::flatbuffers::Offset<::flatbuffers::Vector<const SerialMail::Value *>> ch1) {
+  void add_ch1(::flatbuffers::Offset<::flatbuffers::Vector<const Value *>> ch1) {
     fbb_.AddOffset(SerialMail::VT_CH1, ch1);
   }
-  void add_node(int16_t node) {
-    fbb_.AddElement<int16_t>(SerialMail::VT_NODE, node, 0);
+  void add_node(int32_t node) {
+    fbb_.AddElement<int32_t>(SerialMail::VT_NODE, node, 0);
   }
   explicit SerialMailBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -102,57 +102,57 @@ struct SerialMailBuilder {
 
 inline ::flatbuffers::Offset<SerialMail> CreateSerialMail(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    ::flatbuffers::Offset<::flatbuffers::Vector<const SerialMail::Value *>> ch0 = 0,
-    ::flatbuffers::Offset<::flatbuffers::Vector<const SerialMail::Value *>> ch1 = 0,
-    int16_t node = 0) {
+    ::flatbuffers::Offset<::flatbuffers::Vector<const Value *>> ch0 = 0,
+    ::flatbuffers::Offset<::flatbuffers::Vector<const Value *>> ch1 = 0,
+    int32_t node = 0) {
   SerialMailBuilder builder_(_fbb);
+  builder_.add_node(node);
   builder_.add_ch1(ch1);
   builder_.add_ch0(ch0);
-  builder_.add_node(node);
   return builder_.Finish();
 }
 
 inline ::flatbuffers::Offset<SerialMail> CreateSerialMailDirect(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    const std::vector<SerialMail::Value> *ch0 = nullptr,
-    const std::vector<SerialMail::Value> *ch1 = nullptr,
-    int16_t node = 0) {
-  auto ch0__ = ch0 ? _fbb.CreateVectorOfStructs<SerialMail::Value>(*ch0) : 0;
-  auto ch1__ = ch1 ? _fbb.CreateVectorOfStructs<SerialMail::Value>(*ch1) : 0;
-  return SerialMail::CreateSerialMail(
+    const std::vector<Value> *ch0 = nullptr,
+    const std::vector<Value> *ch1 = nullptr,
+    int32_t node = 0) {
+  auto ch0__ = ch0 ? _fbb.CreateVectorOfStructs<Value>(*ch0) : 0;
+  auto ch1__ = ch1 ? _fbb.CreateVectorOfStructs<Value>(*ch1) : 0;
+  return CreateSerialMail(
       _fbb,
       ch0__,
       ch1__,
       node);
 }
 
-inline const SerialMail::SerialMail *GetSerialMail(const void *buf) {
-  return ::flatbuffers::GetRoot<SerialMail::SerialMail>(buf);
+inline const SerialMail *GetSerialMail(const void *buf) {
+  return ::flatbuffers::GetRoot<SerialMail>(buf);
 }
 
-inline const SerialMail::SerialMail *GetSizePrefixedSerialMail(const void *buf) {
-  return ::flatbuffers::GetSizePrefixedRoot<SerialMail::SerialMail>(buf);
+inline const SerialMail *GetSizePrefixedSerialMail(const void *buf) {
+  return ::flatbuffers::GetSizePrefixedRoot<SerialMail>(buf);
 }
 
 inline bool VerifySerialMailBuffer(
     ::flatbuffers::Verifier &verifier) {
-  return verifier.VerifyBuffer<SerialMail::SerialMail>(nullptr);
+  return verifier.VerifyBuffer<SerialMail>(nullptr);
 }
 
 inline bool VerifySizePrefixedSerialMailBuffer(
     ::flatbuffers::Verifier &verifier) {
-  return verifier.VerifySizePrefixedBuffer<SerialMail::SerialMail>(nullptr);
+  return verifier.VerifySizePrefixedBuffer<SerialMail>(nullptr);
 }
 
 inline void FinishSerialMailBuffer(
     ::flatbuffers::FlatBufferBuilder &fbb,
-    ::flatbuffers::Offset<SerialMail::SerialMail> root) {
+    ::flatbuffers::Offset<SerialMail> root) {
   fbb.Finish(root);
 }
 
 inline void FinishSizePrefixedSerialMailBuffer(
     ::flatbuffers::FlatBufferBuilder &fbb,
-    ::flatbuffers::Offset<SerialMail::SerialMail> root) {
+    ::flatbuffers::Offset<SerialMail> root) {
   fbb.FinishSizePrefixed(root);
 }
 
