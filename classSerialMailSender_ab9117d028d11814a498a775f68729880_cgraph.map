@@ -1,0 +1,8 @@
+<map id="SerialMailSender::sendMail" name="SerialMailSender::sendMail">
+<area shape="rect" id="node1" title="Serializes and sends mail data over the serial connection." alt="" coords="5,111,204,138"/>
+<area shape="rect" id="node2" href="$namespaceSerialMail.html#abbf6cb3582f2f3eaba836d70c4d8faa4" title=" " alt="" coords="252,111,455,138"/>
+<area shape="rect" id="node3" href="$structSerialMail_1_1SerialMailBuilder.html#a2e945094f130fa1d953d3f13ba8088b2" title=" " alt="" coords="503,5,709,47"/>
+<area shape="rect" id="node4" href="$structSerialMail_1_1SerialMailBuilder.html#a5c2dbe9f898b1cf1733f2971ac731efa" title=" " alt="" coords="503,71,709,112"/>
+<area shape="rect" id="node5" href="$structSerialMail_1_1SerialMailBuilder.html#afa0ff5d5f5f2a6f4cba27ffe0732960c" title=" " alt="" coords="503,136,709,177"/>
+<area shape="rect" id="node6" href="$structSerialMail_1_1SerialMailBuilder.html#aabc9c8281f9de3d634b0d33b4dcfe25c" title=" " alt="" coords="503,201,709,243"/>
+</map>

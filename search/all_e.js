@@ -5,7 +5,7 @@ var searchData=
   ['readingqueue_290',['ReadingQueue',['../classReadingQueue.html',1,'']]],
   ['readingqueue_2ecpp_291',['ReadingQueue.cpp',['../ReadingQueue_8cpp.html',1,'']]],
   ['readingqueue_2eh_292',['ReadingQueue.h',['../ReadingQueue_8h.html',1,'']]],
-  ['readme_2emd_293',['README.md',['../README_8md.html',1,'(Global Namespace)'],['../src_2README_8md.html',1,'(Global Namespace)'],['../include_2README_8md.html',1,'(Global Namespace)']]],
+  ['readme_2emd_293',['README.md',['../README_8md.html',1,'']]],
   ['reg_5fno_294',['Reg_No',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fac27002fd74ba67a870f5a880d5e794b4',1,'Ad7124']]],
   ['registerid_295',['RegisterId',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9f',1,'Ad7124']]]
 ];

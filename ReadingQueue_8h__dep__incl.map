@@ -1,6 +1,6 @@
 <map id="include/interfaces/ReadingQueue.h" name="include/interfaces/ReadingQueue.h">
 <area shape="rect" id="node1" title=" " alt="" coords="229,5,367,47"/>
-<area shape="rect" id="node2" href="$AD7124_8cpp.html" title=" " alt="" coords="5,95,156,121"/>
+<area shape="rect" id="node2" href="$AD7124_8cpp.html" title="Implementation of the ADC7124 class for reading voltages." alt="" coords="5,95,156,121"/>
 <area shape="rect" id="node3" href="$ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="180,95,416,121"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title="Entry point for the PhytoNode application." alt="" coords="440,95,545,121"/>
 </map>

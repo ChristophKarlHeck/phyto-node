@@ -1,0 +1,5 @@
+<map id="AD7124::read_voltage_from_both_channels" name="AD7124::read_voltage_from_both_channels">
+<area shape="rect" id="node1" title="Reads voltage data from both ADC channels." alt="" coords="337,5,504,47"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2" title="Reads data from the ADC and processes it." alt="" coords="108,5,289,47"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,13,60,39"/>
+</map>

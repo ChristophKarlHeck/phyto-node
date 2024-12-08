@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('structSerialMail_1_1SerialMailBuilder.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespaceSerialMail.html">SerialMail</a></li><li class="navelem"><a class="el" href="structSerialMail_1_1SerialMailBuilder.html">SerialMailBuilder</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -168,6 +184,18 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structSerialMail_1_1SerialMailBuilder_a2e945094f130fa1d953d3f13ba8088b2_icgraph.png" border="0" usemap="#astructSerialMail_1_1SerialMailBuilder_a2e945094f130fa1d953d3f13ba8088b2_icgraph" alt=""/></div>
+<map name="astructSerialMail_1_1SerialMailBuilder_a2e945094f130fa1d953d3f13ba8088b2_icgraph" id="astructSerialMail_1_1SerialMailBuilder_a2e945094f130fa1d953d3f13ba8088b2_icgraph">
+<area shape="rect" title=" " alt="" coords="605,35,812,76"/>
+<area shape="rect" href="namespaceSerialMail.html#abbf6cb3582f2f3eaba836d70c4d8faa4" title=" " alt="" coords="355,42,557,69"/>
+<area shape="rect" href="namespaceSerialMail.html#a48553fbcb87b4575fd5bf653f9054c46" title=" " alt="" coords="120,5,295,47"/>
+<area shape="rect" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880" title="Serializes and sends mail data over the serial connection." alt="" coords="108,71,307,98"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,71,60,98"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -194,6 +222,18 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structSerialMail_1_1SerialMailBuilder_a5c2dbe9f898b1cf1733f2971ac731efa_icgraph.png" border="0" usemap="#astructSerialMail_1_1SerialMailBuilder_a5c2dbe9f898b1cf1733f2971ac731efa_icgraph" alt=""/></div>
+<map name="astructSerialMail_1_1SerialMailBuilder_a5c2dbe9f898b1cf1733f2971ac731efa_icgraph" id="astructSerialMail_1_1SerialMailBuilder_a5c2dbe9f898b1cf1733f2971ac731efa_icgraph">
+<area shape="rect" title=" " alt="" coords="605,35,812,76"/>
+<area shape="rect" href="namespaceSerialMail.html#abbf6cb3582f2f3eaba836d70c4d8faa4" title=" " alt="" coords="355,42,557,69"/>
+<area shape="rect" href="namespaceSerialMail.html#a48553fbcb87b4575fd5bf653f9054c46" title=" " alt="" coords="120,5,295,47"/>
+<area shape="rect" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880" title="Serializes and sends mail data over the serial connection." alt="" coords="108,71,307,98"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,71,60,98"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -220,6 +260,18 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structSerialMail_1_1SerialMailBuilder_afa0ff5d5f5f2a6f4cba27ffe0732960c_icgraph.png" border="0" usemap="#astructSerialMail_1_1SerialMailBuilder_afa0ff5d5f5f2a6f4cba27ffe0732960c_icgraph" alt=""/></div>
+<map name="astructSerialMail_1_1SerialMailBuilder_afa0ff5d5f5f2a6f4cba27ffe0732960c_icgraph" id="astructSerialMail_1_1SerialMailBuilder_afa0ff5d5f5f2a6f4cba27ffe0732960c_icgraph">
+<area shape="rect" title=" " alt="" coords="605,35,812,76"/>
+<area shape="rect" href="namespaceSerialMail.html#abbf6cb3582f2f3eaba836d70c4d8faa4" title=" " alt="" coords="355,42,557,69"/>
+<area shape="rect" href="namespaceSerialMail.html#a48553fbcb87b4575fd5bf653f9054c46" title=" " alt="" coords="120,5,295,47"/>
+<area shape="rect" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880" title="Serializes and sends mail data over the serial connection." alt="" coords="108,71,307,98"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,71,60,98"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -245,6 +297,18 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structSerialMail_1_1SerialMailBuilder_aabc9c8281f9de3d634b0d33b4dcfe25c_icgraph.png" border="0" usemap="#astructSerialMail_1_1SerialMailBuilder_aabc9c8281f9de3d634b0d33b4dcfe25c_icgraph" alt=""/></div>
+<map name="astructSerialMail_1_1SerialMailBuilder_aabc9c8281f9de3d634b0d33b4dcfe25c_icgraph" id="astructSerialMail_1_1SerialMailBuilder_aabc9c8281f9de3d634b0d33b4dcfe25c_icgraph">
+<area shape="rect" title=" " alt="" coords="605,35,812,76"/>
+<area shape="rect" href="namespaceSerialMail.html#abbf6cb3582f2f3eaba836d70c4d8faa4" title=" " alt="" coords="355,42,557,69"/>
+<area shape="rect" href="namespaceSerialMail.html#a48553fbcb87b4575fd5bf653f9054c46" title=" " alt="" coords="120,5,295,47"/>
+<area shape="rect" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880" title="Serializes and sends mail data over the serial connection." alt="" coords="108,71,307,98"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,71,60,98"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -281,9 +345,13 @@ Public Attributes</h2></td></tr>
 <li>include/serial_mail_sender/<a class="el" href="SerialMailGenerated_8h_source.html">SerialMailGenerated.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceSerialMail.html">SerialMail</a></li><li class="navelem"><a class="el" href="structSerialMail_1_1SerialMailBuilder.html">SerialMailBuilder</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

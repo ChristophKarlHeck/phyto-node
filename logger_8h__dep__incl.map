@@ -1,6 +1,6 @@
 <map id="include/utils/logger.h" name="include/utils/logger.h">
 <area shape="rect" id="node1" title="Logging utility for debugging and runtime information output." alt="" coords="494,5,651,32"/>
-<area shape="rect" id="node2" href="$AD7124_8cpp.html" title=" " alt="" coords="5,87,156,114"/>
+<area shape="rect" id="node2" href="$AD7124_8cpp.html" title="Implementation of the ADC7124 class for reading voltages." alt="" coords="5,87,156,114"/>
 <area shape="rect" id="node3" href="$ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="180,87,416,114"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title="Entry point for the PhytoNode application." alt="" coords="440,87,545,114"/>
 <area shape="rect" id="node5" href="$SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="570,80,738,121"/>
