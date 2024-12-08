@@ -5,14 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Phyto Node: &lt;strong&gt;PhytoNode Project&lt;/strong&gt;</title>
+<title>Phyto Node: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -50,22 +46,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,159 +60,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="PageDoc"><div class="header">
+<div class="header">
   <div class="headertitle">
-<div class="title"><b>PhytoNode Project</b> </div>  </div>
+<div class="title">Phyto Node Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> PhytoNode is a modular system for collecting, processing, and transmitting sensor data using an ADC connected to a microcontroller. Built on Mbed OS, it enables real-time operations and communicates seamlessly with a Raspberry Pi for advanced data processing.</p>
-<hr  />
-<h1><a class="anchor" id="autotoc_md2"></a>
-&lt;strong&gt;Project Overview&lt;/strong&gt;</h1>
-<p>The system comprises the following core components:</p><ol type="1">
-<li><b>ADC Module</b>: Interfaces with the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC for high-precision analog-to-digital conversion.</li>
-<li><b>Inter-Thread Communication</b>: Manages data flow between threads using Mbed OS's <code>Mail</code> objects.</li>
-<li><b>Serial Communication</b>: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.</li>
-<li><b>Utility Functions</b>: Provides tools for data conversion and system performance monitoring.</li>
-</ol>
-<hr  />
-<h1><a class="anchor" id="autotoc_md4"></a>
-&lt;strong&gt;Directory Structure&lt;/strong&gt;</h1>
-<ul>
-<li>**<code>build/</code>**: Build artifacts.</li>
-<li>**<code>include/</code>**: Header files for all modules.<ul>
-<li>**<code>adc/</code>**: ADC module headers.</li>
-<li>**<code>interfaces/</code>**: Interface headers for inter-thread communication.</li>
-<li>**<code>serial_mail_sender/</code>**: Headers for serial communication.</li>
-<li>**<code>utils/</code>**: Utility headers for logging and conversion.</li>
-</ul>
-</li>
-<li>**<code>libs/</code>**: External libraries.<ul>
-<li>**<code>flatbuffers/</code>**: FlatBuffers library.</li>
-</ul>
-</li>
-<li>**<code>scripts/</code>**: Configuration and utility scripts.</li>
-<li>**<code>src/</code>**: Source files for project modules.<ul>
-<li>**<code>adc/</code>**: ADC module implementation.</li>
-<li>**<code>interfaces/</code>**: <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> implementation.</li>
-<li>**<code>serial_mail_sender/</code>**: Serial communication logic.</li>
-<li>**<code>utils/</code>**: Conversion and performance monitoring utilities.</li>
-<li>**<code><a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a></code>**: Application entry point.</li>
-</ul>
-</li>
-<li>**<code>docs/</code>**: Doxygen-generated documentation.</li>
-<li>**<code>third-party/</code>**: External dependencies as submodules.<ul>
-<li>**<code>flatbuffers/</code>**: FlatBuffers library.</li>
-<li>**<code>mbed-os/</code>**: Mbed OS source.</li>
-</ul>
-</li>
-<li>**<code>CMakeLists.txt</code>**: CMake build configuration.</li>
-</ul>
-<hr  />
-<h1><a class="anchor" id="key_features"></a>
-Key Features</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
-1. Modular Design</h2>
-<ul>
-<li><b>ADC Module</b>:<ul>
-<li>Manages data acquisition from the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC.</li>
-<li>Configures channels and performs continuous readings.</li>
-</ul>
-</li>
-<li><b>Interfaces</b>:<ul>
-<li>Implements a <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> for inter-thread communication using a singleton pattern.</li>
-</ul>
-</li>
-<li><b>Serial Communication</b>:<ul>
-<li>Serializes ADC data into FlatBuffers format and transmits it over UART.</li>
-</ul>
-</li>
-<li><b>Utilities</b>:<ul>
-<li>Converts raw ADC data to meaningful voltage values.</li>
-<li>Monitors memory and CPU usage for performance optimization.</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-2. Serialization with FlatBuffers</h2>
-<ul>
-<li>Compact and efficient data representation for reliable communication between the microcontroller and Raspberry Pi.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-3. Logging and Debugging</h2>
-<ul>
-<li>Uses configurable logging macros (<code>INFO</code>, <code>TRACE</code>, etc.) for consistent and readable debug output.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
-4. Real-Time Operation</h2>
-<ul>
-<li>Leverages Mbed OS for multi-threading and real-time scheduling.</li>
-</ul>
-<hr  />
-<h1><a class="anchor" id="autotoc_md11"></a>
-&lt;strong&gt;Getting Started&lt;/strong&gt;</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
-1. Clone the Repository</h2>
-<div class="fragment"><div class="line">git clone --recurse-submodules https://github.com/ChristophKarlHeck/phyto-node.git</div>
-<div class="line">cd phyto-node</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
-2. Clone the Repository</h2>
-<ul>
-<li>Install the required build tools (e.g., CMake, GCC Arm toolchain).</li>
-<li>Configure and build <div class="fragment"><div class="line">placeholder</div>
-</div><!-- fragment --></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md14"></a>
-3. FLASH the Microcontroller</h2>
-<ul>
-<li>Use OpenOCD or pyOCD to flash the firmware <div class="fragment"><div class="line">placeholder</div>
-</div><!-- fragment --></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
-4. Run the System</h2>
-<ul>
-<li>Connect the microcontroller to the Raspberry Pi via UART with the following connections:<ul>
-<li><b>Microcontroller TX (PC_1)</b> -&gt; <b>Raspberry Pi RX (GPIO 15)</b></li>
-<li><b>Microcontroller RX (PC_0)</b> -&gt; <b>Raspberry Pi TX (GPIO 14)</b></li>
-<li><b>GND</b> -&gt; <b>GND</b></li>
-</ul>
-</li>
-<li>Ensure that the Raspberry Pi is running the serial data logger. You can find it here: <br  />
- <a href="https://github.com/ChristophKarlHeck/serial-data-logger-phyto-node">serial-data-logger-phyto-node</a></li>
-<li>The microcontroller will continuously send serialized ADC data to the Raspberry Pi, which can decode and store the data for further processing.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md16"></a>
-&lt;strong&gt;Documentation&lt;/strong&gt;</h1>
-<p>Comprehensive documentation for the PhytoNode project is available online. It provides detailed information about each module, including classes, functions, and usage examples.</p>
-<ul>
-<li><b>View Documentation</b>: <br  />
- <a href="https://christophkarlheck.github.io/phyto-node/">PhytoNode Documentation</a></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md17"></a>
-&lt;strong&gt;Enable Logging&lt;/strong&gt;</h1>
-<ul>
-<li>Enable specific log levels (e.g., LOG_LEVEL_INFO) in <code>CMakeLists.txt</code>.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md18"></a>
-&lt;strong&gt;Acknowledgments&lt;/strong&gt;</h1>
-<p>We would like to thank the following:</p>
-<ul>
-<li><b><a href="https://os.mbed.com/">Mbed OS</a>:</b> <br  />
- For providing a powerful real-time operating system that simplifies development on microcontrollers.</li>
-<li><b><a href="https://google.github.io/flatbuffers/">FlatBuffers</a>:</b> <br  />
- For enabling efficient and compact data serialization for seamless communication.</li>
-<li><b>The Developer Community:</b> <br  />
- For ongoing support, contributions, and valuable insights that have helped shape this project.</li>
-</ul>
-<p>Your contributions and feedback are highly appreciated! </p>
-</div></div><!-- PageDoc -->
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

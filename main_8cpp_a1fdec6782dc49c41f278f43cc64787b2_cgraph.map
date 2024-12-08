@@ -1,6 +1,0 @@
-<map id="get_input_model_values_from_adc" name="get_input_model_values_from_adc">
-<area shape="rect" id="node1" title="Reads data from the ADC and processes it." alt="" coords="5,49,187,90"/>
-<area shape="rect" id="node2" href="$classAD7124.html#a02acf146ca56efdee458971bf56c9ff3" title="Gets the singleton instance of the AD7124 class." alt="" coords="239,5,397,32"/>
-<area shape="rect" id="node3" href="$classAD7124.html#a8706124bded08f7cce6527eba031c5fd" title="Initializes the AD7124 ADC with specific channel flags." alt="" coords="267,56,369,83"/>
-<area shape="rect" id="node4" href="$classAD7124.html#aba9604141394112cd788eaca70787026" title="Reads voltage data from both ADC channels." alt="" coords="235,107,401,149"/>
-</map>

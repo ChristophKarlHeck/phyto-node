@@ -1,6 +1,0 @@
-<map id="include/serial_mail_sender/SerialMailGenerated.h" name="include/serial_mail_sender/SerialMailGenerated.h">
-<area shape="rect" id="node1" title=" " alt="" coords="27,5,249,47"/>
-<area shape="rect" id="node2" href="$SerialMailSender_8h.html" title=" " alt="" coords="39,95,237,136"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="Entry point for the PhytoNode application." alt="" coords="5,191,111,218"/>
-<area shape="rect" id="node4" href="$SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="135,184,303,225"/>
-</map>

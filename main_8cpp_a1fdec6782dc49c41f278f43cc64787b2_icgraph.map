@@ -1,4 +1,0 @@
-<map id="get_input_model_values_from_adc" name="get_input_model_values_from_adc">
-<area shape="rect" id="node1" title="Reads data from the ADC and processes it." alt="" coords="108,5,289,47"/>
-<area shape="rect" id="node2" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main entry point for the PhytoNode application." alt="" coords="5,13,60,39"/>
-</map>
