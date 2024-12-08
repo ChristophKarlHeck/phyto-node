@@ -3,17 +3,18 @@
 The `src` directory contains the implementation files for various modules of the **PhytoNode Project**. These files define the functionality of the system, including ADC data acquisition, inter-thread communication, serial communication, and utility functions.
 
 ## Directory Structure
-src/
-├── adc/
-│   └── AD7124.cpp
-├── interfaces/
-│   └── ReadingQueue.cpp
-├── serial_mail_sender/
-│   └── SerialMailSender.cpp
-├── utils/
-│   └── Conversion.cpp
-│   └── MbedStatsWrapper.cpp
-├── main.cpp
+
+- **`adc/`**: ADC module implementation.
+  - **`AD7124.cpp`**: Handles ADC functionality using the AD7124 module, including channel configuration and data acquisition.
+- **`interfaces/`**: Interface for inter-thread communication.
+  - **`ReadingQueue.cpp`**: Implements a thread-safe message queue for ADC data using Mbed OS `Mail`.
+- **`serial_mail_sender/`**: Handles serial communication.
+  - **`SerialMailSender.cpp`**: Serializes ADC data using FlatBuffers and sends it over UART to the Raspberry Pi.
+- **`utils/`**: Utility implementations.
+  - **`Conversion.cpp`**: Converts raw ADC data into analog voltage values.
+  - **`MbedStatsWrapper.cpp`**: Monitors system performance, including memory and CPU usage.
+- **`main.cpp`**: Application entry point.
+  - Initializes the ADC reading thread and manages communication with the Raspberry Pi.
 
 ## Modules Overview
 
