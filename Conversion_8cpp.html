@@ -71,25 +71,32 @@ $(function() {
 <div class="title">Conversion.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides utility functions for data conversion in the PhytoNode project.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Conversion_8h_source.html">utils/Conversion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="logger_8h_source.html">utils/logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Conversion.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Conversion_8cpp__incl.png" border="0" usemap="#asrc_2utils_2Conversion_8cpp" alt=""/></div>
 <map name="asrc_2utils_2Conversion_8cpp" id="asrc_2utils_2Conversion_8cpp">
-<area shape="rect" title=" " alt="" coords="5,5,183,32"/>
-<area shape="rect" href="Conversion_8h.html" title=" " alt="" coords="25,80,163,107"/>
-<area shape="rect" title=" " alt="" coords="59,155,129,181"/>
+<area shape="rect" title="Provides utility functions for data conversion in the PhytoNode project." alt="" coords="59,5,237,32"/>
+<area shape="rect" href="Conversion_8h.html" title=" " alt="" coords="5,80,144,107"/>
+<area shape="rect" href="logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="168,80,275,107"/>
+<area shape="rect" title=" " alt="" coords="39,155,110,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5f74d7e73a494e1ab2540f4b6ca0f1e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9">get_analog_inputs</a> (std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; byte_inputs, int databits, float vref, float gain)</td></tr>
-<tr class="memdesc:a5f74d7e73a494e1ab2540f4b6ca0f1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts raw ADC byte inputs into analog voltage values.  <a href="Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9">More...</a><br /></td></tr>
+<tr class="memdesc:a5f74d7e73a494e1ab2540f4b6ca0f1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts raw ADC measurements into analog voltage values.  <a href="Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9">More...</a><br /></td></tr>
 <tr class="separator:a5f74d7e73a494e1ab2540f4b6ca0f1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions for data conversion in the PhytoNode project. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a5f74d7e73a494e1ab2540f4b6ca0f1e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f74d7e73a494e1ab2540f4b6ca0f1e9">&#9670;&nbsp;</a></span>get_analog_inputs()</h2>
 
@@ -128,19 +135,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Converts raw ADC byte inputs into analog voltage values. </p>
-<p>This function processes raw ADC data and converts it into a vector of corresponding analog voltage values based on the given ADC configuration.</p>
+<p>Converts raw ADC measurements into analog voltage values. </p>
+<p>Converts raw ADC byte inputs into analog voltage values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">byte_inputs</td><td>A vector of 3-byte arrays representing raw ADC data. </td></tr>
-    <tr><td class="paramname">databits</td><td>The number of data bits used by the ADC (e.g., 12, 16, 24). </td></tr>
-    <tr><td class="paramname">vref</td><td>The reference voltage used by the ADC in volts. </td></tr>
-    <tr><td class="paramname">gain</td><td>The gain applied to the ADC readings. </td></tr>
+    <tr><td class="paramname">byte_inputs</td><td>A vector of 3-byte arrays representing raw ADC measurements. </td></tr>
+    <tr><td class="paramname">databits</td><td>The number of bits used for ADC resolution (e.g., 8388608 for 24-bit ADC). </td></tr>
+    <tr><td class="paramname">vref</td><td>The reference voltage of the ADC in volts. </td></tr>
+    <tr><td class="paramname">gain</td><td>The gain applied to the ADC measurements.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of floats representing the converted analog voltage values.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This function assumes the input data is properly formatted and scaled according to the ADC's resolution and configuration. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of converted voltage values in millivolts.</dd></dl>
+<p>This function processes raw ADC data represented as 3-byte arrays, calculates the corresponding analog voltage based on the ADC's resolution, reference voltage, and gain, and returns the values in millivolts. </p>
 
 </div>
 </div>

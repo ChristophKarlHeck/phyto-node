@@ -1,17 +1,18 @@
 var searchData=
 [
-  ['gain_244',['GAIN',['../main_8cpp.html#a8c8f27b35dfa40ccf31c1ee31479a31c',1,'main.cpp']]],
-  ['gain_5f0_245',['Gain_0',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa2f764d51a3dae2917d60e99bd2a9b208',1,'Ad7124']]],
-  ['gain_5f1_246',['Gain_1',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fab7accb6a5b1d9b3c7adfc5c1bf4e890d',1,'Ad7124']]],
-  ['gain_5f2_247',['Gain_2',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa8aad2746fa4961a09fd3e34997344bbb',1,'Ad7124']]],
-  ['gain_5f3_248',['Gain_3',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fadf9c88f1c4f7b6251f14d9792016b26f',1,'Ad7124']]],
-  ['gain_5f4_249',['Gain_4',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa7e4b225cbee22a1d653cf3b63d039f34',1,'Ad7124']]],
-  ['gain_5f5_250',['Gain_5',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa053d6e510a3c8869c2b059277618241e',1,'Ad7124']]],
-  ['gain_5f6_251',['Gain_6',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa02f9087ca8f0ed8772b16f3bddb24bde',1,'Ad7124']]],
-  ['gain_5f7_252',['Gain_7',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9faba7ef6cfe26be44d7bce1fa9ed305a31',1,'Ad7124']]],
-  ['get_5fanalog_5finputs_253',['get_analog_inputs',['../Conversion_8h.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9',1,'get_analog_inputs(std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; byte_inputs, int databits, float vref, float gain):&#160;Conversion.cpp'],['../Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9',1,'get_analog_inputs(std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; byte_inputs, int databits, float vref, float gain):&#160;Conversion.cpp']]],
-  ['get_5finput_5fmodel_5fvalues_5ffrom_5fadc_254',['get_input_model_values_from_adc',['../main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2',1,'main.cpp']]],
-  ['getinstance_255',['getInstance',['../classReadingQueue.html#af0cc99c28c70cae8aef2cd3dfb8dd052',1,'ReadingQueue::getInstance()'],['../classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0',1,'SerialMailSender::getInstance()'],['../classAD7124.html#a02acf146ca56efdee458971bf56c9ff3',1,'AD7124::getInstance()']]],
-  ['getserialmail_256',['GetSerialMail',['../namespaceSerialMail.html#aa8be79341da5d5892f8a685bc42f57f9',1,'SerialMail']]],
-  ['getsizeprefixedserialmail_257',['GetSizePrefixedSerialMail',['../namespaceSerialMail.html#ae7565e5358c4c94276f0e938ff1147e9',1,'SerialMail']]]
+  ['fbb_5f_230',['fbb_',['../structSerialMail_1_1SerialMailBuilder.html#a0beb1cf77d6f3f4ce711cb2b3a93350e',1,'SerialMail::SerialMailBuilder']]],
+  ['filter_5f0_231',['Filter_0',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9faa436ecf0a041c938bf98807d05d2ce3a',1,'Ad7124']]],
+  ['filter_5f1_232',['Filter_1',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa5aaa2ae2c3270e07324ef73b4e269663',1,'Ad7124']]],
+  ['filter_5f2_233',['Filter_2',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fabb15ef51f7b7a72235fedc63c00860f0',1,'Ad7124']]],
+  ['filter_5f3_234',['Filter_3',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa96e5634ff5e69e0e3cb76983af12d2d5',1,'Ad7124']]],
+  ['filter_5f4_235',['Filter_4',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa9f8b303213f9af96b6839b19622965d8',1,'Ad7124']]],
+  ['filter_5f5_236',['Filter_5',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9fa25d64a848aa030484d053f4c1a6e462b',1,'Ad7124']]],
+  ['filter_5f6_237',['Filter_6',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9faf73e47af1fe33023f71e9f2dc049eb2f',1,'Ad7124']]],
+  ['filter_5f7_238',['Filter_7',['../namespaceAd7124.html#abd599f3b5c3ec9a3dc7f9a47aaf18a9faad545c440880e9778d053ab6086eb222',1,'Ad7124']]],
+  ['finish_239',['Finish',['../structSerialMail_1_1SerialMailBuilder.html#aabc9c8281f9de3d634b0d33b4dcfe25c',1,'SerialMail::SerialMailBuilder']]],
+  ['finishserialmailbuffer_240',['FinishSerialMailBuffer',['../namespaceSerialMail.html#a1239904357611bd0a223ec21df960a51',1,'SerialMail']]],
+  ['finishsizeprefixedserialmailbuffer_241',['FinishSizePrefixedSerialMailBuffer',['../namespaceSerialMail.html#a19b5ff4eee733e2a4b03b9aaff368c98',1,'SerialMail']]],
+  ['flatbuffers_5ffinal_5fclass_242',['FLATBUFFERS_FINAL_CLASS',['../structSerialMail_1_1FLATBUFFERS__FINAL__CLASS.html',1,'SerialMail']]],
+  ['flatbuffers_5fmanually_5faligned_5fstruct_243',['FLATBUFFERS_MANUALLY_ALIGNED_STRUCT',['../namespaceSerialMail.html#ac6a466180992bcb06f508504b56b70b4',1,'SerialMail']]],
+  ['flatbuffers_5fstruct_5fend_244',['FLATBUFFERS_STRUCT_END',['../namespaceSerialMail.html#aa2734b29b31ec0d0abefb7737b1109d9',1,'SerialMail']]]
 ];

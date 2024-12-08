@@ -66,58 +66,57 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">MbedStatsWrapper.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utility functions to display memory and CPU statistics in Mbed OS.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;mbed.h&quot;</code><br />
 <code>#include &quot;platform/mbed_thread.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="logger_8h_source.html">utils/logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for MbedStatsWrapper.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="MbedStatsWrapper_8cpp__incl.png" border="0" usemap="#asrc_2utils_2MbedStatsWrapper_8cpp" alt=""/></div>
 <map name="asrc_2utils_2MbedStatsWrapper_8cpp" id="asrc_2utils_2MbedStatsWrapper_8cpp">
-<area shape="rect" title=" " alt="" coords="5,5,232,32"/>
-<area shape="rect" title=" " alt="" coords="9,80,79,107"/>
-<area shape="rect" title=" " alt="" coords="103,80,283,107"/>
+<area shape="rect" title="Utility functions to display memory and CPU statistics in Mbed OS." alt="" coords="77,5,303,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" title=" " alt="" coords="100,80,280,107"/>
+<area shape="rect" href="logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="305,80,411,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacembed__lib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html">mbed_lib</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a9029aa62752d55d5114bdfd4313686a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#a9029aa62752d55d5114bdfd4313686a8">MAX_THREAD_INFO</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a9029aa62752d55d5114bdfd4313686a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of threads for stack statistics.  <a href="MbedStatsWrapper_8cpp.html#a9029aa62752d55d5114bdfd4313686a8">More...</a><br /></td></tr>
 <tr class="separator:a9029aa62752d55d5114bdfd4313686a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a887b3ae549731c4ccb5e3a114515ba9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">MAX_THREAD_STACK</a>&#160;&#160;&#160;384</td></tr>
+<tr class="memdesc:a887b3ae549731c4ccb5e3a114515ba9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum thread stack size.  <a href="MbedStatsWrapper_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">More...</a><br /></td></tr>
 <tr class="separator:a887b3ae549731c4ccb5e3a114515ba9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b604f9532f6a6319fb455bf63c4c13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a>&#160;&#160;&#160;2000</td></tr>
+<tr class="memdesc:aa3b604f9532f6a6319fb455bf63c4c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample time for CPU statistics in milliseconds.  <a href="MbedStatsWrapper_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">More...</a><br /></td></tr>
 <tr class="separator:aa3b604f9532f6a6319fb455bf63c4c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82e97eb5a00d2a0a1e6520b4082de54d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d">LOOP_TIME_MS</a>&#160;&#160;&#160;3000</td></tr>
+<tr class="memdesc:a82e97eb5a00d2a0a1e6520b4082de54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop time for statistics collection in milliseconds.  <a href="MbedStatsWrapper_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d">More...</a><br /></td></tr>
 <tr class="separator:a82e97eb5a00d2a0a1e6520b4082de54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab3bcf8c0340ccc24a96e38ffb0fd2b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#ab3bcf8c0340ccc24a96e38ffb0fd2b40">mbed_lib::print_memory_usage</a> ()</td></tr>
-<tr class="separator:ab3bcf8c0340ccc24a96e38ffb0fd2b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670f470c578cc696032d9cc28a13918a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#a670f470c578cc696032d9cc28a13918a">mbed_lib::print_cpu_stats</a> ()</td></tr>
-<tr class="separator:a670f470c578cc696032d9cc28a13918a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8d16dc38bf192209ca2159aa0783847c"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#a8d16dc38bf192209ca2159aa0783847c">mbed_lib::prev_idle_time</a> = 0</td></tr>
-<tr class="separator:a8d16dc38bf192209ca2159aa0783847c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f058e8908a07aec287c91ba94f2104"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#a13f058e8908a07aec287c91ba94f2104">mbed_lib::wait_time_ms</a> = 5000</td></tr>
-<tr class="separator:a13f058e8908a07aec287c91ba94f2104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af534de48ff7a22924644e4e2eb4ba00a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#af534de48ff7a22924644e4e2eb4ba00a">print_memory_usage</a> ()</td></tr>
+<tr class="memdesc:af534de48ff7a22924644e4e2eb4ba00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current memory usage statistics.  <a href="MbedStatsWrapper_8cpp.html#af534de48ff7a22924644e4e2eb4ba00a">More...</a><br /></td></tr>
+<tr class="separator:af534de48ff7a22924644e4e2eb4ba00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24ef55bcb90642393fdfe49e97561ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a> ()</td></tr>
+<tr class="memdesc:ac24ef55bcb90642393fdfe49e97561ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current CPU usage statistics.  <a href="MbedStatsWrapper_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">More...</a><br /></td></tr>
+<tr class="separator:ac24ef55bcb90642393fdfe49e97561ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility functions to display memory and CPU statistics in Mbed OS. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a82e97eb5a00d2a0a1e6520b4082de54d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82e97eb5a00d2a0a1e6520b4082de54d">&#9670;&nbsp;</a></span>LOOP_TIME_MS</h2>
 
@@ -129,6 +128,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Loop time for statistics collection in milliseconds. </p>
 
 </div>
 </div>
@@ -144,6 +145,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum number of threads for stack statistics. </p>
+
 </div>
 </div>
 <a id="a887b3ae549731c4ccb5e3a114515ba9e"></a>
@@ -158,6 +161,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum thread stack size. </p>
+
 </div>
 </div>
 <a id="aa3b604f9532f6a6319fb455bf63c4c13"></a>
@@ -171,6 +176,55 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sample time for CPU statistics in milliseconds. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ac24ef55bcb90642393fdfe49e97561ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac24ef55bcb90642393fdfe49e97561ad">&#9670;&nbsp;</a></span>print_cpu_stats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_cpu_stats </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current CPU usage statistics. </p>
+<ul>
+<li>Retrieves CPU uptime, idle time, and sleep times using Mbed OS APIs.</li>
+<li>Calculates CPU usage as a percentage and logs the statistics. </li>
+</ul>
+
+</div>
+</div>
+<a id="af534de48ff7a22924644e4e2eb4ba00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af534de48ff7a22924644e4e2eb4ba00a">&#9670;&nbsp;</a></span>print_memory_usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_memory_usage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current memory usage statistics. </p>
+<ul>
+<li>Retrieves heap and stack information using Mbed OS APIs.</li>
+<li>Logs detailed statistics for debugging and performance monitoring. </li>
+</ul>
 
 </div>
 </div>

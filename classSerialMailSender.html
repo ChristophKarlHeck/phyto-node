@@ -151,7 +151,10 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the singleton instance of the <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance of <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>. </dd></dl>
+<p>Access the singleton instance of <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance of <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>.</dd>
+<dd>
+Reference to the single instance of <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>. </dd></dl>
 
 </div>
 </div>
@@ -216,14 +219,19 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Serializes and sends mail data over the serial connection. </p>
+<p>Serializes and sends ADC data using FlatBuffers over UART.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ch0</td><td>Downsampled ADC readings for channel 0. </td></tr>
     <tr><td class="paramname">ch1</td><td>Downsampled ADC readings for channel 1. </td></tr>
-    <tr><td class="paramname">node</td><td>Identifier for the data source node. </td></tr>
+    <tr><td class="paramname">node</td><td>Identifier for the data source node.</td></tr>
+    <tr><td class="paramname">ch0</td><td>Data from channel 0 as a vector of 3-byte arrays. </td></tr>
+    <tr><td class="paramname">ch1</td><td>Data from channel 1 as a vector of 3-byte arrays. </td></tr>
+    <tr><td class="paramname">node</td><td>Node identifier for the data source.</td></tr>
   </table>
   </dd>
 </dl>
+<p>This method prepares the data for transmission using FlatBuffers. It includes a synchronization marker, the size of the FlatBuffer, and the serialized data. </p>
 
 </div>
 </div>

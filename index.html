@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Phyto Node: Phyto Node</title>
+<title>Phyto Node: &lt;strong&gt;PhytoNode Project&lt;/strong&gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,87 +62,120 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Phyto Node </div>  </div>
+<div class="title"><b>PhytoNode Project</b> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a>MbedTorch Fusion OS: Seamlessly merges Mbed OS with Torch ML models for the P-Nucleo-WB55RG on Arm Cortex M4. Empowering edge computing with efficient ML deployment.</p>
-<p>Tutorial: <a href="https://youtu.be/jc_GCxAAO20">https://youtu.be/jc_GCxAAO20</a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-1. Build ExecuTorch libraries</h1>
-<blockquote class="doxtable">
-<p>git clone <a href="https://github.com/ChristophKarlHeck/phyto-classifier.git">https://github.com/ChristophKarlHeck/phyto-classifier.git</a> </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>cd phyto-classifier/utils/scripts </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>./build_et_libs.sh </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>cd ../../ </p>
-</blockquote>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> PhytoNode is a modular system for collecting, processing, and transmitting sensor data using an ADC connected to a microcontroller. Built on Mbed OS, it enables real-time operations and communicates seamlessly with a Raspberry Pi for advanced data processing.</p>
+<hr  />
 <h1><a class="anchor" id="autotoc_md2"></a>
-2. Install pyOCD in mbed-os venv</h1>
-<blockquote class="doxtable">
-<p>source mbed-os/venv/bin/activate </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>python3 -m pip install -U pyocd </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>pyocd pack &ndash;update </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>pyocd pack &ndash;install stm32wb55rg </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>deactivate </p>
-</blockquote>
-<h1><a class="anchor" id="autotoc_md3"></a>
-3. Convert softmax.pte file to model_pte.h</h1>
-<blockquote class="doxtable">
-<p>cd executorch </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>source .executorch/bin/activate </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>export PATH="$(pwd)/third-party/flatbuffers/cmake-out:${PATH}" </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>"$(pwd)/build/install_flatc.sh" </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>export PATH="$(pwd)/../gcc-arm-none-eabi-10.3-2021.10/bin:${PATH}" </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>hash arm-none-eabi-gcc </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>cd .. </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>python3 executorch/examples/arm/executor_runner/pte_to_header.py &ndash;pte executorch/softmax.pte &ndash;outdir . </p>
-</blockquote>
+&lt;strong&gt;Project Overview&lt;/strong&gt;</h1>
+<p>The system comprises the following core components:</p><ol type="1">
+<li><b>ADC Module</b>: Interfaces with the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 ADC using SPI.">AD7124</a> ADC for high-precision analog-to-digital conversion.</li>
+<li><b>Inter-Thread Communication</b>: Manages data flow between threads using Mbed OS's <code>Mail</code> objects.</li>
+<li><b>Serial Communication</b>: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.</li>
+<li><b>Utility Functions</b>: Provides tools for data conversion and system performance monitoring.</li>
+</ol>
+<hr  />
 <h1><a class="anchor" id="autotoc_md4"></a>
-4. Connect with serial port</h1>
-<p>Open a new terminal. Plug in Nucleo-WB55RG. Install Mbed CLI 2 and use it to find serial port. </p><blockquote class="doxtable">
-<p>sudo apt-get install python3-dev </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>python3 -m pip install mbed-tools </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>mbed-tools detect </p>
-</blockquote>
-<p>Remember serial port. Use minicom to see console output.</p>
-<blockquote class="doxtable">
-<p>minicom -D /dev/ttyACM0 </p>
-</blockquote>
-<p>ctrl a &amp; x to exit</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-5. Build and flash using VS Code</h2>
-<p><a href="https://github.com/mbed-ce/mbed-os/wiki/Project-Setup:-VS-Code">https://github.com/mbed-ce/mbed-os/wiki/Project-Setup:-VS-Code</a> </p>
+&lt;strong&gt;Directory Structure&lt;/strong&gt;</h1>
+<p>├── build/ # Build artifacts ├── include/ # Header files for all modules │ ├── adc/ # ADC module headers │ ├── interfaces/ # Interface headers for inter-thread communication │ ├── serial_mail_sender/ # Headers for serial communication │ └── utils/ # Utility headers for logging and conversion ├── libs/ # External libraries │ └── flatbuffers/ # FlatBuffers library ├── scripts/ # Configuration and utility scripts ├── src/ # Source files for project modules │ ├── adc/ # ADC module implementation │ ├── interfaces/ # <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> implementation │ ├── serial_mail_sender/ # Serial communication logic │ ├── utils/ # Conversion and performance monitoring utilities │ └── <a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a> # Application entry point ├── docs/ # Doxygen-generated documentation ├── third-party/ # External dependencies as submodules │ ├── flatbuffers/ # FlatBuffers library │ └── mbed-os/ # Mbed OS source └── CMakeLists.txt # CMake build configuration</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md6"></a>
+&lt;strong&gt;Key Features&lt;/strong&gt;</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
+1. Modular Design</h2>
+<ul>
+<li><b>ADC Module</b>:<ul>
+<li>Manages data acquisition from the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 ADC using SPI.">AD7124</a> ADC.</li>
+<li>Configures channels and performs continuous readings.</li>
+</ul>
+</li>
+<li><b>Interfaces</b>:<ul>
+<li>Implements a <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> for inter-thread communication using a singleton pattern.</li>
+</ul>
+</li>
+<li><b>Serial Communication</b>:<ul>
+<li>Serializes ADC data into FlatBuffers format and transmits it over UART.</li>
+</ul>
+</li>
+<li><b>Utilities</b>:<ul>
+<li>Converts raw ADC data to meaningful voltage values.</li>
+<li>Monitors memory and CPU usage for performance optimization.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md8"></a>
+2. Serialization with FlatBuffers</h2>
+<ul>
+<li>Compact and efficient data representation for reliable communication between the microcontroller and Raspberry Pi.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+3. Logging and Debugging</h2>
+<ul>
+<li>Uses configurable logging macros (<code>INFO</code>, <code>TRACE</code>, etc.) for consistent and readable debug output.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md10"></a>
+4. Real-Time Operation</h2>
+<ul>
+<li>Leverages Mbed OS for multi-threading and real-time scheduling.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md12"></a>
+&lt;strong&gt;Getting Started&lt;/strong&gt;</h1>
+<h2><a class="anchor" id="autotoc_md13"></a>
+1. Clone the Repository</h2>
+<div class="fragment"><div class="line">git clone --recurse-submodules https://github.com/ChristophKarlHeck/phyto-node.git</div>
+<div class="line">cd phyto-node</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+2. Clone the Repository</h2>
+<ul>
+<li>Install the required build tools (e.g., CMake, GCC Arm toolchain).</li>
+<li>Configure and build <div class="fragment"><div class="line">placeholder</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md15"></a>
+3. FLASH the Microcontroller</h2>
+<ul>
+<li>Use OpenOCD or pyOCD to flash the firmware <div class="fragment"><div class="line">placeholder</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md16"></a>
+4. Run the System</h2>
+<ul>
+<li>Connect the microcontroller to the Raspberry Pi via UART with the following connections:<ul>
+<li><b>Microcontroller TX (PC_1)</b> -&gt; <b>Raspberry Pi RX (GPIO 15)</b></li>
+<li><b>Microcontroller RX (PC_0)</b> -&gt; <b>Raspberry Pi TX (GPIO 14)</b></li>
+<li><b>GND</b> -&gt; <b>GND</b></li>
+</ul>
+</li>
+<li>Ensure that the Raspberry Pi is running the serial data logger. You can find it here: <br  />
+ <a href="https://github.com/ChristophKarlHeck/serial-data-logger-phyto-node">serial-data-logger-phyto-node</a></li>
+<li>The microcontroller will continuously send serialized ADC data to the Raspberry Pi, which can decode and store the data for further processing.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md17"></a>
+&lt;strong&gt;Documentation&lt;/strong&gt;</h1>
+<p>Comprehensive documentation for the PhytoNode project is available online. It provides detailed information about each module, including classes, functions, and usage examples.</p>
+<ul>
+<li><b>View Documentation</b>: <br  />
+ <a href="https://christophkarlheck.github.io/phyto-node/">PhytoNode Documentation</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md18"></a>
+&lt;strong&gt;Enable Logging&lt;/strong&gt;</h1>
+<ul>
+<li>nable specific log levels (e.g., LOG_LEVEL_INFO) in <a class="el" href="logger_8h.html" title="Logging utility for debugging and runtime information output.">include/utils/logger.h</a>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md19"></a>
+&lt;strong&gt;Acknowledgments&lt;/strong&gt;</h1>
+<p>We would like to thank the following:</p>
+<ul>
+<li><b><a href="https://os.mbed.com/">Mbed OS</a>:</b> <br  />
+ For providing a powerful real-time operating system that simplifies development on microcontrollers.</li>
+<li><b><a href="https://google.github.io/flatbuffers/">FlatBuffers</a>:</b> <br  />
+ For enabling efficient and compact data serialization for seamless communication.</li>
+<li><b>The Developer Community:</b> <br  />
+ For ongoing support, contributions, and valuable insights that have helped shape this project.</li>
+</ul>
+<p>Your contributions and feedback are highly appreciated! </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

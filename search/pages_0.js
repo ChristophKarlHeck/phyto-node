@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['phyto_20node_644',['Phyto Node',['../index.html',1,'']]]
+  ['_3cstrong_3ephytonode_20project_3c_2fstrong_3e_638',['&lt;strong&gt;PhytoNode Project&lt;/strong&gt;',['../index.html',1,'']]]
 ];

@@ -87,7 +87,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="Conversion_8h__dep__incl.png" border="0" usemap="#ainclude_2utils_2Conversion_8hdep" alt=""/></div>
 <map name="ainclude_2utils_2Conversion_8hdep" id="ainclude_2utils_2Conversion_8hdep">
 <area shape="rect" title=" " alt="" coords="5,5,196,32"/>
-<area shape="rect" href="Conversion_8cpp.html" title=" " alt="" coords="12,80,189,107"/>
+<area shape="rect" href="Conversion_8cpp.html" title="Provides utility functions for data conversion in the PhytoNode project." alt="" coords="12,80,189,107"/>
 </map>
 </div>
 </div>
@@ -150,7 +150,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of floats representing the converted analog voltage values.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This function assumes the input data is properly formatted and scaled according to the ADC's resolution and configuration. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function assumes the input data is properly formatted and scaled according to the ADC's resolution and configuration.</dd></dl>
+<p>Converts raw ADC byte inputs into analog voltage values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte_inputs</td><td>A vector of 3-byte arrays representing raw ADC measurements. </td></tr>
+    <tr><td class="paramname">databits</td><td>The number of bits used for ADC resolution (e.g., 8388608 for 24-bit ADC). </td></tr>
+    <tr><td class="paramname">vref</td><td>The reference voltage of the ADC in volts. </td></tr>
+    <tr><td class="paramname">gain</td><td>The gain applied to the ADC measurements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of converted voltage values in millivolts.</dd></dl>
+<p>This function processes raw ADC data represented as 3-byte arrays, calculates the corresponding analog voltage based on the ADC's resolution, reference voltage, and gain, and returns the values in millivolts. </p>
 
 </div>
 </div>

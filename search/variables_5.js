@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['start_5f_381',['start_',['../structSerialMail_1_1SerialMailBuilder.html#a3765dbcc42013e64b25e0a5a15ef24c0',1,'SerialMail::SerialMailBuilder']]]
+  ['vt_5fch0_377',['VT_CH0',['../SerialMailGenerated_8h.html#aae9b146d0b59ec733165897afdb03082',1,'SerialMailGenerated.h']]],
+  ['vt_5fch1_378',['VT_CH1',['../SerialMailGenerated_8h.html#a6eb4d4ecbbd2883e4bd6b50fe9c9942e',1,'SerialMailGenerated.h']]]
 ];
