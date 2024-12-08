@@ -1,60 +1,126 @@
-# Phyto Node
-MbedTorch Fusion OS: Seamlessly merges Mbed OS with Torch ML models for the P-Nucleo-WB55RG on Arm Cortex M4. Empowering edge computing with efficient ML deployment.
+# **PhytoNode Project**
 
-Tutorial: https://youtu.be/jc_GCxAAO20
+PhytoNode is a modular system for collecting, processing, and transmitting sensor data using an ADC connected to a microcontroller. Built on Mbed OS, it enables real-time operations and communicates seamlessly with a Raspberry Pi for advanced data processing.
 
-## 1. Build ExecuTorch libraries
-> git clone https://github.com/ChristophKarlHeck/phyto-classifier.git
+---
 
-> cd phyto-classifier/utils/scripts
+## **Project Overview**
 
-> ./build_et_libs.sh
+The system comprises the following core components:
+1. **ADC Module**: Interfaces with the AD7124 ADC for high-precision analog-to-digital conversion.
+2. **Inter-Thread Communication**: Manages data flow between threads using Mbed OS's `Mail` objects.
+3. **Serial Communication**: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.
+4. **Utility Functions**: Provides tools for data conversion and system performance monitoring.
 
-> cd ../../
+---
+
+## **Directory Structure**
+
+.
+├── build/                          # Build artifacts
+├── include/                        # Header files for all modules
+│   ├── adc/                        # ADC module headers
+│   ├── interfaces/                 # Interface headers for inter-thread communication
+│   ├── serial_mail_sender/         # Headers for serial communication
+│   └── utils/                      # Utility headers for logging and conversion
+├── libs/                           # External libraries
+│   └── flatbuffers/                # FlatBuffers library
+├── scripts/                        # Configuration and utility scripts
+├── src/                            # Source files for project modules
+│   ├── adc/                        # ADC module implementation
+│   ├── interfaces/                 # ReadingQueue implementation
+│   ├── serial_mail_sender/         # Serial communication logic
+│   ├── utils/                      # Conversion and performance monitoring utilities
+│   └── main.cpp                    # Application entry point
+├── docs/                           # Doxygen-generated documentation
+├── third-party/                    # External dependencies as submodules
+│   ├── flatbuffers/                # FlatBuffers library
+│   └── mbed-os/                    # Mbed OS source
+└── CMakeLists.txt                  # CMake build configuration
 
 
-## 2. Install pyOCD in mbed-os venv
-> source mbed-os/venv/bin/activate
+---
 
-> python3 -m pip install -U pyocd
+## **Key Features**
 
-> pyocd pack --update
+### 1. Modular Design
+- **ADC Module**:
+  - Manages data acquisition from the AD7124 ADC.
+  - Configures channels and performs continuous readings.
+- **Interfaces**:
+  - Implements a `ReadingQueue` for inter-thread communication using a singleton pattern.
+- **Serial Communication**:
+  - Serializes ADC data into FlatBuffers format and transmits it over UART.
+- **Utilities**:
+  - Converts raw ADC data to meaningful voltage values.
+  - Monitors memory and CPU usage for performance optimization.
 
-> pyocd pack --install stm32wb55rg
+### 2. Serialization with FlatBuffers
+- Compact and efficient data representation for reliable communication between the microcontroller and Raspberry Pi.
 
-> deactivate
+### 3. Logging and Debugging
+- Uses configurable logging macros (`INFO`, `TRACE`, etc.) for consistent and readable debug output.
 
-## 3. Convert softmax.pte file to model_pte.h
+### 4. Real-Time Operation
+- Leverages Mbed OS for multi-threading and real-time scheduling.
 
-> cd executorch
+---
 
-> source .executorch/bin/activate
+## **Getting Started**
 
-> export PATH="$(pwd)/third-party/flatbuffers/cmake-out:${PATH}"
+### 1. Clone the Repository
+```bash
+git clone --recurse-submodules https://github.com/ChristophKarlHeck/phyto-node.git
+cd phyto-node
+```
 
-> "$(pwd)/build/install_flatc.sh"
+### 2. Clone the Repository
+- Install the required build tools (e.g., CMake, GCC Arm toolchain).
+- Configure and build
+```bash
+placeholder
+```
 
-> export PATH="$(pwd)/../gcc-arm-none-eabi-10.3-2021.10/bin:${PATH}"
+### 3. FLASH the Microcontroller
+- Use OpenOCD or pyOCD to flash the firmware
+```bash
+placeholder
+```
 
-> hash arm-none-eabi-gcc
+### 4. Run the System
 
-> cd ..
+- Connect the microcontroller to the Raspberry Pi via UART with the following connections:
+  - **Microcontroller TX (PC_1)** -> **Raspberry Pi RX (GPIO 15)**
+  - **Microcontroller RX (PC_0)** -> **Raspberry Pi TX (GPIO 14)**
+  - **GND** -> **GND**
 
-> python3 executorch/examples/arm/executor_runner/pte_to_header.py --pte executorch/softmax.pte --outdir .
+- Ensure that the Raspberry Pi is running the serial data logger. You can find it here:  
+  [serial-data-logger-phyto-node](https://github.com/ChristophKarlHeck/serial-data-logger-phyto-node)
 
-## 4. Connect with serial port
-Open a new terminal. Plug in Nucleo-WB55RG. Install Mbed CLI 2 and use it to find serial port.
-> sudo apt-get install python3-dev
+- The microcontroller will continuously send serialized ADC data to the Raspberry Pi, which can decode and store the data for further processing.
 
-> python3 -m pip install mbed-tools
 
-> mbed-tools detect
+## **Documentation**
 
-Remember serial port. Use minicom to see console output.
+Comprehensive documentation for the PhytoNode project is available online. It provides detailed information about each module, including classes, functions, and usage examples.
 
-> minicom -D /dev/ttyACM0
+- **View Documentation**:  
+  [PhytoNode Documentation](https://christophkarlheck.github.io/phyto-node/)
 
-ctrl a & x to exit
+## **Enable Logging**
+- nable specific log levels (e.g., LOG_LEVEL_INFO) in include/utils/logger.h.
 
-### 5. Build and flash using VS Code
-https://github.com/mbed-ce/mbed-os/wiki/Project-Setup:-VS-Code
+## **Acknowledgments**
+
+We would like to thank the following:
+
+- **[Mbed OS](https://os.mbed.com/):**  
+  For providing a powerful real-time operating system that simplifies development on microcontrollers.
+
+- **[FlatBuffers](https://google.github.io/flatbuffers/):**  
+  For enabling efficient and compact data serialization for seamless communication.
+
+- **The Developer Community:**  
+  For ongoing support, contributions, and valuable insights that have helped shape this project.
+
+Your contributions and feedback are highly appreciated!

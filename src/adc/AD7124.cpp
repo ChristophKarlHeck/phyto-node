@@ -1,10 +1,11 @@
+/**
+ * @file ADC7124.cpp
+ * @brief Implementation of the ADC7124 class for reading voltages.
+ */
 
 #include "adc/AD7124.h"
-#include "interfaces/ReadingQueue.h"
-#include <cstdint>
-#include <cstdio>
-#include <cstring>
 #include "adc/ad7124-defs.h"
+#include "interfaces/ReadingQueue.h"
 #include "utils/logger.h"
 
 
@@ -35,7 +36,7 @@ AD7124::AD7124(int spi_frequency)
  * @brief Resets the AD7124 device to its default state.
  */
 void AD7124::reset(void) {
-    INFO("void AD7124::reset(void)");
+    INFO("Resetting the AD7124 device to its default state.");
     for (int i = 0; i < 9; i++) {
         m_spi.write(0xFF); // Write reset byte to ADC
     }
@@ -46,11 +47,10 @@ void AD7124::reset(void) {
  * @return The status byte read from the ADC.
  */
 char AD7124::status(void) {
-    INFO("char AD7124::status(void)");
-
+    INFO("Reading the status register of the AD7124 device.");
     m_spi.write(AD7124_R | AD7124_STATUS_REG);
     char status = m_spi.write(0x00);
-    TRACE("ADC status = 0x%X, " BYTE_TO_BINARY_PATTERN "\n", status, BYTE_TO_BINARY(status));
+    TRACE("ADC status = 0x%X, " BYTE_TO_BINARY_PATTERN, status, BYTE_TO_BINARY(status));
     return status;
 }
 
@@ -63,7 +63,7 @@ void AD7124::channel_reg(char RW){
     
     // If the operation is read, fetch the channel register values
     if(RW == m_read){
-
+        INFO("Reading the channel register.");
         // Send read command to the channel 1 map register
         m_spi.write(AD7124_R | AD7124_CH1_MAP_REG);
         
@@ -80,7 +80,7 @@ void AD7124::channel_reg(char RW){
 
     } else {
         // If the operation is write, set the channel configurations
-        
+        INFO("Writing to the channel register.");
         // Configure Channel 0 if flag0 is true
         if(m_flag_0 == true){
             m_spi.write(AD7124_CH0_MAP_REG); // Send command for Channel 0 register
@@ -244,6 +244,7 @@ void AD7124::ctrl_reg(char RW) {
  * @param f1 Flag to activate channel 1.
  */
 void AD7124::init(bool f0, bool f1){
+    INFO("Initializing the AD7124 device with channel flags.");
     m_flag_0 = f0;
     m_flag_1 = f1;
 
@@ -301,7 +302,7 @@ void AD7124::send_data_to_main_thread(
     while (!reading_queue.mail_box.empty()) {
         // Wait until mail box is empty
         thread_sleep_for(10);
-        //printf("Wait for the reading queue to become empty.\n");
+        INFO("Wait for the reading queue to become empty.\n");
     }
 
     // Now that we have data in the channels, let's handle mailing
