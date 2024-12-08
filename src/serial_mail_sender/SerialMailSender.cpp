@@ -32,20 +32,15 @@ std::vector<SerialMail::Value> SerialMailSender::convertToSerialMailValues(const
     return raw_input_bytes;
 }
 
-// Serialize and send the SerialMail data
 void SerialMailSender::sendMail(
     std::vector<std::array<uint8_t, 3>> ch0,
     std::vector<std::array<uint8_t, 3>> ch1,
     int node) {
 
     // Prepare the FlatBufferBuilder
-    // FlatBufferBuilder should ideally be re-initialized inside the while loop 
-    // for each iteration, especially if you are processing multiple messages. 
-    // This is because the FlatBufferBuilder does not automatically clear its
-    // internal buffer, and reusing it without clearing can lead to undefined behavior or memory issues.
     flatbuffers::FlatBufferBuilder builder(1024);
 
-    // Create Flatbuffers vector of bytes
+    // Convert data to FlatBuffers format
     std::vector<SerialMail::Value> raw_input_bytes_ch0 = convertToSerialMailValues(ch0);
     std::vector<SerialMail::Value> raw_input_bytes_ch1 = convertToSerialMailValues(ch1);
     auto ch0_flatbuffers = builder.CreateVectorOfStructs(raw_input_bytes_ch0.data(), raw_input_bytes_ch0.size());
@@ -59,15 +54,20 @@ void SerialMailSender::sendMail(
     uint8_t* buf = builder.GetBufferPointer();
     uint32_t size = builder.GetSize();
 
+    // Send a synchronization marker (e.g., 0xAAAA)
+    uint16_t sync_marker = 0xAAAA;
+    m_serial_port.write(reinterpret_cast<const char*>(&sync_marker), sizeof(sync_marker));
+
     // Send the size (4 bytes)
     m_serial_port.write(reinterpret_cast<const char*>(&size), sizeof(size));
 
     // Send the FlatBuffers buffer
     m_serial_port.write(reinterpret_cast<const char*>(buf), size);
-    
+
+    // Log message details
     auto now = Kernel::Clock::now().time_since_epoch();
     auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now).count();
     auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now).count() % 1000;
 
-    printf("Serial Mail sent at: %lld seconds and %lld milliseconds\n", seconds, milliseconds);
+    printf("Serial Mail(size:%lu) sent at: %lld seconds and %lld milliseconds\n", size, seconds, milliseconds);
 }

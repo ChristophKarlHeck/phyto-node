@@ -299,16 +299,31 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
 
             if(data[3] == 0){
                 // data from channel 0
-                std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
-                byte_inputs_channel_0.push_back(new_bytes);
+                if (byte_inputs_channel_0.size() < vector_size) {
+                    // Add new value
+                    std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
+                    byte_inputs_channel_0.push_back(new_bytes);
+                } else {
+                    // Replace the oldest value with the new value (circular buffer approach)
+                    std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
+                    byte_inputs_channel_0.erase(byte_inputs_channel_0.begin()); // Remove the oldest element
+                    byte_inputs_channel_0.push_back(new_bytes); // Add the new value
+                }
             }
 
             data[3] = 1; // to mock sensor 0 reading
 
             if(data[3] == 1){
                 // data from channel 1
-                std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
-                byte_inputs_channel_1.push_back(new_bytes);
+                if(byte_inputs_channel_1.size() < vector_size){
+                    std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
+                    byte_inputs_channel_1.push_back(new_bytes);
+                } else{
+                    std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
+                    byte_inputs_channel_1.erase(byte_inputs_channel_1.begin()); // Remove the oldest element
+                    byte_inputs_channel_1.push_back(new_bytes);
+                }
+
             }
 
             thread_sleep_for(downsampling_rate); // ms
