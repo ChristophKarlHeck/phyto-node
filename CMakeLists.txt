@@ -6,7 +6,7 @@ cmake_policy(VERSION 3.19)
 
 # Enable OPENOCD upload method for NUCLEO_WB55RG
 file(COPY ${CMAKE_SOURCE_DIR}/scripts/config/NUCLEO_WB55RG.cmake
-     DESTINATION ${CMAKE_SOURCE_DIR}/mbed-os/targets/upload_method_cfg)
+     DESTINATION ${CMAKE_SOURCE_DIR}/third-party/mbed-os/targets/upload_method_cfg)
 
 
 # Initialize Mbed OS build system. 
@@ -14,11 +14,11 @@ file(COPY ${CMAKE_SOURCE_DIR}/scripts/config/NUCLEO_WB55RG.cmake
 set(MBED_APP_JSON_PATH ${CMAKE_SOURCE_DIR}/mbed_app.json5)
 # set(CUSTOM_TARGETS_JSON_PATH custom_targets.json) # If you need a custom target, use this line to specify the custom_targets.json
 
-include(mbed-os/tools/cmake/app.cmake) # Load Mbed CE toolchain file and basic build system
+include(third-party/mbed-os/tools/cmake/app.cmake) # Load Mbed CE toolchain file and basic build system
 
 # If you need any custom upload method configuration for your target, do that here
 
-add_subdirectory(mbed-os) # Load Mbed OS build targets.  Must be added before any other subdirectories
+add_subdirectory(third-party/mbed-os) # Load Mbed OS build targets.  Must be added before any other subdirectories
 
 add_subdirectory(third-party/flatbuffers # Flatbuffers for wrapping the serial communication with Rasperry pi
 ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
