@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['databits_0',['DATABITS',['../main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a',1,'main.cpp']]],
-  ['downsampling_5frate_1',['DOWNSAMPLING_RATE',['../main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30',1,'main.cpp']]]
+  ['ad7124_0',['AD7124',['../classAD7124.html',1,'AD7124'],['../classAD7124.html#a00196f3f9954157c1f8e3b9693797dae',1,'AD7124::AD7124()']]],
+  ['ad7124_2ddefs_2eh_1',['AD7124-defs.h',['../AD7124-defs_8h.html',1,'']]],
+  ['ad7124_2ecpp_2',['AD7124.cpp',['../AD7124_8cpp.html',1,'']]]
 ];

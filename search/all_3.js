@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_4',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_5',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['databits_7',['DATABITS',['../main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a',1,'main.cpp']]],
+  ['downsampling_5frate_8',['DOWNSAMPLING_RATE',['../main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30',1,'main.cpp']]]
 ];

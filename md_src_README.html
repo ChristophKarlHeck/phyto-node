@@ -90,20 +90,20 @@ $(document).ready(function(){initNavTree('md_src_README.html',''); initResizable
 Directory Structure</h1>
 <ul>
 <li><b>adc/</b>: ADC module implementation.<ul>
-<li><b>AD7124.cpp</b>: Handles ADC functionality using the AD7124 module, including channel configuration and data acquisition.</li>
+<li><b><a class="el" href="AD7124_8cpp.html" title="Implementation of the ADC7124 class for reading voltages.">AD7124.cpp</a></b>: Handles ADC functionality using the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> module, including channel configuration and data acquisition.</li>
 </ul>
 </li>
 <li><b>interfaces/</b>: Interface for inter-thread communication.<ul>
-<li><b>ReadingQueue.cpp</b>: Implements a thread-safe message queue for ADC data using Mbed OS <code>Mail</code>.</li>
+<li><b><a class="el" href="ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter-thread communication.">ReadingQueue.cpp</a></b>: Implements a thread-safe message queue for ADC data using Mbed OS <code>Mail</code>.</li>
 </ul>
 </li>
 <li><b>serial_mail_sender/</b>: Handles serial communication.<ul>
-<li><b>SerialMailSender.cpp</b>: Serializes ADC data using FlatBuffers and sends it over UART to the Raspberry Pi.</li>
+<li><b><a class="el" href="SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers.">SerialMailSender.cpp</a></b>: Serializes ADC data using FlatBuffers and sends it over UART to the Raspberry Pi.</li>
 </ul>
 </li>
 <li><b>utils/</b>: Utility implementations.<ul>
-<li><b>Conversion.cpp</b>: Converts raw ADC data into analog voltage values.</li>
-<li><b>MbedStatsWrapper.cpp</b>: Monitors system performance, including memory and CPU usage.</li>
+<li><b><a class="el" href="Conversion_8cpp.html" title="Provides utility functions for data conversion in the PhytoNode project.">Conversion.cpp</a></b>: Converts raw ADC data into analog voltage values.</li>
+<li><b><a class="el" href="MbedStatsWrapper_8cpp.html" title="Utility functions to display memory and CPU statistics in Mbed OS.">MbedStatsWrapper.cpp</a></b>: Monitors system performance, including memory and CPU usage.</li>
 </ul>
 </li>
 <li><b><a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a></b>: Application entry point.<ul>
@@ -116,8 +116,8 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md33"></a>
 1. adc</h2>
 <ul>
-<li><b>AD7124.cpp</b>:<ul>
-<li>Implements the interface for the AD7124 Analog-to-Digital Converter (ADC) as a singleton.</li>
+<li><b><a class="el" href="AD7124_8cpp.html" title="Implementation of the ADC7124 class for reading voltages.">AD7124.cpp</a></b>:<ul>
+<li>Implements the interface for the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> Analog-to-Digital Converter (ADC) as a singleton.</li>
 <li>Handles initialization, channel configuration, and data acquisition.</li>
 </ul>
 </li>
@@ -125,7 +125,7 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md34"></a>
 2. interfaces</h2>
 <ul>
-<li><b>ReadingQueue.cpp</b>:<ul>
+<li><b><a class="el" href="ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter-thread communication.">ReadingQueue.cpp</a></b>:<ul>
 <li>Implements a singleton-based message queue for inter-thread communication.</li>
 <li>Uses Mbed OS's <code>Mail</code> object to manage ADC data.</li>
 </ul>
@@ -134,7 +134,7 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md35"></a>
 3. serial_mail_sender</h2>
 <ul>
-<li><b>SerialMailSender.cpp</b>:<ul>
+<li><b><a class="el" href="SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers.">SerialMailSender.cpp</a></b>:<ul>
 <li>Serializes ADC data using FlatBuffers as a singleton.</li>
 <li>Sends data to the Raspberry Pi over UART using a synchronization marker.</li>
 </ul>
@@ -143,11 +143,11 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md36"></a>
 4. utils</h2>
 <ul>
-<li><b>Conversion.cpp</b>:<ul>
+<li><b><a class="el" href="Conversion_8cpp.html" title="Provides utility functions for data conversion in the PhytoNode project.">Conversion.cpp</a></b>:<ul>
 <li>Converts raw ADC data into analog voltage values in millivolts.</li>
 </ul>
 </li>
-<li><b>MbedStatsWrapper.cpp</b>:<ul>
+<li><b><a class="el" href="MbedStatsWrapper_8cpp.html" title="Utility functions to display memory and CPU statistics in Mbed OS.">MbedStatsWrapper.cpp</a></b>:<ul>
 <li>Prints memory usage and CPU statistics to help monitor system performance.</li>
 </ul>
 </li>
@@ -157,7 +157,7 @@ Modules Overview</h1>
 <ul>
 <li>The main entry point of the application.</li>
 <li>Initializes the ADC reading thread.</li>
-<li>Manages data retrieval from the <code>ReadingQueue</code> and transmission using <code>SerialMailSender</code>.</li>
+<li>Manages data retrieval from the <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> and transmission using <code><a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a></code>.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md38"></a>
 Key Features</h1>
@@ -167,7 +167,7 @@ Key Features</h1>
 </ul>
 </li>
 <li><b>Inter-Thread Communication</b>:<ul>
-<li>Data is passed between threads using the <code>ReadingQueue</code>.</li>
+<li>Data is passed between threads using the <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code>.</li>
 </ul>
 </li>
 <li><b>Serialization with FlatBuffers</b>:<ul>

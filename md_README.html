@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('md_README.html',''); initResizable(); 
 Project Overview</h1>
 <p>The system comprises the following core components:</p>
 <ol type="1">
-<li><b><code>ADC Module</code></b>: Interfaces with the AD7124 ADC for high-precision analog-to-digital conversion.</li>
+<li><b><code>ADC Module</code></b>: Interfaces with the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC for high-precision analog-to-digital conversion.</li>
 <li><b><code>Inter-Thread Communication</code></b>: Manages data flow between threads using Mbed OS's <code>Mail</code> objects.</li>
 <li><b><code>Serial Communication</code></b>: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.</li>
 <li><b><code>Utility Functions</code></b>: Provides tools for data conversion and system performance monitoring.</li>
@@ -115,7 +115,7 @@ Directory Structure</h1>
 <li><b><code>scripts/</code></b>: Configuration and utility scripts.</li>
 <li><b><code>src/</code></b>: Source files for project modules.<ul>
 <li><b><code>adc/</code></b>: ADC module implementation.</li>
-<li><b><code>interfaces/</code></b>: ReadingQueue implementation.</li>
+<li><b><code>interfaces/</code></b>: <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> implementation.</li>
 <li><b><code>serial_mail_sender/</code></b>: Serial communication logic.</li>
 <li><b><code>utils/</code></b>: Conversion and performance monitoring utilities.</li>
 <li><b><code><a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a></code></b>: Application entry point.</li>
@@ -136,12 +136,12 @@ Key Features</h1>
 1. Modular Design</h2>
 <ul>
 <li><b>ADC Module</b>:<ul>
-<li>Manages data acquisition from the AD7124 ADC.</li>
+<li>Manages data acquisition from the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC.</li>
 <li>Configures channels and performs continuous readings.</li>
 </ul>
 </li>
 <li><b>Interfaces</b>:<ul>
-<li>Implements a <code>ReadingQueue</code> for inter-thread communication using a singleton pattern.</li>
+<li>Implements a <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> for inter-thread communication using a singleton pattern.</li>
 </ul>
 </li>
 <li><b>Serial Communication</b>:<ul>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['reading_5fdata_5fthread_15',['reading_data_thread',['../main_8cpp.html#ae1b422016f22205e5ebdad115ca37633',1,'main.cpp']]]
+  ['ch0_70',['ch0',['../structReadingQueue_1_1mail__t.html#af154819a55063123bc55ffba3510a2e0',1,'ReadingQueue::mail_t']]],
+  ['ch1_71',['ch1',['../structReadingQueue_1_1mail__t.html#a61ed50ddec8aefd5af7749ff93e79689',1,'ReadingQueue::mail_t']]]
 ];

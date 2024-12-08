@@ -96,18 +96,20 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <code>#include &quot;adc/AD7124.h&quot;</code><br />
 <code>#include &quot;interfaces/ReadingQueue.h&quot;</code><br />
 <code>#include &quot;serial_mail_sender/SerialMailSender.h&quot;</code><br />
-<code>#include &quot;utils/logger.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="logger_8h_source.html">utils/logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
 <map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
-<area shape="rect" title="Entry point for the PhytoNode application." alt="" coords="283,5,388,32"/>
-<area shape="rect" title=" " alt="" coords="5,87,76,114"/>
-<area shape="rect" title=" " alt="" coords="101,87,213,114"/>
-<area shape="rect" title=" " alt="" coords="236,87,435,114"/>
-<area shape="rect" title=" " alt="" coords="459,80,606,121"/>
-<area shape="rect" title=" " alt="" coords="630,87,737,114"/>
+<area shape="rect" title="Entry point for the PhytoNode application." alt="" coords="208,5,314,32"/>
+<area shape="rect" title=" " alt="" coords="136,177,207,203"/>
+<area shape="rect" href="AD7124_8h_source.html" title=" " alt="" coords="26,87,138,114"/>
+<area shape="rect" href="ReadingQueue_8h_source.html" title=" " alt="" coords="162,87,360,114"/>
+<area shape="rect" href="SerialMailSender_8h_source.html" title=" " alt="" coords="385,80,532,121"/>
+<area shape="rect" href="logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="556,87,662,114"/>
+<area shape="rect" href="SerialMailGenerated_8h_source.html" title=" " alt="" coords="373,169,544,211"/>
+<area shape="rect" title=" " alt="" coords="373,259,544,285"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -158,7 +160,7 @@ Thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ma
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Entry point for the PhytoNode application. </p>
-<p>This file initializes the ADC reading thread, retrieves processed data from the ReadingQueue, and sends it over a serial connection.</p>
+<p>This file initializes the ADC reading thread, retrieves processed data from the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>, and sends it over a serial connection.</p>
 <ul>
 <li>Modify the following variables in <code>mbed-os/connectivity/FEATURE_BLE/source/cordio/mbed_lib.json</code>:<ul>
 <li><code>"desired-att-mtu": 250</code></li>
@@ -185,7 +187,7 @@ Thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ma
 </div><div class="memdoc">
 
 <p>Reads data from the ADC and processes it. </p>
-<p>This function runs in the <code>reading_data_thread</code> and continuously reads voltage data from both ADC channels. The processed data is stored in the ReadingQueue for inter-thread communication. </p>
+<p>This function runs in the <code>reading_data_thread</code> and continuously reads voltage data from both ADC channels. The processed data is stored in the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> for inter-thread communication. </p>
 
 </div>
 </div>
@@ -205,7 +207,7 @@ Thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ma
 </div><div class="memdoc">
 
 <p>Main entry point for the PhytoNode application. </p>
-<p>Initializes the ADC reading thread and continuously retrieves processed data from the ReadingQueue. The data is then sent over a serial connection using the SerialMailSender.</p>
+<p>Initializes the ADC reading thread and continuously retrieves processed data from the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>. The data is then sent over a serial connection using the <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 on successful execution. </dd></dl>
 
 </div>

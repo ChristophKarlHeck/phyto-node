@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_6',['NODE',['../main_8cpp.html#a9a2bbc66102de668efe5e9c7feb23eaa',1,'main.cpp']]]
+  ['flatbuffers_5ffinal_5fclass_9',['FLATBUFFERS_FINAL_CLASS',['../structSerialMail_1_1FLATBUFFERS__FINAL__CLASS.html',1,'SerialMail']]]
 ];

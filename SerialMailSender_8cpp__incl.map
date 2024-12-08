@@ -1,0 +1,8 @@
+<map id="src/serial_mail_sender/SerialMailSender.cpp" name="src/serial_mail_sender/SerialMailSender.cpp">
+<area shape="rect" id="node1" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="225,5,393,47"/>
+<area shape="rect" id="node2" href="$SerialMailSender_8h_source.html" title=" " alt="" coords="113,95,259,136"/>
+<area shape="rect" id="node5" title=" " alt="" coords="162,273,333,300"/>
+<area shape="rect" id="node6" href="$logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="346,102,453,129"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,191,76,218"/>
+<area shape="rect" id="node4" href="$SerialMailGenerated_8h_source.html" title=" " alt="" coords="101,184,271,225"/>
+</map>

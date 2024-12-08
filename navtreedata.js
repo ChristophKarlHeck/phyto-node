@@ -70,6 +70,16 @@ var NAVTREE =
       [ "Contribution Guidelines", "md_src_README.html#autotoc_md40", null ],
       [ "Additional Information", "md_src_README.html#autotoc_md41", null ]
     ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -84,7 +94,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_68267d1309a1af8e8297ef4c3efbcdba.html"
+"AD7124-defs_8h.html",
+"MbedStatsWrapper_8cpp.html#a9029aa62752d55d5114bdfd4313686a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

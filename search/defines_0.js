@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['databits_16',['DATABITS',['../main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a',1,'main.cpp']]],
-  ['downsampling_5frate_17',['DOWNSAMPLING_RATE',['../main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30',1,'main.cpp']]]
+  ['baudrate_75',['BAUDRATE',['../SerialMailSender_8cpp.html#a734bbab06e1a9fd2e5522db0221ff6e3',1,'SerialMailSender.cpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spi_5ffrequency_19',['SPI_FREQUENCY',['../main_8cpp.html#a5001016067783b1500a1fd34ca1bfc7f',1,'main.cpp']]]
+  ['loop_5ftime_5fms_78',['LOOP_TIME_MS',['../MbedStatsWrapper_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d',1,'MbedStatsWrapper.cpp']]]
 ];

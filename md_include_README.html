@@ -90,22 +90,22 @@ $(document).ready(function(){initNavTree('md_include_README.html',''); initResiz
 Directory Structure</h1>
 <ul>
 <li><b>adc/</b>: Headers for the ADC module.<ul>
-<li><b>AD7124.h</b>: Declares the interface for interacting with the AD7124 ADC module, including initialization, channel configuration, and data acquisition.</li>
-<li><b>AD7124-defs.h</b>: Contains constants, macros, and register definitions specific to the AD7124 ADC.</li>
+<li><b><a class="el" href="AD7124_8h_source.html">AD7124.h</a></b>: Declares the interface for interacting with the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC module, including initialization, channel configuration, and data acquisition.</li>
+<li><b><a class="el" href="AD7124-defs_8h.html" title="AD7124 header file.">AD7124-defs.h</a></b>: Contains constants, macros, and register definitions specific to the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> ADC.</li>
 </ul>
 </li>
 <li><b>interfaces/</b>: Interface for inter-thread communication.<ul>
-<li><b>ReadingQueue.h</b>: Declares the <code>ReadingQueue</code> class, which manages a thread-safe message queue for ADC data.</li>
+<li><b><a class="el" href="ReadingQueue_8h_source.html">ReadingQueue.h</a></b>: Declares the <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> class, which manages a thread-safe message queue for ADC data.</li>
 </ul>
 </li>
 <li><b>serial_mail_sender/</b>: Headers for serial communication.<ul>
-<li><b>SerialMailSender.h</b>: Declares the <code>SerialMailSender</code> class, which handles data serialization with FlatBuffers and UART communication.</li>
+<li><b><a class="el" href="SerialMailSender_8h_source.html">SerialMailSender.h</a></b>: Declares the <code><a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a></code> class, which handles data serialization with FlatBuffers and UART communication.</li>
 </ul>
 </li>
 <li><b>utils/</b>: Utility headers for various support functions.<ul>
-<li><b>Conversion.h</b>: Declares the <code>get_analog_inputs</code> function for converting raw ADC data into voltage values.</li>
+<li><b><a class="el" href="Conversion_8h_source.html">Conversion.h</a></b>: Declares the <code>get_analog_inputs</code> function for converting raw ADC data into voltage values.</li>
 <li><b>Logger.h</b>: Provides macros (<code>INFO</code>, <code>TRACE</code>, etc.) for consistent and configurable logging.</li>
-<li><b>MbedStatsWrapper.h</b>: Declares functions for monitoring memory and CPU usage.</li>
+<li><b><a class="el" href="MbedStatsWrapper_8h.html" title="Provides utility functions to print Mbed OS system statistics.">MbedStatsWrapper.h</a></b>: Declares functions for monitoring memory and CPU usage.</li>
 </ul>
 </li>
 </ul>
@@ -114,20 +114,20 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md23"></a>
 1. adc</h2>
 <ul>
-<li><b>AD7124.h</b>:<ul>
-<li>Interface for the AD7124 Analog-to-Digital Converter (ADC).</li>
+<li><b><a class="el" href="AD7124_8h_source.html">AD7124.h</a></b>:<ul>
+<li>Interface for the <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> Analog-to-Digital Converter (ADC).</li>
 <li>Provides methods for initialization, channel configuration, and reading voltage data.</li>
 </ul>
 </li>
-<li><b>AD7124-defs.h</b>:<ul>
-<li>Definitions for AD7124 registers, bit masks, and settings.</li>
+<li><b><a class="el" href="AD7124-defs_8h.html" title="AD7124 header file.">AD7124-defs.h</a></b>:<ul>
+<li>Definitions for <a class="el" href="classAD7124.html" title="Singleton class for interfacing with the AD7124 using SPI.">AD7124</a> registers, bit masks, and settings.</li>
 </ul>
 </li>
 </ul>
 <h2><a class="anchor" id="autotoc_md24"></a>
 2. interfaces</h2>
 <ul>
-<li><b>ReadingQueue.h</b>:<ul>
+<li><b><a class="el" href="ReadingQueue_8h_source.html">ReadingQueue.h</a></b>:<ul>
 <li>Singleton class for managing inter-thread communication.</li>
 <li>Uses Mbed OS's <code>Mail</code> object to pass ADC readings between threads.</li>
 </ul>
@@ -136,7 +136,7 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md25"></a>
 3. serial_mail_sender</h2>
 <ul>
-<li><b>SerialMailSender.h</b>:<ul>
+<li><b><a class="el" href="SerialMailSender_8h_source.html">SerialMailSender.h</a></b>:<ul>
 <li>Singleton for serializing ADC data and sending it over a serial connection.</li>
 <li>Handles data formatting and transmission.</li>
 </ul>
@@ -145,7 +145,7 @@ Modules Overview</h1>
 <h2><a class="anchor" id="autotoc_md26"></a>
 4. utils</h2>
 <ul>
-<li><b>Conversion.h</b>:<ul>
+<li><b><a class="el" href="Conversion_8h_source.html">Conversion.h</a></b>:<ul>
 <li>Converts raw ADC data into analog voltage values based on ADC configuration.</li>
 </ul>
 </li>
@@ -154,7 +154,7 @@ Modules Overview</h1>
 <li>Configurable through compile-time definitions.</li>
 </ul>
 </li>
-<li><b>MbedStatsWrapper.h</b>:<ul>
+<li><b><a class="el" href="MbedStatsWrapper_8h.html" title="Provides utility functions to print Mbed OS system statistics.">MbedStatsWrapper.h</a></b>:<ul>
 <li>Utility functions to print memory and CPU statistics using Mbed OS APIs.</li>
 </ul>
 </li>

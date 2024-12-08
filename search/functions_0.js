@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5finput_5fmodel_5fvalues_5ffrom_5fadc_13',['get_input_model_values_from_adc',['../main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2',1,'main.cpp']]]
+  ['ad7124_58',['AD7124',['../classAD7124.html#a00196f3f9954157c1f8e3b9693797dae',1,'AD7124']]]
 ];
