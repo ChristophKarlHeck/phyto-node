@@ -73,67 +73,79 @@ $(function() {
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;mbed.h&quot;</code><br />
+
+<p>Entry point for the PhytoNode application.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;mbed.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="AD7124_8h_source.html">adc/AD7124.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ReadingQueue_8h_source.html">interfaces/ReadingQueue.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SerialMailSender_8h_source.html">serial_mail_sender/SerialMailSender.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Conversion_8h_source.html">utils/Conversion.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="logger_8h_source.html">utils/logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
 <map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="359,5,465,32"/>
-<area shape="rect" title=" " alt="" coords="5,87,67,114"/>
-<area shape="rect" title=" " alt="" coords="91,87,157,114"/>
-<area shape="rect" title=" " alt="" coords="181,87,240,114"/>
-<area shape="rect" title=" " alt="" coords="265,87,327,114"/>
-<area shape="rect" title=" " alt="" coords="602,177,673,203"/>
-<area shape="rect" href="AD7124_8h.html" title=" " alt="" coords="403,87,515,114"/>
-<area shape="rect" href="ReadingQueue_8h.html" title=" " alt="" coords="538,87,737,114"/>
-<area shape="rect" href="SerialMailSender_8h.html" title=" " alt="" coords="924,80,1071,121"/>
-<area shape="rect" href="Conversion_8h.html" title=" " alt="" coords="761,87,900,114"/>
-<area shape="rect" href="logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="1095,87,1201,114"/>
-<area shape="rect" href="SerialMailGenerated_8h.html" title=" " alt="" coords="912,169,1083,211"/>
-<area shape="rect" title=" " alt="" coords="912,259,1083,285"/>
+<area shape="rect" title="Entry point for the PhytoNode application." alt="" coords="208,5,314,32"/>
+<area shape="rect" title=" " alt="" coords="136,177,207,203"/>
+<area shape="rect" href="AD7124_8h.html" title=" " alt="" coords="26,87,138,114"/>
+<area shape="rect" href="ReadingQueue_8h.html" title=" " alt="" coords="162,87,360,114"/>
+<area shape="rect" href="SerialMailSender_8h.html" title=" " alt="" coords="385,80,532,121"/>
+<area shape="rect" href="logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="556,87,662,114"/>
+<area shape="rect" href="SerialMailGenerated_8h.html" title=" " alt="" coords="373,169,544,211"/>
+<area shape="rect" title=" " alt="" coords="373,259,544,285"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a96c54f63b91aaaff7db5229da2028a30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30">DOWNSAMPLING_RATE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a96c54f63b91aaaff7db5229da2028a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downsampling rate for ADC readings in milliseconds.  <a href="main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30">More...</a><br /></td></tr>
 <tr class="separator:a96c54f63b91aaaff7db5229da2028a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a155a9a6160c909e29d95e7c75b79612a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a">DATABITS</a>&#160;&#160;&#160;8388608</td></tr>
+<tr class="memdesc:a155a9a6160c909e29d95e7c75b79612a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion constants for ADC readings.  <a href="main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a">More...</a><br /></td></tr>
 <tr class="separator:a155a9a6160c909e29d95e7c75b79612a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c9e85d22a9ba37ea589b1747af46307"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2c9e85d22a9ba37ea589b1747af46307">VREF</a>&#160;&#160;&#160;2.5</td></tr>
 <tr class="separator:a2c9e85d22a9ba37ea589b1747af46307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c8f27b35dfa40ccf31c1ee31479a31c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8c8f27b35dfa40ccf31c1ee31479a31c">GAIN</a>&#160;&#160;&#160;4.0</td></tr>
 <tr class="separator:a8c8f27b35dfa40ccf31c1ee31479a31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5001016067783b1500a1fd34ca1bfc7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5001016067783b1500a1fd34ca1bfc7f">SPI_FREQUENCY</a>&#160;&#160;&#160;10000000</td></tr>
+<tr class="memdesc:a5001016067783b1500a1fd34ca1bfc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI frequency for ADC communication in Hz.  <a href="main_8cpp.html#a5001016067783b1500a1fd34ca1bfc7f">More...</a><br /></td></tr>
 <tr class="separator:a5001016067783b1500a1fd34ca1bfc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c78836761fa3b5b124efea237dac70f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7c78836761fa3b5b124efea237dac70f">VECTOR_SIZE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a7c78836761fa3b5b124efea237dac70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of values to collect in each channel vector before sending mail.  <a href="main_8cpp.html#a7c78836761fa3b5b124efea237dac70f">More...</a><br /></td></tr>
 <tr class="separator:a7c78836761fa3b5b124efea237dac70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a2bbc66102de668efe5e9c7feb23eaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9a2bbc66102de668efe5e9c7feb23eaa">NODE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a9a2bbc66102de668efe5e9c7feb23eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node identifier for serial communication.  <a href="main_8cpp.html#a9a2bbc66102de668efe5e9c7feb23eaa">More...</a><br /></td></tr>
 <tr class="separator:a9a2bbc66102de668efe5e9c7feb23eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1fdec6782dc49c41f278f43cc64787b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2">get_input_model_values_from_adc</a> (void)</td></tr>
+<tr class="memdesc:a1fdec6782dc49c41f278f43cc64787b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the ADC and processes it.  <a href="main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2">More...</a><br /></td></tr>
 <tr class="separator:a1fdec6782dc49c41f278f43cc64787b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main entry point for the PhytoNode application.  <a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ae1b422016f22205e5ebdad115ca37633"><td class="memItemLeft" align="right" valign="top">Thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae1b422016f22205e5ebdad115ca37633">reading_data_thread</a></td></tr>
+<tr class="memdesc:ae1b422016f22205e5ebdad115ca37633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread for reading data from ADC.  <a href="main_8cpp.html#ae1b422016f22205e5ebdad115ca37633">More...</a><br /></td></tr>
 <tr class="separator:ae1b422016f22205e5ebdad115ca37633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Entry point for the PhytoNode application. </p>
+<p>This file initializes the ADC reading thread, retrieves processed data from the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>, and sends it over a serial connection.</p>
+<ul>
+<li>Modify the following variables in <code>mbed-os/connectivity/FEATURE_BLE/source/cordio/mbed_lib.json</code>:<ul>
+<li><code>"desired-att-mtu": 250</code></li>
+<li><code>"rx-acl-buffer-size": 255</code></li>
+</ul>
+</li>
+<li>Avoid using pins <code>PB_6</code> and <code>PB_7</code>, as they are reserved for <code>CONSOLE_TX</code> and <code>CONSOLE_RX</code>. </li>
+</ul>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a155a9a6160c909e29d95e7c75b79612a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a155a9a6160c909e29d95e7c75b79612a">&#9670;&nbsp;</a></span>DATABITS</h2>
 
@@ -145,6 +157,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Conversion constants for ADC readings. </p>
 
 </div>
 </div>
@@ -159,6 +173,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Downsampling rate for ADC readings in milliseconds. </p>
 
 </div>
 </div>
@@ -188,6 +204,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Node identifier for serial communication. </p>
+
 </div>
 </div>
 <a id="a5001016067783b1500a1fd34ca1bfc7f"></a>
@@ -202,6 +220,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>SPI frequency for ADC communication in Hz. </p>
+
 </div>
 </div>
 <a id="a7c78836761fa3b5b124efea237dac70f"></a>
@@ -215,6 +235,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Number of values to collect in each channel vector before sending mail. </p>
 
 </div>
 </div>
@@ -249,6 +271,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads data from the ADC and processes it. </p>
+<p>This function runs in the <code>reading_data_thread</code> and continuously reads voltage data from both ADC channels. The processed data is stored in the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> for inter-thread communication. </p>
+
 </div>
 </div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
@@ -266,6 +291,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Main entry point for the PhytoNode application. </p>
+<p>Initializes the ADC reading thread and continuously retrieves processed data from the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>. The data is then sent over a serial connection using the <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 on successful execution. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -280,6 +309,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Thread for reading data from ADC. </p>
 
 </div>
 </div>
