@@ -53,7 +53,7 @@ target_link_libraries(PhytoNode PUBLIC
 target_include_directories(PhytoNode
      PUBLIC 
           ${CMAKE_CURRENT_SOURCE_DIR}/include
-          ${CMAKE_CURRENT_SOURCE_DIR}/libs/flatbuffers/include   
+          ${CMAKE_CURRENT_SOURCE_DIR}/third-party/flatbuffers/include   
 )
 
 ###GENRAL####

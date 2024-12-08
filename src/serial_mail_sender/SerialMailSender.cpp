@@ -60,10 +60,6 @@ std::vector<SerialMail::Value> SerialMailSender::convertToSerialMailValues(const
 /**
  * @brief Serializes and sends ADC data using FlatBuffers over UART.
  * 
- * @param ch0 Data from channel 0 as a vector of 3-byte arrays.
- * @param ch1 Data from channel 1 as a vector of 3-byte arrays.
- * @param node Node identifier for the data source.
- * 
  * @details
  * This method prepares the data for transmission using FlatBuffers.
  * It includes a synchronization marker, the size of the FlatBuffer, 

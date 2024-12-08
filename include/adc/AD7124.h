@@ -5,7 +5,7 @@
 
 /**
  * @class AD7124
- * @brief Singleton class for interfacing with the AD7124 ADC using SPI.
+ * @brief Singleton class for interfacing with the AD7124 using SPI.
  *
  * The AD7124 class provides methods for initializing and interacting with the AD7124
  * Analog-to-Digital Converter (ADC) via SPI. It supports configuration of ADC channels,
@@ -28,15 +28,11 @@ public:
 
     /**
      * @brief Initializes the AD7124 ADC with specific channel flags.
-     * @param f0 Flag 0 for ADC configuration.
-     * @param f1 Flag 1 for ADC configuration.
      */
     void init(bool f0, bool f1);
 
     /**
      * @brief Reads voltage data from both ADC channels.
-     * @param downsampling_rate The rate to downsample the ADC readings.
-     * @param vector_size The size of the resulting data vectors.
      */
     void read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int vector_size);
 

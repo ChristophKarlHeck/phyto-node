@@ -1,0 +1,51 @@
+\hypertarget{structReadingQueue_1_1mail__t}{}\doxysection{Reading\+Queue\+::mail\+\_\+t Struct Reference}
+\label{structReadingQueue_1_1mail__t}\index{ReadingQueue::mail\_t@{ReadingQueue::mail\_t}}
+
+
+Structure used for inter-\/thread communication.  
+
+
+
+
+{\ttfamily \#include $<$Reading\+Queue.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::array$<$ uint8\+\_\+t, 3 $>$ $>$ \mbox{\hyperlink{structReadingQueue_1_1mail__t_af154819a55063123bc55ffba3510a2e0}{ch0}}
+\begin{DoxyCompactList}\small\item\em Downsampled ADC values for channel 0. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::array$<$ uint8\+\_\+t, 3 $>$ $>$ \mbox{\hyperlink{structReadingQueue_1_1mail__t_a61ed50ddec8aefd5af7749ff93e79689}{ch1}}
+\begin{DoxyCompactList}\small\item\em Downsampled ADC values for channel 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure used for inter-\/thread communication. 
+
+The {\ttfamily \mbox{\hyperlink{structReadingQueue_1_1mail__t}{mail\+\_\+t}}} structure contains vectors of downsampled ADC readings for multiple channels. Each vector holds 3-\/byte arrays representing the data. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structReadingQueue_1_1mail__t_af154819a55063123bc55ffba3510a2e0}\label{structReadingQueue_1_1mail__t_af154819a55063123bc55ffba3510a2e0}} 
+\index{ReadingQueue::mail\_t@{ReadingQueue::mail\_t}!ch0@{ch0}}
+\index{ch0@{ch0}!ReadingQueue::mail\_t@{ReadingQueue::mail\_t}}
+\doxysubsubsection{\texorpdfstring{ch0}{ch0}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::array$<$uint8\+\_\+t, 3$>$ $>$ Reading\+Queue\+::mail\+\_\+t\+::ch0}
+
+
+
+Downsampled ADC values for channel 0. 
+
+\mbox{\Hypertarget{structReadingQueue_1_1mail__t_a61ed50ddec8aefd5af7749ff93e79689}\label{structReadingQueue_1_1mail__t_a61ed50ddec8aefd5af7749ff93e79689}} 
+\index{ReadingQueue::mail\_t@{ReadingQueue::mail\_t}!ch1@{ch1}}
+\index{ch1@{ch1}!ReadingQueue::mail\_t@{ReadingQueue::mail\_t}}
+\doxysubsubsection{\texorpdfstring{ch1}{ch1}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::array$<$uint8\+\_\+t, 3$>$ $>$ Reading\+Queue\+::mail\+\_\+t\+::ch1}
+
+
+
+Downsampled ADC values for channel 1. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/interfaces/\mbox{\hyperlink{ReadingQueue_8h}{Reading\+Queue.\+h}}\end{DoxyCompactItemize}

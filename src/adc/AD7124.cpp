@@ -1,10 +1,10 @@
 /**
- * @file ADC7124.cpp
+ * @file AD7124.cpp
  * @brief Implementation of the ADC7124 class for reading voltages.
  */
 
 #include "adc/AD7124.h"
-#include "adc/ad7124-defs.h"
+#include "adc/AD7124-defs.h"
 #include "interfaces/ReadingQueue.h"
 #include "utils/logger.h"
 

@@ -40,7 +40,7 @@ The system comprises the following core components:
 
 ---
 
-## **Key Features**
+\section key_features Key Features
 
 ### 1. Modular Design
 - **ADC Module**:

@@ -1,0 +1,59 @@
+\hypertarget{Conversion_8h}{}\doxysection{include/utils/\+Conversion.h File Reference}
+\label{Conversion_8h}\index{include/utils/Conversion.h@{include/utils/Conversion.h}}
+{\ttfamily \#include \char`\"{}mbed.\+h\char`\"{}}\newline
+Include dependency graph for Conversion.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{Conversion_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{Conversion_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{Conversion_8h_a5f74d7e73a494e1ab2540f4b6ca0f1e9}{get\+\_\+analog\+\_\+inputs}} (std\+::vector$<$ std\+::array$<$ uint8\+\_\+t, 3 $>$$>$ byte\+\_\+inputs, int databits, float vref, float gain)
+\begin{DoxyCompactList}\small\item\em Converts raw ADC byte inputs into analog voltage values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Conversion_8h_a5f74d7e73a494e1ab2540f4b6ca0f1e9}\label{Conversion_8h_a5f74d7e73a494e1ab2540f4b6ca0f1e9}} 
+\index{Conversion.h@{Conversion.h}!get\_analog\_inputs@{get\_analog\_inputs}}
+\index{get\_analog\_inputs@{get\_analog\_inputs}!Conversion.h@{Conversion.h}}
+\doxysubsubsection{\texorpdfstring{get\_analog\_inputs()}{get\_analog\_inputs()}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ get\+\_\+analog\+\_\+inputs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::array$<$ uint8\+\_\+t, 3 $>$$>$}]{byte\+\_\+inputs,  }\item[{int}]{databits,  }\item[{float}]{vref,  }\item[{float}]{gain }\end{DoxyParamCaption})}
+
+
+
+Converts raw ADC byte inputs into analog voltage values. 
+
+This function processes raw ADC data and converts it into a vector of corresponding analog voltage values based on the given ADC configuration.
+
+\begin{DoxyNote}{Note}
+This function assumes the input data is properly formatted and scaled according to the ADC\textquotesingle{}s resolution and configuration.
+\end{DoxyNote}
+Converts raw ADC byte inputs into analog voltage values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte\+\_\+inputs} & A vector of 3-\/byte arrays representing raw ADC measurements. \\
+\hline
+{\em databits} & The number of bits used for ADC resolution (e.\+g., 8388608 for 24-\/bit ADC). \\
+\hline
+{\em vref} & The reference voltage of the ADC in volts. \\
+\hline
+{\em gain} & The gain applied to the ADC measurements.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of converted voltage values in millivolts.
+\end{DoxyReturn}
+This function processes raw ADC data represented as 3-\/byte arrays, calculates the corresponding analog voltage based on the ADC\textquotesingle{}s resolution, reference voltage, and gain, and returns the values in millivolts. 
