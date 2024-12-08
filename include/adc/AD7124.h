@@ -2,9 +2,6 @@
 #define AD7124_H_
 
 #include "mbed.h"                // Required for SPI and NonCopyable
-#include <cstdint>               // Required for fixed-width integer types (e.g., uint8_t)
-#include <vector>                // Required for std::vector
-#include <array>                 // Required for std::array
 
 /**
  * @class AD7124

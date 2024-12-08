@@ -2,8 +2,6 @@
 #define READING_QUEUE_H
 
 #include "mbed.h"
-#include <vector>
-#include <array>
 
 /**
  * @class ReadingQueue

@@ -1,8 +1,6 @@
 #ifndef SERIAL_MAIL_SENDER_H
 #define SERIAL_MAIL_SENDER_H
 
-#include <vector>
-#include <array>
 #include "mbed.h"  // Required for BufferedSerial
 #include "serial_mail_sender/SerialMailGenerated.h"  // Required for SerialMail::Value
 

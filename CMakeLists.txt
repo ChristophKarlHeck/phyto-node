@@ -37,6 +37,12 @@ set(SOURCES
 
 add_executable(PhytoNode ${SOURCES})
 
+# Enable logging with the desired log level
+target_compile_definitions(PhytoNode PRIVATE 
+    ENABLE_LOGGING           # Enable logging system
+    LOG_LEVEL_INFO          # Set logging level to INFO
+)
+
 target_link_libraries(PhytoNode PUBLIC
      mbed-os # Can also link to mbed-baremetal here
      # mbed-ble # only needed when BLE is used
