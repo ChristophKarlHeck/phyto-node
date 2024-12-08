@@ -1,7 +1,7 @@
 [submodule "third-party/mbed-os"]
-    path = third-party/mbed-os
-    url = https://github.com/mbed-ce/mbed-os.git
+	path = third-party/mbed-os
+	url = https://github.com/mbed-ce/mbed-os.git
 
 [submodule "third-party/flatbuffers"]
-    path = thirs-party/flatbuffers
-    url = https://github.com/google/flatbuffers.git
+	path = third-party/flatbuffers
+	url = https://github.com/google/flatbuffers.git
