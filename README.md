@@ -1,22 +1,23 @@
-# **PhytoNode Project**
+# PhytoNode Project
 
 PhytoNode is a modular system for collecting, processing, and transmitting sensor data using an ADC connected to a microcontroller. Built on Mbed OS, it enables real-time operations and communicates seamlessly with a Raspberry Pi for advanced data processing.
 
 ---
 
-## **Project Overview**
+## Project Overview
 
 The system comprises the following core components:
-1. **ADC Module**: Interfaces with the AD7124 ADC for high-precision analog-to-digital conversion.
-2. **Inter-Thread Communication**: Manages data flow between threads using Mbed OS's `Mail` objects.
-3. **Serial Communication**: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.
-4. **Utility Functions**: Provides tools for data conversion and system performance monitoring.
+
+1. `ADC Module`: Interfaces with the AD7124 ADC for high-precision analog-to-digital conversion.
+2. `Inter-Thread Communication`: Manages data flow between threads using Mbed OS's `Mail` objects.
+3. `Serial Communication`: Ensures efficient data transfer to a Raspberry Pi using FlatBuffers serialization.
+4. `Utility Functions`: Provides tools for data conversion and system performance monitoring.
 
 ---
 
 ## **Directory Structure**
 
-- **`build/`**: Build artifacts.
+- <b>build/</b>: Build artifacts.
 - **`include/`**: Header files for all modules.
   - **`adc/`**: ADC module headers.
   - **`interfaces/`**: Interface headers for inter-thread communication.
@@ -40,7 +41,7 @@ The system comprises the following core components:
 
 ---
 
-\section key_features Key Features
+## Key Features
 
 ### 1. Modular Design
 - **ADC Module**:

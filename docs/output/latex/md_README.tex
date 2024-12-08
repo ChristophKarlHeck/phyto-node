@@ -1,0 +1,150 @@
+Phyto\+Node is a modular system for collecting, processing, and transmitting sensor data using an ADC connected to a microcontroller. Built on Mbed OS, it enables real-\/time operations and communicates seamlessly with a Raspberry Pi for advanced data processing.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{Project Overview}\label{md_README_autotoc_md2}
+The system comprises the following core components\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily ADC Module}\+: Interfaces with the AD7124 ADC for high-\/precision analog-\/to-\/digital conversion.
+\item {\ttfamily Inter-\/\+Thread Communication}\+: Manages data flow between threads using Mbed OS\textquotesingle{}s {\ttfamily Mail} objects.
+\item {\ttfamily Serial Communication}\+: Ensures efficient data transfer to a Raspberry Pi using Flat\+Buffers serialization.
+\item {\ttfamily Utility Functions}\+: Provides tools for data conversion and system performance monitoring.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{$<$strong$>$\+Directory Structure$<$/strong$>$}\label{md_README_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{build/}}\+: Build artifacts.
+\item $\ast$$\ast${\ttfamily include/}$\ast$$\ast$\+: Header files for all modules.
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily adc/}$\ast$$\ast$\+: ADC module headers.
+\item $\ast$$\ast${\ttfamily interfaces/}$\ast$$\ast$\+: Interface headers for inter-\/thread communication.
+\item $\ast$$\ast${\ttfamily serial\+\_\+mail\+\_\+sender/}$\ast$$\ast$\+: Headers for serial communication.
+\item $\ast$$\ast${\ttfamily utils/}$\ast$$\ast$\+: Utility headers for logging and conversion.
+\end{DoxyItemize}
+\item $\ast$$\ast${\ttfamily libs/}$\ast$$\ast$\+: External libraries.
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily flatbuffers/}$\ast$$\ast$\+: Flat\+Buffers library.
+\end{DoxyItemize}
+\item $\ast$$\ast${\ttfamily scripts/}$\ast$$\ast$\+: Configuration and utility scripts.
+\item $\ast$$\ast${\ttfamily src/}$\ast$$\ast$\+: Source files for project modules.
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily adc/}$\ast$$\ast$\+: ADC module implementation.
+\item $\ast$$\ast${\ttfamily interfaces/}$\ast$$\ast$\+: Reading\+Queue implementation.
+\item $\ast$$\ast${\ttfamily serial\+\_\+mail\+\_\+sender/}$\ast$$\ast$\+: Serial communication logic.
+\item $\ast$$\ast${\ttfamily utils/}$\ast$$\ast$\+: Conversion and performance monitoring utilities.
+\item $\ast$$\ast${\ttfamily main.\+cpp}$\ast$$\ast$\+: Application entry point.
+\end{DoxyItemize}
+\item $\ast$$\ast${\ttfamily docs/}$\ast$$\ast$\+: Doxygen-\/generated documentation.
+\item $\ast$$\ast${\ttfamily third-\/party/}$\ast$$\ast$\+: External dependencies as submodules.
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily flatbuffers/}$\ast$$\ast$\+: Flat\+Buffers library.
+\item $\ast$$\ast${\ttfamily mbed-\/os/}$\ast$$\ast$\+: Mbed OS source.
+\end{DoxyItemize}
+\item $\ast$$\ast${\ttfamily CMake\+Lists.\+txt}$\ast$$\ast$\+: CMake build configuration.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md6}{}\doxysection{Key Features}\label{md_README_autotoc_md6}
+\hypertarget{md_README_autotoc_md7}{}\doxysubsection{1. Modular Design}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{ADC Module}}\+:
+\begin{DoxyItemize}
+\item Manages data acquisition from the AD7124 ADC.
+\item Configures channels and performs continuous readings.
+\end{DoxyItemize}
+\item {\bfseries{Interfaces}}\+:
+\begin{DoxyItemize}
+\item Implements a {\ttfamily Reading\+Queue} for inter-\/thread communication using a singleton pattern.
+\end{DoxyItemize}
+\item {\bfseries{Serial Communication}}\+:
+\begin{DoxyItemize}
+\item Serializes ADC data into Flat\+Buffers format and transmits it over UART.
+\end{DoxyItemize}
+\item {\bfseries{Utilities}}\+:
+\begin{DoxyItemize}
+\item Converts raw ADC data to meaningful voltage values.
+\item Monitors memory and CPU usage for performance optimization.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysubsection{2. Serialization with Flat\+Buffers}\label{md_README_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Compact and efficient data representation for reliable communication between the microcontroller and Raspberry Pi.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md9}{}\doxysubsection{3. Logging and Debugging}\label{md_README_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Uses configurable logging macros ({\ttfamily INFO}, {\ttfamily TRACE}, etc.) for consistent and readable debug output.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md10}{}\doxysubsection{4. Real-\/\+Time Operation}\label{md_README_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Leverages Mbed OS for multi-\/threading and real-\/time scheduling.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md12}{}\doxysection{$<$strong$>$\+Getting Started$<$/strong$>$}\label{md_README_autotoc_md12}
+\hypertarget{md_README_autotoc_md13}{}\doxysubsection{1. Clone the Repository}\label{md_README_autotoc_md13}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone -\/-\/recurse-\/submodules https://github.com/ChristophKarlHeck/phyto-\/node.git}
+\DoxyCodeLine{cd phyto-\/node}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md14}{}\doxysubsection{2. Clone the Repository}\label{md_README_autotoc_md14}
+
+\begin{DoxyItemize}
+\item Install the required build tools (e.\+g., CMake, GCC Arm toolchain).
+\item Configure and build 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{placeholder}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md15}{}\doxysubsection{3. FLASH the Microcontroller}\label{md_README_autotoc_md15}
+
+\begin{DoxyItemize}
+\item Use Open\+OCD or py\+OCD to flash the firmware 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{placeholder}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md16}{}\doxysubsection{4. Run the System}\label{md_README_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Connect the microcontroller to the Raspberry Pi via UART with the following connections\+:
+\begin{DoxyItemize}
+\item {\bfseries{Microcontroller TX (PC\+\_\+1)}} -\/$>$ {\bfseries{Raspberry Pi RX (GPIO 15)}}
+\item {\bfseries{Microcontroller RX (PC\+\_\+0)}} -\/$>$ {\bfseries{Raspberry Pi TX (GPIO 14)}}
+\item {\bfseries{GND}} -\/$>$ {\bfseries{GND}}
+\end{DoxyItemize}
+\item Ensure that the Raspberry Pi is running the serial data logger. You can find it here\+: ~\newline
+ \href{https://github.com/ChristophKarlHeck/serial-data-logger-phyto-node}{\texttt{ serial-\/data-\/logger-\/phyto-\/node}}
+\item The microcontroller will continuously send serialized ADC data to the Raspberry Pi, which can decode and store the data for further processing.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md17}{}\doxysection{$<$strong$>$\+Documentation$<$/strong$>$}\label{md_README_autotoc_md17}
+Comprehensive documentation for the Phyto\+Node project is available online. It provides detailed information about each module, including classes, functions, and usage examples.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{View Documentation}}\+: ~\newline
+ \href{https://christophkarlheck.github.io/phyto-node/}{\texttt{ Phyto\+Node Documentation}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md18}{}\doxysection{$<$strong$>$\+Enable Logging$<$/strong$>$}\label{md_README_autotoc_md18}
+
+\begin{DoxyItemize}
+\item Enable specific log levels (e.\+g., LOG\+\_\+\+LEVEL\+\_\+\+INFO) in {\ttfamily CMake\+Lists.\+txt}.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md19}{}\doxysection{$<$strong$>$\+Acknowledgments$<$/strong$>$}\label{md_README_autotoc_md19}
+We would like to thank the following\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{\href{https://os.mbed.com/}{\texttt{ Mbed OS}}\+:}} ~\newline
+ For providing a powerful real-\/time operating system that simplifies development on microcontrollers.
+\item {\bfseries{\href{https://google.github.io/flatbuffers/}{\texttt{ Flat\+Buffers}}\+:}} ~\newline
+ For enabling efficient and compact data serialization for seamless communication.
+\item {\bfseries{The Developer Community\+:}} ~\newline
+ For ongoing support, contributions, and valuable insights that have helped shape this project.
+\end{DoxyItemize}
+
+Your contributions and feedback are highly appreciated! 
