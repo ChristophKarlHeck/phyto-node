@@ -78,7 +78,36 @@ $(function() {
 <hr  />
 <h1><a class="anchor" id="autotoc_md4"></a>
 &lt;strong&gt;Directory Structure&lt;/strong&gt;</h1>
-<p>├── build/ # Build artifacts ├── include/ # Header files for all modules │ ├── adc/ # ADC module headers │ ├── interfaces/ # Interface headers for inter-thread communication │ ├── serial_mail_sender/ # Headers for serial communication │ └── utils/ # Utility headers for logging and conversion ├── libs/ # External libraries │ └── flatbuffers/ # FlatBuffers library ├── scripts/ # Configuration and utility scripts ├── src/ # Source files for project modules │ ├── adc/ # ADC module implementation │ ├── interfaces/ # <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> implementation │ ├── serial_mail_sender/ # Serial communication logic │ ├── utils/ # Conversion and performance monitoring utilities │ └── <a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a> # Application entry point ├── docs/ # Doxygen-generated documentation ├── third-party/ # External dependencies as submodules │ ├── flatbuffers/ # FlatBuffers library │ └── mbed-os/ # Mbed OS source └── CMakeLists.txt # CMake build configuration</p>
+<ul>
+<li>**<code>build/</code>**: Build artifacts.</li>
+<li>**<code>include/</code>**: Header files for all modules.<ul>
+<li>**<code>adc/</code>**: ADC module headers.</li>
+<li>**<code>interfaces/</code>**: Interface headers for inter-thread communication.</li>
+<li>**<code>serial_mail_sender/</code>**: Headers for serial communication.</li>
+<li>**<code>utils/</code>**: Utility headers for logging and conversion.</li>
+</ul>
+</li>
+<li>**<code>libs/</code>**: External libraries.<ul>
+<li>**<code>flatbuffers/</code>**: FlatBuffers library.</li>
+</ul>
+</li>
+<li>**<code>scripts/</code>**: Configuration and utility scripts.</li>
+<li>**<code>src/</code>**: Source files for project modules.<ul>
+<li>**<code>adc/</code>**: ADC module implementation.</li>
+<li>**<code>interfaces/</code>**: <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a> implementation.</li>
+<li>**<code>serial_mail_sender/</code>**: Serial communication logic.</li>
+<li>**<code>utils/</code>**: Conversion and performance monitoring utilities.</li>
+<li>**<code><a class="el" href="main_8cpp.html" title="Entry point for the PhytoNode application.">main.cpp</a></code>**: Application entry point.</li>
+</ul>
+</li>
+<li>**<code>docs/</code>**: Doxygen-generated documentation.</li>
+<li>**<code>third-party/</code>**: External dependencies as submodules.<ul>
+<li>**<code>flatbuffers/</code>**: FlatBuffers library.</li>
+<li>**<code>mbed-os/</code>**: Mbed OS source.</li>
+</ul>
+</li>
+<li>**<code>CMakeLists.txt</code>**: CMake build configuration.</li>
+</ul>
 <hr  />
 <h1><a class="anchor" id="autotoc_md6"></a>
 &lt;strong&gt;Key Features&lt;/strong&gt;</h1>
@@ -162,7 +191,7 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md18"></a>
 &lt;strong&gt;Enable Logging&lt;/strong&gt;</h1>
 <ul>
-<li>nable specific log levels (e.g., LOG_LEVEL_INFO) in <a class="el" href="logger_8h.html" title="Logging utility for debugging and runtime information output.">include/utils/logger.h</a>.</li>
+<li>Enable specific log levels (e.g., LOG_LEVEL_INFO) in <code>CMakeLists.txt</code>.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md19"></a>
 &lt;strong&gt;Acknowledgments&lt;/strong&gt;</h1>
