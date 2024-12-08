@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Phyto Node: Main Page</title>
+<title>Phyto Node: Phyto Node</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,10 +62,87 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Phyto Node Documentation</div>  </div>
+<div class="title">Phyto Node </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_src_README"></a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a>MbedTorch Fusion OS: Seamlessly merges Mbed OS with Torch ML models for the P-Nucleo-WB55RG on Arm Cortex M4. Empowering edge computing with efficient ML deployment.</p>
+<p>Tutorial: <a href="https://youtu.be/jc_GCxAAO20">https://youtu.be/jc_GCxAAO20</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+1. Build ExecuTorch libraries</h1>
+<blockquote class="doxtable">
+<p>git clone <a href="https://github.com/ChristophKarlHeck/phyto-classifier.git">https://github.com/ChristophKarlHeck/phyto-classifier.git</a> </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>cd phyto-classifier/utils/scripts </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>./build_et_libs.sh </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>cd ../../ </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md2"></a>
+2. Install pyOCD in mbed-os venv</h1>
+<blockquote class="doxtable">
+<p>source mbed-os/venv/bin/activate </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>python3 -m pip install -U pyocd </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>pyocd pack &ndash;update </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>pyocd pack &ndash;install stm32wb55rg </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>deactivate </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md3"></a>
+3. Convert softmax.pte file to model_pte.h</h1>
+<blockquote class="doxtable">
+<p>cd executorch </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>source .executorch/bin/activate </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>export PATH="$(pwd)/third-party/flatbuffers/cmake-out:${PATH}" </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>"$(pwd)/build/install_flatc.sh" </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>export PATH="$(pwd)/../gcc-arm-none-eabi-10.3-2021.10/bin:${PATH}" </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>hash arm-none-eabi-gcc </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>cd .. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>python3 executorch/examples/arm/executor_runner/pte_to_header.py &ndash;pte executorch/softmax.pte &ndash;outdir . </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md4"></a>
+4. Connect with serial port</h1>
+<p>Open a new terminal. Plug in Nucleo-WB55RG. Install Mbed CLI 2 and use it to find serial port. </p><blockquote class="doxtable">
+<p>sudo apt-get install python3-dev </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>python3 -m pip install mbed-tools </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>mbed-tools detect </p>
+</blockquote>
+<p>Remember serial port. Use minicom to see console output.</p>
+<blockquote class="doxtable">
+<p>minicom -D /dev/ttyACM0 </p>
+</blockquote>
+<p>ctrl a &amp; x to exit</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+5. Build and flash using VS Code</h2>
+<p><a href="https://github.com/mbed-ce/mbed-os/wiki/Project-Setup:-VS-Code">https://github.com/mbed-ce/mbed-os/wiki/Project-Setup:-VS-Code</a> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
