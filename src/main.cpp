@@ -59,11 +59,11 @@ int main()
 		// Access the shared ReadingQueue instance
     	ReadingQueue& reading_queue = ReadingQueue::getInstance();
 		
-		osEvent evt = reading_queue.mail_box.get();
-		if (evt.status == osEventMail) {
+		auto mail = reading_queue.mail_box.try_get_for(rtos::Kernel::Clock::duration_u32::max());
+		if (mail) {
 
 		    // Retrieve the message from the mail box
-		    ReadingQueue::mail_t *reading_mail = (ReadingQueue::mail_t *)evt.value.p;
+		    ReadingQueue::mail_t *reading_mail = mail;
 
 			auto ch0_values = reading_mail->ch0;
 			auto ch1_values = reading_mail->ch1;

@@ -4,44 +4,60 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
+#include "adc/ad7124-defs.h"
+#include "utils/logger.h"
 
-// Constructor with initializer list
+
+/**
+ * @brief Gets the singleton instance of the AD7124 class.
+ * @param spi_frequency The SPI clock frequency in Hz.
+ * @return Reference to the singleton instance of the AD7124 class.
+ */
+AD7124& AD7124::getInstance(int spi_frequency) {
+    static AD7124 instance(spi_frequency);
+    return instance;
+}
+
+/**
+ * @brief Constructs an AD7124 object and initializes SPI communication.
+ * @param spi_frequency The SPI clock frequency in Hz.
+ */
 AD7124::AD7124(int spi_frequency)
     : m_spi(PA_7, PA_6, PA_5), m_spi_frequency(spi_frequency),
       m_flag_0(false), m_flag_1(false), m_read(1), m_write(0) {
-    
     INFO("AD7124::AD7124(int spi_frequency)");
 
-    // Set up SPI communication
-    m_spi.format(8, 0);  // 8 bits per frame, SPI Mode 0 (CPOL=0, CPHA=0)
-    m_spi.frequency(m_spi_frequency); // Set the SPI frequency to 1 MHz
-
+    m_spi.format(8, 0);           // 8 bits per frame, SPI Mode 0 (CPOL=0, CPHA=0)
+    m_spi.frequency(m_spi_frequency); // Set the SPI frequency
 }
 
-void AD7124::reset(void){
+/**
+ * @brief Resets the AD7124 device to its default state.
+ */
+void AD7124::reset(void) {
     INFO("void AD7124::reset(void)");
-    
-    // Send 0xFF bytes to reset the ADC's registers to their default state
-    for (int i = 0; i < 9; i++){
-        m_spi.write(0xFF);  // Write reset byte to ADC
+    for (int i = 0; i < 9; i++) {
+        m_spi.write(0xFF); // Write reset byte to ADC
     }
 }
 
-char AD7124::status(void){
+/**
+ * @brief Reads the status register of the AD7124 device.
+ * @return The status byte read from the ADC.
+ */
+char AD7124::status(void) {
     INFO("char AD7124::status(void)");
 
-    // Send read command to the status register of the AD7124
     m_spi.write(AD7124_R | AD7124_STATUS_REG);
-
-    // Read the status register value from the ADC
     char status = m_spi.write(0x00);
-
-    // Log the status value in hexadecimal and binary format for debugging
     TRACE("ADC status = 0x%X, " BYTE_TO_BINARY_PATTERN "\n", status, BYTE_TO_BINARY(status));
-
     return status;
 }
 
+/**
+ * @brief Reads or writes to the channel register of the AD7124.
+ * @param RW Indicates whether the operation is read (1) or write (0).
+ */
 void AD7124::channel_reg(char RW){
     // RW = 1 -> read, else write
     
@@ -101,6 +117,11 @@ void AD7124::channel_reg(char RW){
     }
 }
 
+/**
+ * @brief Configures the specified register of the AD7124.
+ * @param address The address of the register to configure.
+ * @param RW Indicates whether the operation is read (1) or write (0).
+ */
 void AD7124::config_reg(uint8_t address ,char RW){
     // RW = 1 -> read, else write
       
@@ -132,6 +153,11 @@ void AD7124::config_reg(uint8_t address ,char RW){
     }
 }
 
+/**
+ * @brief Reads or writes to the filter register of the AD7124.
+ * @param filt The address of the filter register to configure.
+ * @param RW Indicates whether the operation is read (1) or write (0).
+ */
 void AD7124::filter_reg(uint8_t filt, char RW){
     // RW = 1 -> read, else write
 
@@ -159,6 +185,10 @@ void AD7124::filter_reg(uint8_t filt, char RW){
     }
 }
 
+/**
+ * @brief Reads or writes to the control register of the AD7124.
+ * @param RW Indicates whether the operation is read (1) or write (0).
+ */
 void AD7124::ctrl_reg(char RW) {
 
     // Check if the operation is to read the control register
@@ -208,7 +238,11 @@ void AD7124::ctrl_reg(char RW) {
 }
 
 
-
+/**
+ * @brief Initializes the AD7124 device and activates specified channels.
+ * @param f0 Flag to activate channel 0.
+ * @param f1 Flag to activate channel 1.
+ */
 void AD7124::init(bool f0, bool f1){
     m_flag_0 = f0;
     m_flag_1 = f1;
@@ -252,10 +286,14 @@ void AD7124::init(bool f0, bool f1){
     //AD7124::calibrate(1,0,0,0);
 }
 
+/**
+ * @brief Sends ADC data to the main thread for further processing.
+ * @param byte_inputs_channel_0 Data from channel 0.
+ * @param byte_inputs_channel_1 Data from channel 1.
+ */
 void AD7124::send_data_to_main_thread(
     std::vector<std::array<uint8_t,3>> byte_inputs_channel_0,
-    std::vector<std::array<uint8_t,3>> byte_inputs_channel_1,
-    unsigned int model_input_size)
+    std::vector<std::array<uint8_t,3>> byte_inputs_channel_1)
 {
     // Access the shared queue
     ReadingQueue& reading_queue = ReadingQueue::getInstance();
@@ -273,13 +311,18 @@ void AD7124::send_data_to_main_thread(
         mail->ch0 = byte_inputs_channel_0;
         byte_inputs_channel_0.clear();
         mail->ch1 = byte_inputs_channel_1;
-        byte_inputs_channel_0.clear();
+        byte_inputs_channel_1.clear();
         reading_queue.mail_box.put(mail);
 
     }
 
 }
 
+/**
+ * @brief Reads voltage data from both ADC channels with downsampling.
+ * @param downsampling_rate The rate to downsample ADC readings (in ms).
+ * @param vector_size The size of the resulting data vectors.
+ */
 void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, unsigned int vector_size){
 
     while (true){
@@ -329,7 +372,7 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
             thread_sleep_for(downsampling_rate); // ms
         }
 
-        send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1, vector_size);
+        send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1);
 
     }
 }
