@@ -1,45 +1,45 @@
 # Source Directory
 
-The `src` directory contains the implementation files for various modules of the **PhytoNode Project**. These files define the functionality of the system, including ADC data acquisition, inter-thread communication, serial communication, and utility functions.
+The <b>src</b> directory contains the implementation files for various modules of the PhytoNode Project. These files define the functionality of the system, including ADC data acquisition, inter-thread communication, serial communication, and utility functions.
 
 ## Directory Structure
 
-- **`adc/`**: ADC module implementation.
-  - **`AD7124.cpp`**: Handles ADC functionality using the AD7124 module, including channel configuration and data acquisition.
-- **`interfaces/`**: Interface for inter-thread communication.
-  - **`ReadingQueue.cpp`**: Implements a thread-safe message queue for ADC data using Mbed OS `Mail`.
-- **`serial_mail_sender/`**: Handles serial communication.
-  - **`SerialMailSender.cpp`**: Serializes ADC data using FlatBuffers and sends it over UART to the Raspberry Pi.
-- **`utils/`**: Utility implementations.
-  - **`Conversion.cpp`**: Converts raw ADC data into analog voltage values.
-  - **`MbedStatsWrapper.cpp`**: Monitors system performance, including memory and CPU usage.
-- **`main.cpp`**: Application entry point.
+- <b>adc/</b>: ADC module implementation.
+  - <b>AD7124.cpp</b>: Handles ADC functionality using the AD7124 module, including channel configuration and data acquisition.
+- <b>interfaces/</b>: Interface for inter-thread communication.
+  - <b>ReadingQueue.cpp</b>: Implements a thread-safe message queue for ADC data using Mbed OS `Mail`.
+- <b>serial_mail_sender/</b>: Handles serial communication.
+  - <b>SerialMailSender.cpp</b>: Serializes ADC data using FlatBuffers and sends it over UART to the Raspberry Pi.
+- <b>utils/</b>: Utility implementations.
+  - <b>Conversion.cpp</b>: Converts raw ADC data into analog voltage values.
+  - <b>MbedStatsWrapper.cpp</b>: Monitors system performance, including memory and CPU usage.
+- <b>main.cpp</b>: Application entry point.
   - Initializes the ADC reading thread and manages communication with the Raspberry Pi.
 
 ## Modules Overview
 
-### 1. `adc`
-- **`AD7124.cpp`**:
-  - Implements the interface for the AD7124 Analog-to-Digital Converter (ADC) as singleton.
+### 1. adc
+- <b>AD7124.cpp</b>:
+  - Implements the interface for the AD7124 Analog-to-Digital Converter (ADC) as a singleton.
   - Handles initialization, channel configuration, and data acquisition.
 
-### 2. `interfaces`
-- **`ReadingQueue.cpp`**:
+### 2. interfaces
+- <b>ReadingQueue.cpp</b>:
   - Implements a singleton-based message queue for inter-thread communication.
   - Uses Mbed OS's `Mail` object to manage ADC data.
 
-### 3. `serial_mail_sender`
-- **`SerialMailSender.cpp`**:
-  - Serializes ADC data using FlatBuffers as Singleton.
+### 3. serial_mail_sender
+- <b>SerialMailSender.cpp</b>:
+  - Serializes ADC data using FlatBuffers as a singleton.
   - Sends data to the Raspberry Pi over UART using a synchronization marker.
 
-### 4. `utils`
-- **`Conversion.cpp`**:
+### 4. utils
+- <b>Conversion.cpp</b>:
   - Converts raw ADC data into analog voltage values in millivolts.
-- **`MbedStatsWrapper.cpp`**:
+- <b>MbedStatsWrapper.cpp</b>:
   - Prints memory usage and CPU statistics to help monitor system performance.
 
-### 5. `main.cpp`
+### 5. main.cpp
 - The main entry point of the application.
 - Initializes the ADC reading thread.
 - Manages data retrieval from the `ReadingQueue` and transmission using `SerialMailSender`.
@@ -62,7 +62,7 @@ The `src` directory contains the implementation files for various modules of the
 
 1. **Compile the Code**:
    - Use the CMake build system configured for the PhytoNode project.
-   - The `main.cpp` file acts as the entry point.
+   - The <b>main.cpp</b> file acts as the entry point.
 
 2. **Extend Functionality**:
    - Add new `.cpp` files under the relevant module directories.
@@ -86,5 +86,3 @@ The `src` directory contains the implementation files for various modules of the
 
 - For detailed module documentation, refer to the [Doxygen documentation](../docs/README.md).
 - The application is designed for the NUCLEO_WB55RG development board with Mbed OS.
-
----
