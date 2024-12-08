@@ -17,7 +17,7 @@ The system comprises the following core components:
 
 ## **Directory Structure**
 
-- <b>build/</b>: Build artifacts.
+- <b>`build/`</b>: Build artifacts.
 - **`include/`**: Header files for all modules.
   - **`adc/`**: ADC module headers.
   - **`interfaces/`**: Interface headers for inter-thread communication.
