@@ -1,6 +1,3 @@
 .vscode
 build
-flatbuffers
-libs
-mbed-os
 docs/output/html
