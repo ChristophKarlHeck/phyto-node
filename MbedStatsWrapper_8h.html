@@ -66,27 +66,73 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">MbedStatsWrapper.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility functions to print Mbed OS system statistics.  
+<a href="#details">More...</a></p>
+
 <p><a href="MbedStatsWrapper_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacembed__lib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html">mbed_lib</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab3bcf8c0340ccc24a96e38ffb0fd2b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#ab3bcf8c0340ccc24a96e38ffb0fd2b40">mbed_lib::print_memory_usage</a> ()</td></tr>
-<tr class="separator:ab3bcf8c0340ccc24a96e38ffb0fd2b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670f470c578cc696032d9cc28a13918a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembed__lib.html#a670f470c578cc696032d9cc28a13918a">mbed_lib::print_cpu_stats</a> ()</td></tr>
-<tr class="separator:a670f470c578cc696032d9cc28a13918a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af534de48ff7a22924644e4e2eb4ba00a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8h.html#af534de48ff7a22924644e4e2eb4ba00a">print_memory_usage</a> ()</td></tr>
+<tr class="memdesc:af534de48ff7a22924644e4e2eb4ba00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current memory usage statistics.  <a href="MbedStatsWrapper_8h.html#af534de48ff7a22924644e4e2eb4ba00a">More...</a><br /></td></tr>
+<tr class="separator:af534de48ff7a22924644e4e2eb4ba00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24ef55bcb90642393fdfe49e97561ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MbedStatsWrapper_8h.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a> ()</td></tr>
+<tr class="memdesc:ac24ef55bcb90642393fdfe49e97561ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current CPU usage statistics.  <a href="MbedStatsWrapper_8h.html#ac24ef55bcb90642393fdfe49e97561ad">More...</a><br /></td></tr>
+<tr class="separator:ac24ef55bcb90642393fdfe49e97561ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions to print Mbed OS system statistics. </p>
+<p>This header declares functions for printing memory usage and CPU statistics of the system. These utilities are helpful for debugging and performance monitoring. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac24ef55bcb90642393fdfe49e97561ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac24ef55bcb90642393fdfe49e97561ad">&#9670;&nbsp;</a></span>print_cpu_stats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_cpu_stats </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current CPU usage statistics. </p>
+<p>This function retrieves and displays details about the CPU usage, including idle time percentage, thread activity, and other CPU metrics.</p>
+<p>Example output: </p><div class="fragment"><div class="line">CPU idle: 75%, Active threads: 4</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="af534de48ff7a22924644e4e2eb4ba00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af534de48ff7a22924644e4e2eb4ba00a">&#9670;&nbsp;</a></span>print_memory_usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_memory_usage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current memory usage statistics. </p>
+<p>This function retrieves and displays memory usage details, including heap and stack usage, to help monitor and debug memory-related issues.</p>
+<p>Example output: </p><div class="fragment"><div class="line">Heap size: 1024 bytes, Used: 512 bytes, Free: 512 bytes</div>
+<div class="line">Stack size: 2048 bytes, Used: 1024 bytes, Free: 1024 bytes</div>
+</div><!-- fragment --> 
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
