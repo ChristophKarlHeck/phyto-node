@@ -16,27 +16,26 @@ The system comprises the following core components:
 
 ## **Directory Structure**
 
-.
-├── build/                          # Build artifacts
-├── include/                        # Header files for all modules
-│   ├── adc/                        # ADC module headers
-│   ├── interfaces/                 # Interface headers for inter-thread communication
-│   ├── serial_mail_sender/         # Headers for serial communication
-│   └── utils/                      # Utility headers for logging and conversion
-├── libs/                           # External libraries
-│   └── flatbuffers/                # FlatBuffers library
-├── scripts/                        # Configuration and utility scripts
-├── src/                            # Source files for project modules
-│   ├── adc/                        # ADC module implementation
-│   ├── interfaces/                 # ReadingQueue implementation
-│   ├── serial_mail_sender/         # Serial communication logic
-│   ├── utils/                      # Conversion and performance monitoring utilities
-│   └── main.cpp                    # Application entry point
-├── docs/                           # Doxygen-generated documentation
-├── third-party/                    # External dependencies as submodules
-│   ├── flatbuffers/                # FlatBuffers library
-│   └── mbed-os/                    # Mbed OS source
-└── CMakeLists.txt                  # CMake build configuration
+- **`build/`**: Build artifacts.
+- **`include/`**: Header files for all modules.
+  - **`adc/`**: ADC module headers.
+  - **`interfaces/`**: Interface headers for inter-thread communication.
+  - **`serial_mail_sender/`**: Headers for serial communication.
+  - **`utils/`**: Utility headers for logging and conversion.
+- **`libs/`**: External libraries.
+  - **`flatbuffers/`**: FlatBuffers library.
+- **`scripts/`**: Configuration and utility scripts.
+- **`src/`**: Source files for project modules.
+  - **`adc/`**: ADC module implementation.
+  - **`interfaces/`**: ReadingQueue implementation.
+  - **`serial_mail_sender/`**: Serial communication logic.
+  - **`utils/`**: Conversion and performance monitoring utilities.
+  - **`main.cpp`**: Application entry point.
+- **`docs/`**: Doxygen-generated documentation.
+- **`third-party/`**: External dependencies as submodules.
+  - **`flatbuffers/`**: FlatBuffers library.
+  - **`mbed-os/`**: Mbed OS source.
+- **`CMakeLists.txt`**: CMake build configuration.
 
 
 ---
@@ -108,7 +107,7 @@ Comprehensive documentation for the PhytoNode project is available online. It pr
   [PhytoNode Documentation](https://christophkarlheck.github.io/phyto-node/)
 
 ## **Enable Logging**
-- nable specific log levels (e.g., LOG_LEVEL_INFO) in include/utils/logger.h.
+- Enable specific log levels (e.g., LOG_LEVEL_INFO) in `CMakeLists.txt`.
 
 ## **Acknowledgments**
 
