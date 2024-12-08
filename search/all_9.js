@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mail_5fbox_265',['mail_box',['../classReadingQueue.html#ae0d4c57998b67df1323981506e274700',1,'ReadingQueue']]],
+  ['mail_5fbox_265',['mail_box',['../classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f',1,'ReadingQueue']]],
   ['mail_5ft_266',['mail_t',['../structReadingQueue_1_1mail__t.html',1,'ReadingQueue']]],
   ['main_267',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
   ['main_2ecpp_268',['main.cpp',['../main_8cpp.html',1,'']]],

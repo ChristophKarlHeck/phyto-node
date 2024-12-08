@@ -74,47 +74,40 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span> <span class="comment">// needed for BufferedSerial</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SerialMailGenerated_8h.html">serial_mail_sender/SerialMailGenerated.h</a>&quot;</span> <span class="comment">// needed vor SerialMail::Value</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSerialMailSender.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSerialMailSender.html">SerialMailSender</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// Get the single instance of SerialMailSender</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp; <a class="code" href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">getInstance</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Delete copy constructor and assignment operator to enforce singleton</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">   16</a></span>&#160;    <a class="code" href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">SerialMailSender</a>(<span class="keyword">const</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">   17</a></span>&#160;    <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp; <a class="code" href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">operator=</a>(<span class="keyword">const</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Method to serialize and send SerialMail data</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">sendMail</a>(</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt; ch0,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt; ch1,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">int</span> node</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Private constructor</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classSerialMailSender.html">SerialMailSender</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Private destructor</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="classSerialMailSender.html">SerialMailSender</a>(<span class="keywordtype">void</span>) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Static BufferedSerial instance</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> BufferedSerial m_serial_port;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Function to convert inputs to SerialMail::Value array</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::vector&lt;SerialMail::Value&gt; convertToSerialMailValues(<span class="keyword">const</span> std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt;&amp; inputs);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SERIAL_MAIL_SENDER_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span>  <span class="comment">// Required for BufferedSerial</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SerialMailGenerated_8h.html">serial_mail_sender/SerialMailGenerated.h</a>&quot;</span>  <span class="comment">// Required for SerialMail::Value</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSerialMailSender.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSerialMailSender.html">SerialMailSender</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp; <a class="code" href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">getInstance</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">   26</a></span>&#160;    <a class="code" href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">SerialMailSender</a>(<span class="keyword">const</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">   29</a></span>&#160;    <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp; <a class="code" href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">operator=</a>(<span class="keyword">const</span> <a class="code" href="classSerialMailSender.html">SerialMailSender</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">sendMail</a>(</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt; ch0,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt; ch1,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> node</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classSerialMailSender.html">SerialMailSender</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ~<a class="code" href="classSerialMailSender.html">SerialMailSender</a>(<span class="keywordtype">void</span>) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> BufferedSerial m_serial_port;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::vector&lt;SerialMail::Value&gt; convertToSerialMailValues(<span class="keyword">const</span> std::vector&lt;std::array&lt;uint8_t, 3&gt;&gt;&amp; inputs);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SERIAL_MAIL_SENDER_H</span></div>
 <div class="ttc" id="aSerialMailGenerated_8h_html"><div class="ttname"><a href="SerialMailGenerated_8h.html">SerialMailGenerated.h</a></div></div>
-<div class="ttc" id="aclassSerialMailSender_html"><div class="ttname"><a href="classSerialMailSender.html">SerialMailSender</a></div><div class="ttdef"><b>Definition:</b> SerialMailSender.h:10</div></div>
-<div class="ttc" id="aclassSerialMailSender_html_a06b40a2ebd55157a561d9823bad1a5d0"><div class="ttname"><a href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">SerialMailSender::getInstance</a></div><div class="ttdeci">static SerialMailSender &amp; getInstance(void)</div><div class="ttdef"><b>Definition:</b> SerialMailSender.cpp:12</div></div>
-<div class="ttc" id="aclassSerialMailSender_html_ab9117d028d11814a498a775f68729880"><div class="ttname"><a href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">SerialMailSender::sendMail</a></div><div class="ttdeci">void sendMail(std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch0, std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch1, int node)</div><div class="ttdef"><b>Definition:</b> SerialMailSender.cpp:35</div></div>
-<div class="ttc" id="aclassSerialMailSender_html_ac759a7f7a15d4c5ec0360f514e7f0b2d"><div class="ttname"><a href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">SerialMailSender::SerialMailSender</a></div><div class="ttdeci">SerialMailSender(const SerialMailSender &amp;)=delete</div></div>
-<div class="ttc" id="aclassSerialMailSender_html_afb0a7606638910afa31fdbc3ed255abe"><div class="ttname"><a href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">SerialMailSender::operator=</a></div><div class="ttdeci">SerialMailSender &amp; operator=(const SerialMailSender &amp;)=delete</div></div>
+<div class="ttc" id="aclassSerialMailSender_html"><div class="ttname"><a href="classSerialMailSender.html">SerialMailSender</a></div><div class="ttdoc">Singleton class responsible for serializing and sending mail data over a serial port.</div><div class="ttdef"><b>Definition:</b> SerialMailSender.h:17</div></div>
+<div class="ttc" id="aclassSerialMailSender_html_a06b40a2ebd55157a561d9823bad1a5d0"><div class="ttname"><a href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">SerialMailSender::getInstance</a></div><div class="ttdeci">static SerialMailSender &amp; getInstance(void)</div><div class="ttdoc">Gets the singleton instance of the SerialMailSender.</div><div class="ttdef"><b>Definition:</b> SerialMailSender.cpp:12</div></div>
+<div class="ttc" id="aclassSerialMailSender_html_ab9117d028d11814a498a775f68729880"><div class="ttname"><a href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">SerialMailSender::sendMail</a></div><div class="ttdeci">void sendMail(std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch0, std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch1, int node)</div><div class="ttdoc">Serializes and sends mail data over the serial connection.</div><div class="ttdef"><b>Definition:</b> SerialMailSender.cpp:35</div></div>
+<div class="ttc" id="aclassSerialMailSender_html_ac759a7f7a15d4c5ec0360f514e7f0b2d"><div class="ttname"><a href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">SerialMailSender::SerialMailSender</a></div><div class="ttdeci">SerialMailSender(const SerialMailSender &amp;)=delete</div><div class="ttdoc">Deleted copy constructor to enforce the singleton pattern.</div></div>
+<div class="ttc" id="aclassSerialMailSender_html_afb0a7606638910afa31fdbc3ed255abe"><div class="ttname"><a href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">SerialMailSender::operator=</a></div><div class="ttdeci">SerialMailSender &amp; operator=(const SerialMailSender &amp;)=delete</div><div class="ttdoc">Deleted copy assignment operator to enforce the singleton pattern.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

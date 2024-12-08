@@ -71,24 +71,33 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Singleton class for managing inter-thread communication using a mailbox.  
+ <a href="classReadingQueue.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ReadingQueue_8h_source.html">ReadingQueue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structReadingQueue_1_1mail__t.html">mail_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used for inter-thread communication.  <a href="structReadingQueue_1_1mail__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af0cc99c28c70cae8aef2cd3dfb8dd052"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classReadingQueue.html">ReadingQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReadingQueue.html#af0cc99c28c70cae8aef2cd3dfb8dd052">getInstance</a> ()</td></tr>
+<tr class="memdesc:af0cc99c28c70cae8aef2cd3dfb8dd052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>.  <a href="classReadingQueue.html#af0cc99c28c70cae8aef2cd3dfb8dd052">More...</a><br /></td></tr>
 <tr class="separator:af0cc99c28c70cae8aef2cd3dfb8dd052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae0d4c57998b67df1323981506e274700"><td class="memItemLeft" align="right" valign="top">Mail&lt; <a class="el" href="structReadingQueue_1_1mail__t.html">mail_t</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReadingQueue.html#ae0d4c57998b67df1323981506e274700">mail_box</a></td></tr>
-<tr class="separator:ae0d4c57998b67df1323981506e274700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb0464d671d96ba50a57a9a32f5970f"><td class="memItemLeft" align="right" valign="top">Mail&lt; <a class="el" href="structReadingQueue_1_1mail__t.html">mail_t</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f">mail_box</a></td></tr>
+<tr class="memdesc:adbb0464d671d96ba50a57a9a32f5970f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue for inter-thread communication (size 4).  <a href="classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f">More...</a><br /></td></tr>
+<tr class="separator:adbb0464d671d96ba50a57a9a32f5970f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Singleton class for managing inter-thread communication using a mailbox. </p>
+<p>The <code><a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a></code> class provides a thread-safe mechanism for inter-thread communication using an Mbed OS Mailbox. It stores and manages messages containing ADC readings for multiple channels. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af0cc99c28c70cae8aef2cd3dfb8dd052"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0cc99c28c70cae8aef2cd3dfb8dd052">&#9670;&nbsp;</a></span>getInstance()</h2>
 
@@ -112,20 +121,27 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets the singleton instance of the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance of the <a class="el" href="classReadingQueue.html" title="Singleton class for managing inter-thread communication using a mailbox.">ReadingQueue</a>. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae0d4c57998b67df1323981506e274700"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0d4c57998b67df1323981506e274700">&#9670;&nbsp;</a></span>mail_box</h2>
+<a id="adbb0464d671d96ba50a57a9a32f5970f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb0464d671d96ba50a57a9a32f5970f">&#9670;&nbsp;</a></span>mail_box</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Mail&lt;<a class="el" href="structReadingQueue_1_1mail__t.html">mail_t</a>, 4&gt; ReadingQueue::mail_box</td>
+          <td class="memname">ReadingQueue::mail_box</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Queue for inter-thread communication (size 4). </p>
+<p>Mailbox for storing inter-thread messages.</p>
+<p>The mailbox can hold up to 4 messages by default. It uses the <code><a class="el" href="structReadingQueue_1_1mail__t.html" title="Structure used for inter-thread communication.">mail_t</a></code> structure to store data passed between threads. </p>
 
 </div>
 </div>

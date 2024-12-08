@@ -73,16 +73,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Structure used for inter-thread communication.  
+ <a href="structReadingQueue_1_1mail__t.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ReadingQueue_8h_source.html">ReadingQueue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af154819a55063123bc55ffba3510a2e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::array&lt; uint8_t, 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structReadingQueue_1_1mail__t.html#af154819a55063123bc55ffba3510a2e0">ch0</a></td></tr>
+<tr class="memdesc:af154819a55063123bc55ffba3510a2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downsampled ADC values for channel 0.  <a href="structReadingQueue_1_1mail__t.html#af154819a55063123bc55ffba3510a2e0">More...</a><br /></td></tr>
 <tr class="separator:af154819a55063123bc55ffba3510a2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ed50ddec8aefd5af7749ff93e79689"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::array&lt; uint8_t, 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structReadingQueue_1_1mail__t.html#a61ed50ddec8aefd5af7749ff93e79689">ch1</a></td></tr>
+<tr class="memdesc:a61ed50ddec8aefd5af7749ff93e79689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downsampled ADC values for channel 1.  <a href="structReadingQueue_1_1mail__t.html#a61ed50ddec8aefd5af7749ff93e79689">More...</a><br /></td></tr>
 <tr class="separator:a61ed50ddec8aefd5af7749ff93e79689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure used for inter-thread communication. </p>
+<p>The <code><a class="el" href="structReadingQueue_1_1mail__t.html" title="Structure used for inter-thread communication.">mail_t</a></code> structure contains vectors of downsampled ADC readings for multiple channels. Each vector holds 3-byte arrays representing the data. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="af154819a55063123bc55ffba3510a2e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af154819a55063123bc55ffba3510a2e0">&#9670;&nbsp;</a></span>ch0</h2>
 
@@ -94,6 +102,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Downsampled ADC values for channel 0. </p>
 
 </div>
 </div>
@@ -108,6 +118,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Downsampled ADC values for channel 1. </p>
 
 </div>
 </div>

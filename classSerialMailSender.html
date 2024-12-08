@@ -70,23 +70,33 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Singleton class responsible for serializing and sending mail data over a serial port.  
+ <a href="classSerialMailSender.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="SerialMailSender_8h_source.html">SerialMailSender.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac759a7f7a15d4c5ec0360f514e7f0b2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">SerialMailSender</a> (const <a class="el" href="classSerialMailSender.html">SerialMailSender</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ac759a7f7a15d4c5ec0360f514e7f0b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor to enforce the singleton pattern.  <a href="classSerialMailSender.html#ac759a7f7a15d4c5ec0360f514e7f0b2d">More...</a><br /></td></tr>
 <tr class="separator:ac759a7f7a15d4c5ec0360f514e7f0b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0a7606638910afa31fdbc3ed255abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSerialMailSender.html">SerialMailSender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">operator=</a> (const <a class="el" href="classSerialMailSender.html">SerialMailSender</a> &amp;)=delete</td></tr>
+<tr class="memdesc:afb0a7606638910afa31fdbc3ed255abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator to enforce the singleton pattern.  <a href="classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe">More...</a><br /></td></tr>
 <tr class="separator:afb0a7606638910afa31fdbc3ed255abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9117d028d11814a498a775f68729880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">sendMail</a> (std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch0, std::vector&lt; std::array&lt; uint8_t, 3 &gt;&gt; ch1, int node)</td></tr>
+<tr class="memdesc:ab9117d028d11814a498a775f68729880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes and sends mail data over the serial connection.  <a href="classSerialMailSender.html#ab9117d028d11814a498a775f68729880">More...</a><br /></td></tr>
 <tr class="separator:ab9117d028d11814a498a775f68729880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a06b40a2ebd55157a561d9823bad1a5d0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSerialMailSender.html">SerialMailSender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">getInstance</a> (void)</td></tr>
+<tr class="memdesc:a06b40a2ebd55157a561d9823bad1a5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of the <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>.  <a href="classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0">More...</a><br /></td></tr>
 <tr class="separator:a06b40a2ebd55157a561d9823bad1a5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Singleton class responsible for serializing and sending mail data over a serial port. </p>
+<p>The <code><a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a></code> class provides functionality to serialize ADC readings and transmit them over a serial connection. It ensures efficient and thread-safe communication using a singleton design pattern. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac759a7f7a15d4c5ec0360f514e7f0b2d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac759a7f7a15d4c5ec0360f514e7f0b2d">&#9670;&nbsp;</a></span>SerialMailSender()</h2>
 
@@ -110,6 +120,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Deleted copy constructor to enforce the singleton pattern. </p>
 
 </div>
 </div>
@@ -138,6 +150,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets the singleton instance of the <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance of <a class="el" href="classSerialMailSender.html" title="Singleton class responsible for serializing and sending mail data over a serial port.">SerialMailSender</a>. </dd></dl>
+
 </div>
 </div>
 <a id="afb0a7606638910afa31fdbc3ed255abe"></a>
@@ -163,6 +178,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Deleted copy assignment operator to enforce the singleton pattern. </p>
 
 </div>
 </div>
@@ -197,6 +214,16 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Serializes and sends mail data over the serial connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ch0</td><td>Downsampled ADC readings for channel 0. </td></tr>
+    <tr><td class="paramname">ch1</td><td>Downsampled ADC readings for channel 1. </td></tr>
+    <tr><td class="paramname">node</td><td>Identifier for the data source node. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
