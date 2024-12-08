@@ -2,21 +2,19 @@
 
 The `include` directory contains header files for the various modules of the **PhytoNode Project**. These headers define the public interfaces and utilities used throughout the project.
 
-## Directory Structure
+## **Directory Structure**
 
-include/
-├── adc/
-│   └── AD7124.h
-│   └── AD7124-defs.h
-├── interfaces/
-│   └── ReadingQueue.h
-├── serial_mail_sender/
-│   └── SerialMailSender.h
-├── utils/
-│   └── Conversion.h
-│   └── Logger.h
-│   └── MbedStatsWrapper.h
-
+- **`adc/`**: Headers for the ADC module.
+  - **`AD7124.h`**: Declares the interface for interacting with the AD7124 ADC module, including initialization, channel configuration, and data acquisition.
+  - **`AD7124-defs.h`**: Contains constants, macros, and register definitions specific to the AD7124 ADC.
+- **`interfaces/`**: Interface for inter-thread communication.
+  - **`ReadingQueue.h`**: Declares the `ReadingQueue` class, which manages a thread-safe message queue for ADC data.
+- **`serial_mail_sender/`**: Headers for serial communication.
+  - **`SerialMailSender.h`**: Declares the `SerialMailSender` class, which handles data serialization with FlatBuffers and UART communication.
+- **`utils/`**: Utility headers for various support functions.
+  - **`Conversion.h`**: Declares the `get_analog_inputs` function for converting raw ADC data into voltage values.
+  - **`Logger.h`**: Provides macros (`INFO`, `TRACE`, etc.) for consistent and configurable logging.
+  - **`MbedStatsWrapper.h`**: Declares functions for monitoring memory and CPU usage.
 
 ## Modules Overview
 
