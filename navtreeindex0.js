@@ -243,11 +243,11 @@ var NAVTREEINDEX0 =
 "AD7124-defs_8h.html#affdca12f45ae0db4dc0c129889c38380":[4,0,0,0,0,63],
 "AD7124-defs_8h_source.html":[4,0,0,0,0],
 "AD7124_8cpp.html":[4,0,1,0,0],
+"AD7124_8cpp.html#a49f88ea1046906e606b8970bbed0e1c4":[4,0,1,0,0,0],
+"AD7124_8cpp.html#a9ffb67fe47cae03fd9dafaf4cb6a4c04":[4,0,1,0,0,1],
 "AD7124_8h_source.html":[4,0,0,0,1],
 "Conversion_8cpp.html":[4,0,1,3,0],
 "Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9":[4,0,1,3,0,0],
 "Conversion_8h_source.html":[4,0,0,3,0],
-"MbedStatsWrapper_8cpp.html":[4,0,1,3,1],
-"MbedStatsWrapper_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d":[4,0,1,3,1,0],
-"MbedStatsWrapper_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e":[4,0,1,3,1,2]
+"MbedStatsWrapper_8cpp.html":[4,0,1,3,1]
 };
