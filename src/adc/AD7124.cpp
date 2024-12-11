@@ -7,7 +7,11 @@
 #include "adc/AD7124-defs.h"
 #include "interfaces/ReadingQueue.h"
 #include "utils/logger.h"
+#include "utils/utils.h"
+#include "utils/Conversion.h"
 
+DigitalOut cs(PA_4); // PA_4 Nucleo , PB_2 Dongle
+DigitalIn drdy(PA_6);
 
 /**
  * @brief Gets the singleton instance of the AD7124 class.
@@ -28,7 +32,7 @@ AD7124::AD7124(int spi_frequency)
       m_flag_0(false), m_flag_1(false), m_read(1), m_write(0) {
     INFO("AD7124::AD7124(int spi_frequency)");
 
-    m_spi.format(8, 0);           // 8 bits per frame, SPI Mode 0 (CPOL=0, CPHA=0)
+    m_spi.format(8, 3);           // 8 bits per frame, SPI Mode 0 (CPOL=0, CPHA=0)
     m_spi.frequency(m_spi_frequency); // Set the SPI frequency
 }
 
@@ -247,7 +251,9 @@ void AD7124::init(bool f0, bool f1){
     INFO("Initializing the AD7124 device with channel flags.");
     m_flag_0 = f0;
     m_flag_1 = f1;
+    cs=0;
 
+    status();
     reset();
     status();
 
@@ -333,14 +339,26 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
         // While the vector's size is less than 4, append 3-byte arrays
         while ((byte_inputs_channel_0.size() < vector_size) || (byte_inputs_channel_1.size() < vector_size)){
             
+            while(drdy==0){
+                wait_us(1);
+            }
+            while(drdy==1){
+                wait_us(1);
+            }
+
             uint8_t data[4] = {0, 0, 0, 255};
             for(int j = 0; j < 4; j++){
                 // Sends 0x00 and simultaneously receives a byte from the SPI slave device.
                 data[j] = m_spi.write(0x00);
             }
             
-            data[3] = 0; // to mock sensor 0 reading
-
+            //data[3] = 0; // to mock sensor 0 reading
+            
+            std::array<uint8_t, 3> new_bytes = {data[0], data[1], data[2]};
+            std::vector<std::array<uint8_t, 3>>  inputs;
+            inputs.push_back(new_bytes);
+            get_analog_inputs(inputs, 8388608, 2.5, 4.0);
+            printf("data %d,%d;%d;%d\n", data[0],data[1],data[2],data[3]);
             if(data[3] == 0){
                 // data from channel 0
                 if (byte_inputs_channel_0.size() < vector_size) {
@@ -355,7 +373,7 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
                 }
             }
 
-            data[3] = 1; // to mock sensor 0 reading
+            //data[3] = 1; // to mock sensor 0 reading
 
             if(data[3] == 1){
                 // data from channel 1
