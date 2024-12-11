@@ -11,7 +11,7 @@
 #include "utils/Conversion.h"
 
 DigitalOut cs(PA_4); // PA_4 Nucleo , PB_2 Dongle
-DigitalIn drdy(PA_6);
+DigitalIn drdy(PA_6); // data ready bit
 
 /**
  * @brief Gets the singleton instance of the AD7124 class.
@@ -253,7 +253,6 @@ void AD7124::init(bool f0, bool f1){
     m_flag_1 = f1;
     cs=0;
 
-    status();
     reset();
     status();
 
