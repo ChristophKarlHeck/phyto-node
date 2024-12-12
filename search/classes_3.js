@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readingqueue_46',['ReadingQueue',['../classReadingQueue.html',1,'']]]
+  ['readingqueue_44',['ReadingQueue',['../classReadingQueue.html',1,'']]]
 ];

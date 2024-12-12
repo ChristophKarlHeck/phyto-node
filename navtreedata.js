@@ -95,7 +95,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AD7124-defs_8h.html",
-"MbedStatsWrapper_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d"
+"MbedStatsWrapper_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

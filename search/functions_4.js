@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_64',['operator=',['../classAD7124.html#ac94edbc384ec1e235362da7587e67693',1,'AD7124::operator=()'],['../classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe',1,'SerialMailSender::operator=()']]]
+  ['read_5fvoltage_5ffrom_5fboth_5fchannels_62',['read_voltage_from_both_channels',['../classAD7124.html#aba9604141394112cd788eaca70787026',1,'AD7124']]]
 ];
