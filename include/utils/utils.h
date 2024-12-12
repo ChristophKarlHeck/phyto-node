@@ -1,10 +1,14 @@
-#define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c%c%c"
-#define BYTE_TO_BINARY(byte)  \
-  ((byte) & 0x80 ? '1' : '0'), \
-  ((byte) & 0x40 ? '1' : '0'), \
-  ((byte) & 0x20 ? '1' : '0'), \
-  ((byte) & 0x10 ? '1' : '0'), \
-  ((byte) & 0x08 ? '1' : '0'), \
-  ((byte) & 0x04 ? '1' : '0'), \
-  ((byte) & 0x02 ? '1' : '0'), \
-  ((byte) & 0x01 ? '1' : '0')
+#ifndef UTILS_H_
+#define UTILS_H_
+
+#include <string>
+#include <cstdint> // For uint8_t
+
+/**
+ * @brief Converts a byte to its binary representation as a string.
+ * @param byte The byte to convert.
+ * @return A string representing the binary format of the byte.
+ */
+std::string byte_to_binary(uint8_t byte);
+
+#endif // UTILS_H_

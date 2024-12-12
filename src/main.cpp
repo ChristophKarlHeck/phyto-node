@@ -20,13 +20,10 @@
 #include "interfaces/ReadingQueue.h"
 #include "serial_mail_sender/SerialMailSender.h"
 
-// *** Utility Headers ***
-#include "utils/logger.h"
-
 // *** DEFINE GLOBAL CONSTANTS ***
 
 /// Downsampling rate for ADC readings in milliseconds.
-#define DOWNSAMPLING_RATE 10 // ms
+#define DOWNSAMPLING_RATE 1000 // ms
 
 /// Conversion constants for ADC readings.
 #define DATABITS 8388608
@@ -40,7 +37,7 @@
 #define VECTOR_SIZE 1
 
 /// Node identifier for serial communication.
-#define NODE 1
+#define NODE 3
 
 /// Thread for reading data from ADC.
 Thread reading_data_thread;
@@ -54,7 +51,6 @@ Thread reading_data_thread;
  */
 void get_input_model_values_from_adc(void) {
     AD7124& adc = AD7124::getInstance(SPI_FREQUENCY);
-    adc.init(true, true); // Activate both channels
     adc.read_voltage_from_both_channels(DOWNSAMPLING_RATE, VECTOR_SIZE);
 }
 
@@ -70,6 +66,7 @@ void get_input_model_values_from_adc(void) {
 int main() {	
     // Start reading data from ADC thread
     reading_data_thread.start(callback(get_input_model_values_from_adc));
+
 
     while (true) {
         // Access the shared ReadingQueue instance

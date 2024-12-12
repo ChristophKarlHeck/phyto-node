@@ -32,6 +32,7 @@ set(SOURCES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/interfaces/ReadingQueue.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Conversion.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/MbedStatsWrapper.cpp
+     ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/utils.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/serial_mail_sender/SerialMailSender.cpp
 )
 

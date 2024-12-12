@@ -18,7 +18,7 @@
  * - RX -> GPIO 14 (TX)
  * - GND -> GND
  */
-BufferedSerial SerialMailSender::m_serial_port(PC_1, PC_0, BAUDRATE);
+BufferedSerial SerialMailSender::m_serial_port(/*PC_1*/USBTX,/*PC_0*/USBRX, BAUDRATE);
 
 /**
  * @brief Access the singleton instance of SerialMailSender.
