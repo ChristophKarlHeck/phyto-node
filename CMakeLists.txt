@@ -40,7 +40,7 @@ add_executable(PhytoNode ${SOURCES})
 
 # Enable logging with the desired log level
 target_compile_definitions(PhytoNode PRIVATE 
-    ENABLE_LOGGING           # Enable logging system
+    DISABLE_LOGGING           # Enable logging system
     LOG_LEVEL_TRACE          # Set logging level to INFO
 )
 

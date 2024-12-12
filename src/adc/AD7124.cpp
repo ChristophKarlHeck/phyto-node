@@ -97,13 +97,11 @@ char AD7124::status(){
 void AD7124::config_reg(uint8_t address ,char RW){
     /* read/ write the configuration register */
     
-    char config_reg[2] = {0};
     if(RW == m_read){
         m_spi.write(AD7124_R | address);
         TRACE("ADC conf = ");
         for (int i = 0; i<=1; i++){
-            config_reg[i] = m_spi.write(0x00);
-            TRACE("%s", byte_to_binary(config_reg[i]).c_str());
+            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
         }
         TRACE("\n");
     }
@@ -121,14 +119,12 @@ void AD7124::config_reg(uint8_t address ,char RW){
 
 void AD7124::ctrl_reg(char RW){
     /* read/write the control register */
-    char contr_reg[2] = {0};
 
     if(RW == m_read){
         m_spi.write(AD7124_R | AD7124_ADC_CTRL_REG);
         TRACE("ADC contr_reg =");
         for (int i = 0; i<=1; i++){
-            contr_reg[i] = m_spi.write(0x00);
-            TRACE("%s", byte_to_binary(contr_reg[i]).c_str());
+            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
         }
         TRACE("\n");
     } else {
@@ -150,14 +146,12 @@ void AD7124::ctrl_reg(char RW){
  */
 void AD7124::channel_reg(char RW){
     //RW=1 -> read else write
-    char channel_reg[2] = {0};
 
     if(RW == m_read){
         m_spi.write(AD7124_R | AD7124_CH1_MAP_REG);
         TRACE("Channel register =");
         for (int i = 0; i<=1; i++){
-            channel_reg[i] = m_spi.write(0x00);
-            TRACE("%s", byte_to_binary(channel_reg[i]).c_str());
+            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
         }
         TRACE("\n");
 
@@ -195,14 +189,12 @@ void AD7124::channel_reg(char RW){
 
 void AD7124::filter_reg(uint8_t filt, char RW){
     //default FS: 384, Post filter = 011
-    char filter_reg[3] = {0};
 
     if(RW == m_read){
         m_spi.write(AD7124_R | filt);
         TRACE("Filter register =");
         for (int i = 0; i<=2; i++){
-            filter_reg[i] = m_spi.write(0x00);
-            TRACE("%s", byte_to_binary(filter_reg[i]).c_str());
+            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
         }
         TRACE("\n");
     }
@@ -231,7 +223,7 @@ void AD7124::send_data_to_main_thread(
 
     while (!reading_queue.mail_box.empty()) {
         // Wait until mail box is empty
-        thread_sleep_for(10);
+        thread_sleep_for(1);
         INFO("Wait for the reading queue to become empty.\n");
     }
 
