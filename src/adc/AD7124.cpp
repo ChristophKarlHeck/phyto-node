@@ -303,7 +303,7 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
                     byte_inputs_channel_1.push_back(new_bytes);
                 }
             }
-            thread_sleep_for(downsampling_rate); // ms
+            thread_sleep_for(1); // ms
         }
 
         send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1);

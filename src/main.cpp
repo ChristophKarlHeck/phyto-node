@@ -23,7 +23,7 @@
 // *** DEFINE GLOBAL CONSTANTS ***
 
 /// Downsampling rate for ADC readings in milliseconds.
-#define DOWNSAMPLING_RATE 1000 // ms
+#define DOWNSAMPLING_RATE 1 // ms
 
 /// Conversion constants for ADC readings.
 #define DATABITS 8388608
