@@ -6,117 +6,6 @@
 #include "interfaces/ReadingQueue.h"
 
 
-/**
- * @brief Constructs an AD7124 object and initializes SPI communication.
- * @param spi_frequency The SPI clock frequency in Hz.
- */
-AD7124::AD7124(int spi_frequency):
-    m_spi(PA_7, PA_6, PA_5), m_drdy(PA_6), m_cs(PA_4), m_sync(PA_1),
-    m_spi_frequency(spi_frequency), m_flag_0(false), m_flag_1(false),
-    m_read(1), m_write(0){
-
-    INFO("AD7124::AD7124(int spi_frequency)");
-
-    m_spi.format(8, 3);           
-    m_spi.frequency(m_spi_frequency);
-
-    init(true,true);
-}
-
-/**
- * @brief Gets the singleton instance of the AD7124 class.
- * @param spi_frequency The SPI clock frequency in Hz.
- * @return Reference to the singleton instance of the AD7124 class.
- */
-AD7124& AD7124::getInstance(int spi_frequency) {
-    static AD7124 instance(spi_frequency);
-    return instance;
-}
-
-void AD7124::init(bool f0, bool f1){
-
-    m_flag_0 = f0;
-    m_flag_1 = f1;
-    m_sync = 1;
-    m_cs=0;
-
-    AD7124::reset();
-    AD7124::status();
-
-    AD7124::channel_reg(m_read); //activate 2 channels
-    AD7124::channel_reg(m_write); //activate 2 channels
-    AD7124::channel_reg(m_read); //activate 2 channels
-
-//flags for if you want to have channel 0, or 1, or both active
-    if(m_flag_0 == true){
-        //config reg 0
-        AD7124::config_reg(AD7124_CFG0_REG, m_read);   // read  configuration register
-        AD7124::config_reg(AD7124_CFG0_REG, m_write);  // write configuration register
-        AD7124::config_reg(AD7124_CFG0_REG, m_read);   // proof writing by reading again
-        //filter reg 0
-        AD7124::filter_reg(AD7124_FILT0_REG, m_read);  // same with filter register
-        AD7124::filter_reg(AD7124_FILT0_REG, m_write);
-        AD7124::filter_reg(AD7124_FILT0_REG, m_read);
-    }
-
-    if(m_flag_1 == true){
-        //config reg 1
-        //AD7124::config_reg(AD7124_CFG1_REG, read);
-        AD7124::config_reg(AD7124_CFG1_REG, m_write);
-        AD7124::config_reg(AD7124_CFG1_REG, m_read);
-        //filter reg 1
-        //AD7124::filter_reg(AD7124_FILT1_REG, read);
-        AD7124::filter_reg(AD7124_FILT1_REG, m_write);
-        AD7124::filter_reg(AD7124_FILT1_REG, m_read);
-    }
-    //xAD7124::calibrate(1,1,0,0);
-
-    AD7124::ctrl_reg(m_read);     // same with control register
-    AD7124::ctrl_reg(m_write);
-    AD7124::ctrl_reg(m_read);
-    //AD7124::calibrate(1,0,0,0);
-}
-
-void AD7124::reset(){
-    /* reset the ADC */
-    INFO("Reset ADC\n");
-    for (int i = 0; i<=8; i++){
-        m_spi.write(0xFF);
-    }
-}
-
-char AD7124::status(){
-    /* read the status register */
-    m_spi.write(AD7124_R | AD7124_STATUS_REG);
-    char status = m_spi.write(0x00); 
-    TRACE("ADC status = 0x%X, %s\n", status, byte_to_binary(status).c_str());
-    return status;
-}
-
-
-void AD7124::config_reg(uint8_t address ,char RW){
-    /* read/ write the configuration register */
-    
-    if(RW == m_read){
-        m_spi.write(AD7124_R | address);
-        TRACE("ADC conf = ");
-        for (int i = 0; i<=1; i++){
-            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
-        }
-        TRACE("\n");
-    }
-    else{
-        m_spi.write(address);
-        char my_config[]={(AD7124_CFG_REG_BIPOLAR ) >>8 ,
-                          AD7124_CFG_REG_AIN_BUFP | AD7124_CFG_REG_AINN_BUFM | AD7124_CFG_REG_REF_SEL(2) |AD7124_CFG_REG_PGA(2)};
-        //original 0x08, 0x71
-        for (int i = 0; i<=1; i++){
-            m_spi.write(my_config[i]);
-        } 
-    }
-}
-
-
 void AD7124::ctrl_reg(char RW){
     /* read/write the control register */
 
@@ -124,7 +13,8 @@ void AD7124::ctrl_reg(char RW){
         m_spi.write(AD7124_R | AD7124_ADC_CTRL_REG);
         TRACE("ADC contr_reg =");
         for (int i = 0; i<=1; i++){
-            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
+            int byte = m_spi.write(0x00);
+            TRACE("%s", byte_to_binary(byte).c_str());
         }
         TRACE("\n");
     } else {
@@ -146,12 +36,12 @@ void AD7124::ctrl_reg(char RW){
  */
 void AD7124::channel_reg(char RW){
     //RW=1 -> read else write
-
     if(RW == m_read){
         m_spi.write(AD7124_R | AD7124_CH1_MAP_REG);
         TRACE("Channel register =");
         for (int i = 0; i<=1; i++){
-            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
+            int byte = m_spi.write(0x00);
+            TRACE("%s", byte_to_binary(byte).c_str());
         }
         TRACE("\n");
 
@@ -185,16 +75,14 @@ void AD7124::channel_reg(char RW){
     }
 }
 
-
-
 void AD7124::filter_reg(uint8_t filt, char RW){
     //default FS: 384, Post filter = 011
-
     if(RW == m_read){
         m_spi.write(AD7124_R | filt);
         TRACE("Filter register =");
         for (int i = 0; i<=2; i++){
-            TRACE("%s", byte_to_binary(m_spi.write(0x00)).c_str());
+            int byte = m_spi.write(0x00);
+            TRACE("%s", byte_to_binary(byte).c_str());
         }
         TRACE("\n");
     }
@@ -208,6 +96,112 @@ void AD7124::filter_reg(uint8_t filt, char RW){
         }
     }
 }
+void AD7124::config_reg(uint8_t address ,char RW){
+    /* read/ write the configuration register */
+    if(RW == m_read){
+        m_spi.write(AD7124_R | address);
+        TRACE("ADC conf = ");
+        for (int i = 0; i<=1; i++){
+            int byte = m_spi.write(0x00);
+            TRACE("%s", byte_to_binary(byte).c_str());
+        }
+        TRACE("\n");
+    }
+    else{
+        m_spi.write(address);
+        char my_config[]={(AD7124_CFG_REG_BIPOLAR ) >>8 ,
+                          AD7124_CFG_REG_AIN_BUFP | AD7124_CFG_REG_AINN_BUFM | AD7124_CFG_REG_REF_SEL(2) |AD7124_CFG_REG_PGA(2)};
+        //original 0x08, 0x71
+        for (int i = 0; i<=1; i++){
+            m_spi.write(my_config[i]);
+        } 
+    }
+}
+
+void AD7124::reset(){
+    /* reset the ADC */
+    //INFO("Reset ADC\n");
+    for (int i = 0; i< 8; i++){
+        m_spi.write(0xFF);
+    }
+}
+
+char AD7124::status(){
+    /* read the status register */
+    m_spi.write(AD7124_R | AD7124_STATUS_REG);
+    char status = m_spi.write(0x00); 
+    TRACE("ADC status = 0x%X, %s\n", status, byte_to_binary(status).c_str());
+    return status;
+}
+
+void AD7124::init(bool f0, bool f1){
+    m_flag_0 = f0;
+    m_flag_1 = f1;
+    m_sync = 1;
+    m_cs=0;
+
+    reset();
+    status();
+
+    channel_reg(m_read); //activate 2 channels
+    channel_reg(m_write); //activate 2 channels
+    channel_reg(m_read); //activate 2 channels
+
+//flags for if you want to have channel 0, or 1, or both active
+    if(m_flag_0 == true){
+        //config reg 0
+        config_reg(AD7124_CFG0_REG, m_read);   // read  configuration register
+        config_reg(AD7124_CFG0_REG, m_write);  // write configuration register
+        config_reg(AD7124_CFG0_REG, m_read);   // proof writing by reading again
+        //filter reg 0
+        filter_reg(AD7124_FILT0_REG, m_read);  // same with filter register
+        filter_reg(AD7124_FILT0_REG, m_write);
+        filter_reg(AD7124_FILT0_REG, m_read);
+    }
+
+    if(m_flag_1 == true){
+        //config reg 1
+        //AD7124::config_reg(AD7124_CFG1_REG, read);
+        config_reg(AD7124_CFG1_REG, m_write);
+        config_reg(AD7124_CFG1_REG, m_read);
+        //filter reg 1
+        //AD7124::filter_reg(AD7124_FILT1_REG, read);
+        filter_reg(AD7124_FILT1_REG, m_write);
+        filter_reg(AD7124_FILT1_REG, m_read);
+    }
+    //xAD7124::calibrate(1,1,0,0);
+
+    ctrl_reg(m_read);     // same with control register
+    ctrl_reg(m_write);
+    ctrl_reg(m_read);
+    //AD7124::calibrate(1,0,0,0);
+}
+
+/**
+ * @brief Constructs an AD7124 object and initializes SPI communication.
+ * @param spi_frequency The SPI clock frequency in Hz.
+ */
+AD7124::AD7124(int spi_frequency):
+    m_spi(PA_7, PA_6, PA_5), m_drdy(PA_6), m_cs(PA_4), m_sync(PA_1),
+    m_spi_frequency(spi_frequency), m_flag_0(false), m_flag_1(false),
+    m_read(1), m_write(0){
+
+    m_spi.format(8, 3);           
+    m_spi.frequency(m_spi_frequency);
+
+    init(true,true);
+}
+
+/**
+ * @brief Gets the singleton instance of the AD7124 class.
+ * @param spi_frequency The SPI clock frequency in Hz.
+ * @return Reference to the singleton instance of the AD7124 class.
+ */
+AD7124& AD7124::getInstance(int spi_frequency) {
+    static AD7124 instance(spi_frequency);
+    return instance;
+}
+
 
 /**
  * @brief Sends ADC data to the main thread for further processing.
