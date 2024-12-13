@@ -34,7 +34,7 @@
 #define SPI_FREQUENCY 10000000 // 10 MHz
 
 /// Number of values to collect in each channel vector before sending mail.
-#define VECTOR_SIZE 1
+#define VECTOR_SIZE 100
 
 /// Node identifier for serial communication.
 #define NODE 3

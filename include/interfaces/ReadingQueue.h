@@ -38,7 +38,7 @@ public:
      * The mailbox can hold up to 4 messages by default. It uses the `mail_t` structure
      * to store data passed between threads.
      */
-    Mail<mail_t, 4> mail_box;  ///< Queue for inter-thread communication (size 4).
+    Mail<mail_t, 204> mail_box;  ///< Queue for inter-thread communication (size 4).
 
 private:
     /**

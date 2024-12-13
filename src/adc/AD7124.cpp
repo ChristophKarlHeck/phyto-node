@@ -223,8 +223,8 @@ void AD7124::send_data_to_main_thread(
 
     while (!reading_queue.mail_box.empty()) {
         // Wait until mail box is empty
-        thread_sleep_for(1);
-        INFO("Wait for the reading queue to become empty.\n");
+        //thread_sleep_for(1);
+        //INFO("Wait for the reading queue to become empty.\n");
     }
 
     // Now that we have data in the channels, let's handle mailing
@@ -295,9 +295,9 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
                     byte_inputs_channel_1.push_back(new_bytes);
                 }
             }
-            thread_sleep_for(1); // ms
+            
         }
-
+        thread_sleep_for(585); // ms
         send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1);
     }
 }

@@ -18,7 +18,7 @@
  * - RX -> GPIO 14 (TX)
  * - GND -> GND
  */
-BufferedSerial SerialMailSender::m_serial_port(/*PC_1*/USBTX,/*PC_0*/USBRX, BAUDRATE);
+BufferedSerial SerialMailSender::m_serial_port(PC_1/*USBTX*/,PC_0/*USBRX*/, BAUDRATE);
 
 /**
  * @brief Access the singleton instance of SerialMailSender.
@@ -98,9 +98,9 @@ void SerialMailSender::sendMail(
     m_serial_port.write(reinterpret_cast<const char*>(buf), size);
 
     // Log message details
-    // auto now = Kernel::Clock::now().time_since_epoch();
-    // auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now).count();
-    // auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now).count() % 1000;
+    auto now = Kernel::Clock::now().time_since_epoch();
+    auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now).count();
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now).count() % 1000;
 
-    //printf("Serial Mail(size:%lu) sent at: %lld seconds and %lld milliseconds\n", size, seconds, milliseconds);
+    printf("Serial Mail(size:%lu) sent at: %lld seconds and %lld milliseconds\n", size, seconds, milliseconds);
 }
