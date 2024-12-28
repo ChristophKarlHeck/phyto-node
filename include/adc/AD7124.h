@@ -105,4 +105,4 @@ class AD7124: private mbed::NonCopyable<AD7124>{
             std::vector<std::array<uint8_t, 3>> byte_inputs_channel_1
         );
 };
-#endif /* GATT_SERVER_EXAMPLE_BLE_PROCESS_H_ */
+#endif
