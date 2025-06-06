@@ -18,7 +18,7 @@
  * - RX -> GPIO 14 (TX)
  * - GND -> GND
  */
-BufferedSerial SerialMailSender::m_serial_port(/*PC_1*/USBTX,/*PC_0*/USBRX, BAUDRATE);
+BufferedSerial SerialMailSender::m_serial_port(PC_1/*USBTX*/,PC_0/*USBRX*/, BAUDRATE);
 
 /**
  * @brief Access the singleton instance of SerialMailSender.
@@ -97,6 +97,8 @@ void SerialMailSender::sendMail(
 
     // Send the FlatBuffers buffer
     m_serial_port.write(reinterpret_cast<const char*>(buf), size);
+
+    printf("send\n");
 
     // Log message details
     // auto now = Kernel::Clock::now().time_since_epoch();

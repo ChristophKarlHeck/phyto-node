@@ -31,13 +31,13 @@
 #define GAIN 4.0
 
 /// SPI frequency for ADC communication in Hz.
-#define SPI_FREQUENCY 10000000 // 10 MHz
+#define SPI_FREQUENCY 10000000 // 10 MHz max 64 MhZ
 
 /// Number of values to collect in each channel vector before sending mail.
-#define VECTOR_SIZE 100
+#define VECTOR_SIZE 10
 
 /// Node identifier for serial communication.
-#define NODE 3
+#define NODE 5
 
 /// Thread for reading data from ADC.
 Thread reading_data_thread;
@@ -66,7 +66,6 @@ void get_input_model_values_from_adc(void) {
 int main() {	
     // Start reading data from ADC thread
     reading_data_thread.start(callback(get_input_model_values_from_adc));
-
 
     while (true) {
         // Access the shared ReadingQueue instance

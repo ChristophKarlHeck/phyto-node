@@ -90,7 +90,7 @@ void AD7124::filter_reg(uint8_t filt, char RW){
         m_spi.write(filt);
         //char contr_reg_set[]={0x00,0x08};
         //char filter_reg_set[]={AD7124_FILT_REG_FILTER(4)>>16,0x00,0x40};
-        char filter_reg_set[]={0x00, 0x00, 0x00}; //0x00,0x12,0xC0 for testing
+        char filter_reg_set[]={0x00, 0x00, 0x32}; //0x00,0x12,0xC0 for testing
         for (int i = 0; i<=2; i++){
             m_spi.write(filter_reg_set[i]);
         }
@@ -245,9 +245,13 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
     while (true){
         std::vector<std::array<uint8_t,3>> byte_inputs_channel_0;
         std::vector<std::array<uint8_t,3>> byte_inputs_channel_1;
+
+        Timer  t;
+        t.start();
         
         // While the vector's size is less than 4, append 3-byte arrays
         while ((byte_inputs_channel_0.size() < vector_size) || (byte_inputs_channel_1.size() < vector_size)){
+            printf("new value\n");
             
             while(m_drdy == 0){
                 wait_us(1);
@@ -291,7 +295,11 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
             }
             
         }
-        thread_sleep_for(585); // ms
+        //thread_sleep_for(585); // ms
+        uint32_t elapsed_ms = t.elapsed_time().count() / 1000;
+        uint32_t elapsed_s  = elapsed_ms / 1000;
+        printf("Elapsed: %lu s\r\n", elapsed_s);
+
         send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1);
     }
 }
