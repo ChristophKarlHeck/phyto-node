@@ -37,7 +37,7 @@
 #define VECTOR_SIZE 10
 
 /// Node identifier for serial communication.
-#define NODE 5
+#define NODE 3
 
 /// Thread for reading data from ADC.
 Thread reading_data_thread;
