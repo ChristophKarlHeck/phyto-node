@@ -1,7 +1,11 @@
 <map id="include/utils/logger.h" name="include/utils/logger.h">
-<area shape="rect" id="node1" title="Logging utility for debugging and runtime information output." alt="" coords="370,5,527,32"/>
-<area shape="rect" id="node2" href="$ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="5,87,241,114"/>
-<area shape="rect" id="node3" href="$SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="266,80,434,121"/>
-<area shape="rect" id="node4" href="$Conversion_8cpp.html" title="Provides utility functions for data conversion in the PhytoNode project." alt="" coords="459,87,636,114"/>
-<area shape="rect" id="node5" href="$MbedStatsWrapper_8cpp.html" title="Utility functions to display memory and CPU statistics in Mbed OS." alt="" coords="661,87,887,114"/>
+<area shape="rect" id="Node000001" title="Logging utility for debugging and runtime information output." alt="" coords="370,5,527,31"/>
+<area shape="rect" id="Node000002" href="$ReadingQueue_8cpp.html" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="5,86,241,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,36,171,89,170,83,387,31"/>
+<area shape="rect" id="Node000003" href="$SerialMailSender_8cpp.html" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="266,79,434,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="425,41,375,81,372,76,422,37"/>
+<area shape="rect" id="Node000004" href="$Conversion_8cpp.html" title="Provides utility functions for data conversion in the PhytoNode project." alt="" coords="459,86,636,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="476,37,534,84,531,88,472,41"/>
+<area shape="rect" id="Node000005" href="$MbedStatsWrapper_8cpp.html" title="Utility functions to display memory and CPU statistics in Mbed OS." alt="" coords="661,86,887,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="510,31,727,83,726,89,509,36"/>
 </map>

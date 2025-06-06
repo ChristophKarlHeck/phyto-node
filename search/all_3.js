@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['databits_6',['DATABITS',['../main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a',1,'main.cpp']]],
-  ['downsampling_5frate_7',['DOWNSAMPLING_RATE',['../main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30',1,'main.cpp']]]
+  ['4_20real_20time_20operation_0',['4. Real-Time Operation',['../md_README.html#autotoc_md10',1,'']]],
+  ['4_20run_20the_20system_1',['4. Run the System',['../md_README.html#autotoc_md16',1,'']]],
+  ['4_20utils_2',['4 utils',['../md_include_2README.html#autotoc_md26',1,'4. utils'],['../md_src_2README.html#autotoc_md36',1,'4. utils']]]
 ];

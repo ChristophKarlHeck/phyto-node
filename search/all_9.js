@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_23',['NODE',['../main_8cpp.html#a9a2bbc66102de668efe5e9c7feb23eaa',1,'main.cpp']]]
+  ['enable_20logging_0',['Enable Logging',['../md_README.html#autotoc_md18',1,'']]]
 ];

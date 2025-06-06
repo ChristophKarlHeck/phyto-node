@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_59',['operator=',['../classAD7124.html#ac94edbc384ec1e235362da7587e67693',1,'AD7124::operator=()'],['../classSerialMailSender.html#afb0a7606638910afa31fdbc3ed255abe',1,'SerialMailSender::operator=()']]]
+  ['operator_3d_0',['operator=',['../classAD7124.html#adcbec0d07d19a5a49f03918ea1c41090',1,'AD7124::operator=()'],['../classSerialMailSender.html#a1cf651e99157adb53615b871417996e0',1,'SerialMailSender::operator=()']]]
 ];

@@ -1,9 +1,18 @@
 <map id="src/main.cpp" name="src/main.cpp">
-<area shape="rect" id="node1" title="Entry point for the PhytoNode application." alt="" coords="118,5,223,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="135,177,206,203"/>
-<area shape="rect" id="node3" href="$AD7124_8h_source.html" title=" " alt="" coords="25,87,137,114"/>
-<area shape="rect" id="node4" href="$ReadingQueue_8h_source.html" title=" " alt="" coords="160,87,359,114"/>
-<area shape="rect" id="node5" href="$SerialMailSender_8h_source.html" title=" " alt="" coords="384,80,530,121"/>
-<area shape="rect" id="node6" href="$SerialMailGenerated_8h_source.html" title=" " alt="" coords="372,169,542,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="372,259,542,285"/>
+<area shape="rect" id="Node000001" title="Entry point for the PhytoNode application." alt="" coords="118,5,223,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="135,174,206,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,27,90,33,62,43,36,59,15,80,9,96,11,110,20,123,35,136,77,156,122,171,121,176,75,161,32,140,16,127,6,112,3,95,11,77,33,55,59,39,89,28,117,21"/>
+<area shape="rect" id="Node000003" href="$AD7124_8h_source.html" title=" " alt="" coords="25,86,137,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,33,106,79,103,75,155,29"/>
+<area shape="rect" id="Node000004" href="$ReadingQueue_8h_source.html" title=" " alt="" coords="160,86,359,111"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="185,29,238,75,235,79,182,33"/>
+<area shape="rect" id="Node000005" href="$SerialMailSender_8h_source.html" title=" " alt="" coords="384,79,530,119"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="213,28,376,73,375,78,211,33"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="95,110,150,162,146,166,91,113"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="250,113,195,166,191,162,246,110"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="395,121,220,173,218,168,393,116"/>
+<area shape="rect" id="Node000006" href="$SerialMailGenerated_8h_source.html" title=" " alt="" coords="372,167,542,207"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="460,119,460,153,454,153,454,119"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="372,255,542,280"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="460,207,460,241,454,241,454,207"/>
 </map>

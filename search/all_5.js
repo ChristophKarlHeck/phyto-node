@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['get_5fanalog_5finputs_9',['get_analog_inputs',['../Conversion_8cpp.html#a5f74d7e73a494e1ab2540f4b6ca0f1e9',1,'Conversion.cpp']]],
-  ['get_5finput_5fmodel_5fvalues_5ffrom_5fadc_10',['get_input_model_values_from_adc',['../main_8cpp.html#a1fdec6782dc49c41f278f43cc64787b2',1,'main.cpp']]],
-  ['getinstance_11',['getInstance',['../classAD7124.html#a02acf146ca56efdee458971bf56c9ff3',1,'AD7124::getInstance()'],['../classReadingQueue.html#af0cc99c28c70cae8aef2cd3dfb8dd052',1,'ReadingQueue::getInstance()'],['../classSerialMailSender.html#a06b40a2ebd55157a561d9823bad1a5d0',1,'SerialMailSender::getInstance()']]]
+  ['acknowledgments_0',['Acknowledgments',['../md_README.html#autotoc_md19',1,'']]],
+  ['ad7124_1',['AD7124',['../classAD7124.html',1,'']]],
+  ['ad7124_2ddefs_2eh_2',['AD7124-defs.h',['../AD7124-defs_8h.html',1,'']]],
+  ['adc_3',['adc',['../md_include_2README.html#autotoc_md23',1,'1. adc'],['../md_src_2README.html#autotoc_md33',1,'1. adc']]],
+  ['additional_20information_4',['additional information',['../md_include_2README.html#autotoc_md29',1,'Additional Information'],['../md_src_2README.html#autotoc_md41',1,'Additional Information']]],
+  ['and_20debugging_5',['3. Logging and Debugging',['../md_README.html#autotoc_md9',1,'']]]
 ];

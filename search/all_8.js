@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['mail_5fbox_15',['mail_box',['../classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f',1,'ReadingQueue']]],
-  ['mail_5ft_16',['mail_t',['../structReadingQueue_1_1mail__t.html',1,'ReadingQueue']]],
-  ['main_17',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_18',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['max_5fthread_5finfo_19',['MAX_THREAD_INFO',['../MbedStatsWrapper_8cpp.html#a9029aa62752d55d5114bdfd4313686a8',1,'MbedStatsWrapper.cpp']]],
-  ['max_5fthread_5fstack_20',['MAX_THREAD_STACK',['../MbedStatsWrapper_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e',1,'MbedStatsWrapper.cpp']]],
-  ['mbedstatswrapper_2ecpp_21',['MbedStatsWrapper.cpp',['../MbedStatsWrapper_8cpp.html',1,'']]],
-  ['mbedstatswrapper_2eh_22',['MbedStatsWrapper.h',['../MbedStatsWrapper_8h.html',1,'']]]
+  ['databits_0',['DATABITS',['../main_8cpp.html#a155a9a6160c909e29d95e7c75b79612a',1,'main.cpp']]],
+  ['debugging_1',['3. Logging and Debugging',['../md_README.html#autotoc_md9',1,'']]],
+  ['design_2',['1. Modular Design',['../md_README.html#autotoc_md7',1,'']]],
+  ['directory_3',['directory',['../md_include_2README.html',1,'Include Directory'],['../md_src_2README.html',1,'Source Directory']]],
+  ['directory_20structure_4',['directory structure',['../md_README.html#autotoc_md4',1,'Directory Structure'],['../md_include_2README.html#autotoc_md21',1,'Directory Structure'],['../md_src_2README.html#autotoc_md31',1,'Directory Structure']]],
+  ['documentation_5',['Documentation',['../md_README.html#autotoc_md17',1,'']]],
+  ['downsampling_5frate_6',['DOWNSAMPLING_RATE',['../main_8cpp.html#a96c54f63b91aaaff7db5229da2028a30',1,'main.cpp']]]
 ];

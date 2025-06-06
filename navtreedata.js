@@ -44,31 +44,31 @@ var NAVTREE =
       [ "Enable Logging", "md_README.html#autotoc_md18", null ],
       [ "Acknowledgments", "md_README.html#autotoc_md19", null ]
     ] ],
-    [ "Include Directory", "md_include_README.html", [
-      [ "Directory Structure", "md_include_README.html#autotoc_md21", null ],
-      [ "Modules Overview", "md_include_README.html#autotoc_md22", [
-        [ "1. adc", "md_include_README.html#autotoc_md23", null ],
-        [ "2. interfaces", "md_include_README.html#autotoc_md24", null ],
-        [ "3. serial_mail_sender", "md_include_README.html#autotoc_md25", null ],
-        [ "4. utils", "md_include_README.html#autotoc_md26", null ]
+    [ "Include Directory", "md_include_2README.html", [
+      [ "Directory Structure", "md_include_2README.html#autotoc_md21", null ],
+      [ "Modules Overview", "md_include_2README.html#autotoc_md22", [
+        [ "1. adc", "md_include_2README.html#autotoc_md23", null ],
+        [ "2. interfaces", "md_include_2README.html#autotoc_md24", null ],
+        [ "3. serial_mail_sender", "md_include_2README.html#autotoc_md25", null ],
+        [ "4. utils", "md_include_2README.html#autotoc_md26", null ]
       ] ],
-      [ "How to Use", "md_include_README.html#autotoc_md27", null ],
-      [ "Contribution Guidelines", "md_include_README.html#autotoc_md28", null ],
-      [ "Additional Information", "md_include_README.html#autotoc_md29", null ]
+      [ "How to Use", "md_include_2README.html#autotoc_md27", null ],
+      [ "Contribution Guidelines", "md_include_2README.html#autotoc_md28", null ],
+      [ "Additional Information", "md_include_2README.html#autotoc_md29", null ]
     ] ],
-    [ "Source Directory", "md_src_README.html", [
-      [ "Directory Structure", "md_src_README.html#autotoc_md31", null ],
-      [ "Modules Overview", "md_src_README.html#autotoc_md32", [
-        [ "1. adc", "md_src_README.html#autotoc_md33", null ],
-        [ "2. interfaces", "md_src_README.html#autotoc_md34", null ],
-        [ "3. serial_mail_sender", "md_src_README.html#autotoc_md35", null ],
-        [ "4. utils", "md_src_README.html#autotoc_md36", null ],
-        [ "5. main.cpp", "md_src_README.html#autotoc_md37", null ]
+    [ "Source Directory", "md_src_2README.html", [
+      [ "Directory Structure", "md_src_2README.html#autotoc_md31", null ],
+      [ "Modules Overview", "md_src_2README.html#autotoc_md32", [
+        [ "1. adc", "md_src_2README.html#autotoc_md33", null ],
+        [ "2. interfaces", "md_src_2README.html#autotoc_md34", null ],
+        [ "3. serial_mail_sender", "md_src_2README.html#autotoc_md35", null ],
+        [ "4. utils", "md_src_2README.html#autotoc_md36", null ],
+        [ "5. main.cpp", "md_src_2README.html#autotoc_md37", null ]
       ] ],
-      [ "Key Features", "md_src_README.html#autotoc_md38", null ],
-      [ "How to Use", "md_src_README.html#autotoc_md39", null ],
-      [ "Contribution Guidelines", "md_src_README.html#autotoc_md40", null ],
-      [ "Additional Information", "md_src_README.html#autotoc_md41", null ]
+      [ "Key Features", "md_src_2README.html#autotoc_md38", null ],
+      [ "How to Use", "md_src_2README.html#autotoc_md39", null ],
+      [ "Contribution Guidelines", "md_src_2README.html#autotoc_md40", null ],
+      [ "Additional Information", "md_src_2README.html#autotoc_md41", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -94,8 +94,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AD7124-defs_8h.html",
-"MbedStatsWrapper_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13"
+"AD7124-defs_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

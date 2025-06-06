@@ -1,6 +1,9 @@
 <map id="src/interfaces/ReadingQueue.cpp" name="src/interfaces/ReadingQueue.cpp">
-<area shape="rect" id="node1" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="75,5,311,32"/>
-<area shape="rect" id="node2" href="$ReadingQueue_8h_source.html" title=" " alt="" coords="5,80,204,107"/>
-<area shape="rect" id="node4" href="$logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="229,80,335,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="69,155,140,181"/>
+<area shape="rect" id="Node000001" title="Implementation of the ReadingQueue class for inter&#45;thread communication." alt="" coords="75,5,311,31"/>
+<area shape="rect" id="Node000002" href="$ReadingQueue_8h_source.html" title=" " alt="" coords="5,79,204,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,33,131,72,128,68,177,29"/>
+<area shape="rect" id="Node000004" href="$logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="229,79,335,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,29,258,68,255,72,205,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="69,152,140,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,104,107,138,102,138,102,104"/>
 </map>

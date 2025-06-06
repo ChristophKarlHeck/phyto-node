@@ -1,8 +1,14 @@
 <map id="src/serial_mail_sender/SerialMailSender.cpp" name="src/serial_mail_sender/SerialMailSender.cpp">
-<area shape="rect" id="node1" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="225,5,393,47"/>
-<area shape="rect" id="node2" href="$SerialMailSender_8h_source.html" title=" " alt="" coords="113,95,259,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="162,273,333,300"/>
-<area shape="rect" id="node6" href="$logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="346,102,453,129"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,191,76,218"/>
-<area shape="rect" id="node4" href="$SerialMailGenerated_8h_source.html" title=" " alt="" coords="101,184,271,225"/>
+<area shape="rect" id="Node000001" title="Implementation of the SerialMailSender class for serial communication using FlatBuffers." alt="" coords="225,5,393,45"/>
+<area shape="rect" id="Node000002" href="$SerialMailSender_8h_source.html" title=" " alt="" coords="113,93,259,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,48,226,88,223,83,280,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="162,269,333,295"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="311,46,307,124,299,173,286,222,267,259,262,257,281,220,294,172,301,123,306,45"/>
+<area shape="rect" id="Node000006" href="$logger_8h.html" title="Logging utility for debugging and runtime information output." alt="" coords="346,101,453,126"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="331,44,379,89,375,93,327,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,189,76,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="155,136,73,184,70,179,153,131"/>
+<area shape="rect" id="Node000004" href="$SerialMailGenerated_8h_source.html" title=" " alt="" coords="101,181,271,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="189,134,189,167,183,167,183,134"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="203,220,232,257,228,260,199,223"/>
 </map>

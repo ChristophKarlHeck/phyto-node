@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mail_5fbox_67',['mail_box',['../classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f',1,'ReadingQueue']]]
+  ['mail_5fbox_0',['mail_box',['../classReadingQueue.html#adbb0464d671d96ba50a57a9a32f5970f',1,'ReadingQueue']]]
 ];
