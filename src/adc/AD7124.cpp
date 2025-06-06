@@ -295,10 +295,10 @@ void AD7124::read_voltage_from_both_channels(unsigned int downsampling_rate, uns
             }
             
         }
-        //thread_sleep_for(585); // ms
+        // Check for correct smapling frequency
         uint32_t elapsed_ms = t.elapsed_time().count() / 1000;
         uint32_t elapsed_s  = elapsed_ms / 1000;
-        printf("Elapsed: %lu s\r\n", elapsed_s);
+        //printf("Elapsed: %lu s\r\n", elapsed_s);
 
         send_data_to_main_thread(byte_inputs_channel_0, byte_inputs_channel_1);
     }
